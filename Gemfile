@@ -21,7 +21,23 @@ group :assets do
 end
 
 group :test do
-  gem 'rspec-rails'
+  # Shoulda matchers for simplifying the writing of tests
+  gem 'shoulda-matchers', '>= 1.4.2'
+  # Factory Girl for initializing test objects
+  gem 'factory_girl_rails', '>= 1.4.0'
+  # Randexp provides way to output random strings / expressions in tests
+  gem 'randexp'
+  # Temping gem allows creating fake tables to test relations like on concerns
+  gem 'temping'
+
+  gem 'database_cleaner', '>= 0.7.0'
+
+  # Resque_spec for testing resque jobs
+  gem 'resque_spec'
+
+  gem 'spork'
+
+  gem 'rr', require: false
 end
 
 gem 'jquery-rails'
