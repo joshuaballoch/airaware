@@ -7,6 +7,8 @@ gem 'rails', '3.2.17'
 
 gem 'sqlite3'
 
+# Slim for slim-lang, a templating language that similar to erb.
+gem 'slim'
 
 # Gems used only for assets and not required
 # in production environments by default.
