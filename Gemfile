@@ -5,7 +5,7 @@ gem 'rails', '3.2.17'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
 
 # Slim for slim-lang, a templating language that similar to erb.
 gem 'slim'
@@ -26,6 +26,10 @@ end
 
 group :development do
   gem 'rspec-rails'
+
+  # Byebug for debugging
+  gem 'byebug'
+
 end
 
 group :test do
