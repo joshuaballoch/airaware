@@ -74,6 +74,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -120,6 +121,7 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
+    ref (1.0.5)
     resque (1.25.1)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -172,6 +174,9 @@ GEM
       activesupport (>= 3.1)
       sqlite3 (~> 1.3.7)
     temple (0.6.7)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -208,4 +213,5 @@ DEPENDENCIES
   slim
   spork
   temping
+  therubyracer
   uglifier (>= 1.0.3)
