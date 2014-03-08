@@ -29,4 +29,9 @@ describe Reading do
     it { should validate_presence_of :reading_time }
   end
 
+  describe "associations" do
+    it { should belong_to :reporting_device }
+    it { should have_one(:location).through(:reporting_device) }
+  end
+
 end

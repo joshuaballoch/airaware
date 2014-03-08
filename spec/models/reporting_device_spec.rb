@@ -16,4 +16,9 @@ describe ReportingDevice do
     it { should validate_presence_of :identifier }
   end
 
+  describe "associations" do
+    it { should have_many :readings }
+    it { should belong_to :location }
+  end
+
 end
