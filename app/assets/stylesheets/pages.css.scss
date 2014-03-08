@@ -1,3 +1,21 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header.navbar {
+  .navbar-toggle {
+    .icon-bar {
+      background: #2899cd;
+    }
+  }
+}
+
+body {
+  .aa-page-header {
+    background: #2899cd;
+    color:#fff;
+    margin-top:-20px;
+  }
+  .aa-page-container {
+
+  }
+}
