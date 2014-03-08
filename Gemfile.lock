@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rdd-giga/capistrano-unicorn.git
+  revision: 5aad60f1b1524bf4a60dd2496565558d422eb76d
+  specs:
+    capistrano-unicorn (0.1.6)
+      capistrano
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +40,12 @@ GEM
     byebug (2.6.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -51,6 +64,7 @@ GEM
     factory_girl_rails (4.4.0)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -65,6 +79,13 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.8.4)
     mysql2 (0.3.15)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.8.0)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     polyglot (0.3.4)
     rack (1.4.5)
     rack-cache (1.2)
@@ -124,6 +145,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -167,6 +190,8 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  capistrano (~> 2.15.0)
+  capistrano-unicorn!
   coffee-rails (~> 3.2.1)
   database_cleaner (>= 0.7.0)
   factory_girl_rails (>= 1.4.0)
@@ -178,6 +203,7 @@ DEPENDENCIES
   resque_spec
   rr
   rspec-rails
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   shoulda-matchers (>= 1.4.2)
   slim

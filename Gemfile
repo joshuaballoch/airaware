@@ -30,6 +30,12 @@ group :development do
   # Byebug for debugging
   gem 'byebug'
 
+  gem 'capistrano', '~> 2.15.0'
+  gem 'rvm-capistrano'
+  # Do not use new capistrano-unicorn until unicorn gem updates..
+  # https://github.com/defunkt/unicorn/pull/7
+  gem 'capistrano-unicorn', github: 'rdd-giga/capistrano-unicorn'
+
 end
 
 group :test do
