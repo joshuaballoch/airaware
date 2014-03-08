@@ -12,7 +12,8 @@ module Api
         #   for now, just create the reporting device.
         unless @reporting_device
           location = Location.first
-          @reporting_device = ReportingDevice.new :identifier => params[:device_identifier], :location_id => location.id
+          @reporting_device = ReportingDevice.new :location_id => location.id
+          @reporting_device.identifier = params[:device_identifier]
           @reporting_device.save!
         end
 
