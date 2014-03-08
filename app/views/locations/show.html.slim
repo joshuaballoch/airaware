@@ -9,4 +9,50 @@
   .row
     .col-md-12
       h3.page-header
-        = "blahblahblah"
+        = "sample reading data"
+
+      table
+        thead
+          th
+            = "id"
+          th
+            = "Reporting Device"
+          th
+            = "Temperature"
+          th
+            = "Humidity"
+          th
+            = "hcho"
+          th
+            = "C02"
+          th
+            = "TVOC"
+          th
+            = "PM 2.5"
+          th
+            = "Reading Time"
+
+        tbody
+          - @location.readings.each do |reading|
+           tr
+              td
+                = reading.id
+              td
+                = reading.reporting_device.identifier
+              td
+                = reading.temperature
+              td
+                = reading.humidity
+              td
+                = reading.hcho
+              td
+                = reading.co2
+              td
+                = reading.tvoc
+              td
+                = reading.pm2p5
+              td
+                = reading.reading_time
+
+
+
