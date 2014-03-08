@@ -27,6 +27,7 @@ describe Reading do
   describe "validations" do
     it { should validate_presence_of :reporting_device_id }
     it { should validate_presence_of :reading_time }
+    it { should validate_uniqueness_of(:reading_time) }
   end
 
   describe "associations" do
