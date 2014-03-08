@@ -26,6 +26,10 @@ group :assets do
   gem 'bootstrap-sass', '>= 3.0'
 
   gem 'uglifier', '>= 1.0.3'
+
+  # Use Turbosprockets to speed up assets precompile by only compiling those that change.
+  gem 'turbo-sprockets-rails3'
+
 end
 
 group :development do
