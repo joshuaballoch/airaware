@@ -8,12 +8,14 @@ describe ReportingDevice do
 
   describe "attr accessible" do
     it { should allow_mass_assignment_of     :location_id }
+    it { should allow_mass_assignment_of     :location }
     it { should_not allow_mass_assignment_of :identifier }
   end
 
   describe "validations" do
     it { should validate_presence_of :location_id }
     it { should validate_presence_of :identifier }
+    it { should validate_uniqueness_of :identifier }
   end
 
   describe "associations" do
