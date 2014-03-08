@@ -21,7 +21,7 @@ module Api
           # @user = create(:user)
           # @user.ensure_authentication_token!
 
-          request.env['HTTP_HOST'] = 'airaware-api.gigabase.org'
+          request.env['HTTP_HOST'] = 'airaware.gigabase.org'
         end
 
         context "request format" do
@@ -39,7 +39,7 @@ module Api
 
       context "rescue handlers" do
         before :each do
-          request.env['HTTP_HOST'] = 'airaware-api.gigabase.org'
+          request.env['HTTP_HOST'] = 'airaware.gigabase.org'
           request.env['CONTENT_TYPE'] = 'application/json'
           request.env['HTTP_ACCEPT'] = 'application/json'
           # request.env['Authorization'] = "GIGA token='#{@user.authentication_token}'"
