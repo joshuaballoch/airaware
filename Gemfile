@@ -11,6 +11,9 @@ gem 'mysql2'
 # Slim for slim-lang, a templating language that similar to erb.
 gem 'slim'
 
+# Use unicorn as the app server
+gem 'unicorn'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
