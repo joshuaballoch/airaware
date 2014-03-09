@@ -1,7 +1,7 @@
 set :user,      "deploy"
 set :deploy_to, "/var/www/airaware"
 
-set :branch, "demo"
+set :branch, "master"
 set :rails_env, "staging"
 set :app_env, "staging"
 set :unicorn_env, "staging"
