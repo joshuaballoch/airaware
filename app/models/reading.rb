@@ -8,4 +8,6 @@ class Reading < ActiveRecord::Base
   belongs_to :reporting_device
   has_one :location, :through => :reporting_device
 
+  scope :ordered, order('updated_at DESC')
+
 end

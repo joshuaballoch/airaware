@@ -7,52 +7,46 @@
 
 .container.aa-page-container
   .row
-    .col-md-12
+    .col-sm-12
       h3.page-header
-        = "sample reading data"
+        = "Gymnasium Air Quality Monitor"
 
-      table
-        thead
-          th
-            = "id"
-          th
-            = "Reporting Device"
-          th
-            = "Temperature"
-          th
-            = "Humidity"
-          th
-            = "hcho"
-          th
-            = "C02"
-          th
-            = "TVOC"
-          th
-            = "PM 2.5"
-          th
-            = "Reading Time"
-
-        tbody
-          - @location.readings.each do |reading|
-           tr
-              td
-                = reading.id
-              td
-                = reading.reporting_device.identifier
-              td
-                = reading.temperature
-              td
-                = reading.humidity
-              td
-                = reading.hcho
-              td
-                = reading.co2
-              td
-                = reading.tvoc
-              td
-                = reading.pm2p5
-              td
-                = reading.reading_time
+  .row
+    .col-sm-5
+      = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading"
+    .col-sm-7
+      .row
+        .col-xs-6
+          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
+        .col-xs-6
+          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
+      br
+      .row
+        .col-xs-6
+          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
+        .col-xs-6
+          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
+  .row
+    .col-sm-12
+      .pull-right
+        = @last_reading.reading_time.strftime("Last reading at: %I:%M %p")
+  .row
+    .col-sm-12
+      .page-block
+        h2
+          = "Get AirAware"
+        p
+          = "AirAware will soon be launching at schools, offices, and homes around Shanghai."
+        p
+          = "Sign up and get monitoring your air quality."
+        p
+          form
+            .form-group
+              / label for="asdf"
+                = "Email:"
+              input.form-control id="asdf" placeholder="email or phone number"
+            button.btn.btn-success
+              = "Sign up"
 
 
 
