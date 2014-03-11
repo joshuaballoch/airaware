@@ -23,6 +23,9 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
 
+  # SKIM for Slim JST
+  gem 'skim'
+
   # Bootstrap-sass for putting Bootstrap into the application
   #gem 'bootstrap-sass'
   # Use github repo and 3 branch to use Bootstrap 3 (2.3.2 is on standard release gem)
