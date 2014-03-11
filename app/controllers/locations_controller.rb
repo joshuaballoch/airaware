@@ -1,8 +1,9 @@
 class LocationsController < ApplicationController
 
   def show
-    @location = Location.find_by_id(params[:id])
+    id = params[:id] || 1
+    @location = Location.find_by_id(id)
     @readings = @location.readings.ordered
-    @last_reading = @readings.first
+    @last_reading = @readings.last
   end
 end

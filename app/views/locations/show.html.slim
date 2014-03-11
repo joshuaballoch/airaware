@@ -11,25 +11,25 @@
       h3.page-header
         = "Gymnasium Air Quality Monitor"
 
-  .row
-    .col-sm-5
-      = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading"
-    .col-sm-7
-      .row
-        .col-xs-6
-          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
-        .col-xs-6
-          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
-      br
-      .row
-        .col-xs-6
-          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
-        .col-xs-6
-          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
-  .row
-    .col-sm-12
-      .pull-right
-        = @last_reading.reading_time.strftime("Last reading at: %I:%M %p")
+  #mainReading
+    .row
+      .col-sm-5
+        = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading"
+      .col-sm-7
+        .row
+          .col-xs-6
+            = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
+          .col-xs-6
+            = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
+        br
+        .row
+          .col-xs-6
+            = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
+          .col-xs-6
+            = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
+      .col-sm-12
+        .pull-right
+          = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
   .row
     .col-sm-12
       .page-block
@@ -50,3 +50,16 @@
 
 
 
+- content_for :bottom do
+  javascript:
+    var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
+    var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
+  coffee:
+    current_reading = r
+    setInterval () ->
+      readings.fetch().success () ->
+        if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
+          current_reading = readings.models[0]
+          view = new AirAware.Views.Readings.Block model: current_reading
+          $("#mainReading").html(view.render().el)
+    , 1000
