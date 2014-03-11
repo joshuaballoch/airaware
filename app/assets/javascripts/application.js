@@ -17,5 +17,5 @@
 //= require json2
 //= require bootstrap
 //= require backbone
-
+//= require respond
 //= require_tree .
