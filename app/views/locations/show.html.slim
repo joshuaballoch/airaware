@@ -32,6 +32,13 @@
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
   .row
     .col-sm-12
+      h3.page-header
+        = "Real Time Charts"
+      h4
+        = "Live PM 2.5 Readings"
+      #chartContainer
+  .row
+    .col-sm-12
       .page-block
         h2
           = "Get AirAware"
@@ -55,11 +62,74 @@
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
     var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
   coffee:
+    setChart = (readings) ->
+      width = $(".container > .row > .col-sm-12").width()
+      $("#chartContainer").html("""
+        <canvas id="myChart" width="#{width}" height="400"></canvas>
+      """)
+
+      #Get context with jQuery - using jQuery's .get() method.
+      ctx = $("#myChart").get(0).getContext("2d");
+
+      times = _.map readings.models, (item) ->
+        return item.get('reading_time');
+      pm2p5 = _.map readings.models, (item) ->
+        return item.get('pm2p5');
+
+      data = {
+        labels : times,
+        datasets : [
+          {
+            fillColor : "rgba(151,187,205,0.5)",
+            strokeColor : "rgba(220,220,220,1)",
+            pointColor : "rgba(220,220,220,1)",
+            pointStrokeColor : "#fff",
+            data : pm2p5
+          }
+        ]
+      }
+      if _.uniq(pm2p5).length < 2
+        val = _.uniq(pm2p5)
+        options = {
+          animation: false,
+          scaleOverride: true,
+          scaleSteps : 10,
+          #Number - The value jump in the hard coded scale
+          scaleStepWidth : val/10,
+          #Number - The scale starting value
+          scaleStartValue : 0.5*val,
+        }
+      else
+        options = {animation: false}
+      myChart = new Chart(ctx).Line(data, options);
+
+    ## END OF SET CHART
+
+    # Initialize chart
+    setChart(readings)
+    ## RESIZE AND RESTART CHART ON WINDOW RESIZE
+    throttled_set = _.throttle setChart, 500
+
+    $(window).on "resize", () ->
+      throttled_set(readings)
+
+    ## Set it to poll and update the data
     current_reading = r
+    chart_display_ids = _.map readings.models, (item) -> return item.id
     setInterval () ->
+
       readings.fetch().success () ->
+        ## Push the new data to the chart, if there is new
+        new_ids = _.map readings.models, (item) -> return item.id
+        if chart_display_ids != new_ids
+          throttled_set(readings)
+        ## Check to update the main readings data
         if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
           current_reading = readings.models[0]
           view = new AirAware.Views.Readings.Block model: current_reading
           $("#mainReading").html(view.render().el)
     , 1000
+
+
+
+

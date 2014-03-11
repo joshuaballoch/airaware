@@ -12,4 +12,6 @@ class Reading < ActiveRecord::Base
   # TO DO: ADD TEST FOR THIS
   scope :ordered, order('reading_time DESC')
 
+  scope :recent_only, where('reading_time > ?', DateTime.now - 0.25.hours)
+
 end

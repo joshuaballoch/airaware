@@ -18,4 +18,5 @@
 //= require bootstrap
 //= require backbone
 //= require respond
+//= require chart
 //= require_tree .
