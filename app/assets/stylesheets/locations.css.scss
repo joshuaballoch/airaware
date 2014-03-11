@@ -1,3 +1,27 @@
-// Place all the styles related to the Locations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.reading {
+  height: 100px;
+  width:100%;
+  //margin:20px;
+  border:1px solid #444;
+  background:#CFEDFD;
+  text-align:center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  &.big-reading {
+    height: 220px;
+    background:#9AE98B;
+    .reading-inner{
+      margin-top:70px;
+    }
+  }
+  .reading-inner {
+    .value {
+      font-size:50px;
+    }
+    .label {
+      font-size:15px;
+      color:black;
+    }
+  }
+}

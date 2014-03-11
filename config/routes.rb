@@ -1,7 +1,9 @@
 Airaware::Application.routes.draw do
   root :to => "pages#home"
-
-  resources :locations
+  get '/demo', to: "locations#show"
+  resources :locations do
+    resources :readings, :only => [:index]
+  end
 
   namespace :api do
     namespace :v0 do

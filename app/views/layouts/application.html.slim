@@ -5,7 +5,8 @@ head
   = stylesheet_link_tag "application", :media => "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
-
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+  meta http-equiv="X-UA-Compatible" content="IE=edge"
 body
   header.navbar.navbar-static-top id="top" role="banner"
     .container
@@ -22,10 +23,13 @@ body
       nav.navbar-collapse.collapse.aa-navbar-collapse role="navigation"
         ul.nav.navbar-nav
           li
-            = link_to "Demo", Location.first
-        ul.nav.navbar-nav.navbar-right
+            = link_to "Demo", "/demo"
+        /ul.nav.navbar-nav.navbar-right
           li
             a
               = "something"
   = yield
 
+
+  .bottom.hide
+    = yield :bottom

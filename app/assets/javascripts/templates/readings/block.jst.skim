@@ -1,0 +1,50 @@
+.col-sm-5
+  .reading.big-reading
+    .reading-inner
+      .value
+        = @model.get('pm2p5')
+      .label
+        = "PM 2.5"
+.col-sm-7
+  .row
+    .col-xs-6
+      .reading
+        .reading-inner
+          .value
+            = @model.get('temperature')
+          .label
+            = "Temperature"
+    .col-xs-6
+      .reading
+        .reading-inner
+          .value
+            = @model.get('humidity')
+          .label
+            = "Humidity"
+  br
+
+  .row
+    .col-xs-6
+      .reading
+        .reading-inner
+          .value
+            = @model.get('tvoc')
+          .label
+            = "TVOC"
+    .col-xs-6
+      .reading
+        .reading-inner
+          .value
+            = @model.get('co2')
+          .label
+            = "CO2"
+.col-sm-12
+  .pull-right
+    - date = new Date(@model.get('reading_time'))
+    - hours = date.getHours()-8
+    - minutes = date.getMinutes()
+    - seconds = date.getSeconds()
+    - hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
+    - minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
+    - seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"
+    = "Last reading at: #{hours}:#{minutes}:#{seconds}"
