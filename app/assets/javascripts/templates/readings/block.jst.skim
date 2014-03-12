@@ -1,43 +1,55 @@
-.col-sm-5
-  .reading.big-reading
-    .reading-inner
-      .value
-        = @model.get('pm2p5')
-      .label
-        = "PM 2.5"
-.col-sm-7
+.row
+  .cc-col.cc-col-6
+    .location-title
+      - if @model.get('usdata')
+        = "Outdoor Air"
+      - else
+        = "SCIS Indoor"
+  .cc-col.cc-col-6
+    .reading.big-reading
+      .reading-inner
+        .value
+          = @model.get('pm2p5')
+        .reading-label
+          = "PM 2.5"
+- if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
   .row
-    .col-xs-6
-      .reading
-        .reading-inner
-          .value
-            = @model.get('temperature')
-          .label
-            = "Temperature"
-    .col-xs-6
-      .reading
-        .reading-inner
-          .value
-            = @model.get('humidity')
-          .label
-            = "Humidity"
-  br
-
-  .row
-    .col-xs-6
-      .reading
-        .reading-inner
-          .value
-            = @model.get('tvoc')
-          .label
-            = "TVOC"
-    .col-xs-6
-      .reading
-        .reading-inner
-          .value
-            = @model.get('co2')
-          .label
-            = "CO2"
+    .readings-secondrow-container
+      .cc-col.cc-col-20p
+        .reading
+          .reading-inner
+            .value
+              = @model.get('temperature') || "N/A"
+            .reading-label
+              = "Temperature"
+      .cc-col.cc-col-20p
+        .reading
+          .reading-inner
+            .value
+              = @model.get('humidity') || "N/A"
+            .reading-label
+              = "Humidity"
+      .cc-col.cc-col-20p
+        .reading
+          .reading-inner
+            .value
+              = @model.get('tvoc') || "N/A"
+            .reading-label
+              = "TVOC"
+      .cc-col.cc-col-20p
+        .reading
+          .reading-inner
+            .value
+              = @model.get('hcho') || "N/A"
+            .reading-label
+              = "HCHO"
+      .cc-col.cc-col-20p
+        .reading
+          .reading-inner
+            .value
+              = @model.get('co2') || "N/A"
+            .reading-label
+              = "CO2"
 .col-sm-12
   .pull-right
     - date = new Date(@model.get('reading_time'))

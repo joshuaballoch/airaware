@@ -10,32 +10,31 @@
   .row
     .col-sm-12
       h3.page-header
-        = "SCIS Air Quality Monitor"
+        = "Indoor Air Monitoring for Schools"
 
-  #mainReading
+  #mainReading.location-container
     .row
-      .col-sm-5
+      .cc-col.cc-col-6
+        .location-title
+          = "SCIS Indoor"
+      .cc-col.cc-col-6
         = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading"
-      .col-sm-7
-        .row
-          .col-xs-6
-            = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
-          .col-xs-6
-            = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
-        br
-        .row
-          .col-xs-6
-            = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
-          .col-xs-6
-            = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
+    .row
+      .readings-secondrow-container
+        .cc-col.cc-col-20p
+          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
+        .cc-col.cc-col-20p
+          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
+        .cc-col.cc-col-20p
+          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
+        .cc-col.cc-col-20p
+          = render 'shared/reading_block', :value => @last_reading.hcho, :label => "HCHO"
+        .cc-col.cc-col-20p
+          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
       .col-sm-12
         .pull-right
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
-  .row
-    .col-sm-12
-      h3.page-header
-        = "US Embassy Shanghai"
-  #consulateReading
+  #consulateReading.location-container
     = "Loading.."
   .row
     .col-sm-12
@@ -150,7 +149,7 @@
         response = $.xml2json(data)
         air_data = response.channel.item
         last_reading = air_data[0]
-        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: last_reading.ReadingDateTime}
+        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: last_reading.ReadingDateTime, usdata: true}
         view = new AirAware.Views.Readings.Block model: model
         $("#consulateReading").html(view.render().el)
     setUSData()

@@ -4,18 +4,23 @@
 header.navbar {
   .navbar-toggle {
     .icon-bar {
-      background: #2899cd;
+      background: #3189D8;
     }
   }
 }
 
 body {
   .aa-page-header {
-    background: #2899cd;
+    background: #3189D8;
     color:#fff;
     margin-top:-20px;
   }
   .aa-page-container {
 
   }
+}
+.t-o {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
