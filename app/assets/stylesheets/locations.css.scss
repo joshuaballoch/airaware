@@ -5,7 +5,6 @@
   text-align:center;
   &.big-reading {
     height: 130px;
-    background:#9AE98B;
     .reading-inner{
       margin-top:29px;
       .value {
@@ -46,9 +45,12 @@
     font-weight: 200;
   }
   .row {
-    background:#306391;
+    background:#303030;//#306391;
     margin-left:0;
     margin-right:0;
+  }
+  .timestamp {
+    font-weight:100;
   }
 }
 .readings-secondrow-container {

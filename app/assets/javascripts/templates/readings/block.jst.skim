@@ -6,7 +6,7 @@
       - else
         = "SCIS Indoor"
   .cc-col.cc-col-6
-    .reading.big-reading
+    .reading.big-reading class="#{AirAware.assessAirClass(@model.get('pm2p5'))}"
       .reading-inner
         .value
           = @model.get('pm2p5')
@@ -27,7 +27,7 @@
             .reading-units
               = "(°C)"
       .cc-col.cc-col-20p
-        .reading
+        .reading class="#{AirAware.assessHumidityClass(@model.get('humidity'))}"
           .reading-inner
             .value
               = @model.get('humidity') || "N/A"
@@ -54,16 +54,16 @@
             .reading-units
               = "(μg/m³)"
       .cc-col.cc-col-20p
-        .reading
+        .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
           .reading-inner
             .value
               = @model.get('co2') || "N/A"
             .reading-label
               = "CO2"
             .reading-units
-              = "(μg/m³)"
+              = "(ppmv)"
 .col-sm-12
-  .pull-right
+  .pull-right.timestamp
     - date = new Date(@model.get('reading_time'))
     - hours = date.getHours()-8
     - if hours < 0 then hours = 24 + hours

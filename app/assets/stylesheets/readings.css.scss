@@ -1,3 +1,21 @@
 // Place all the styles related to the Readings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hazard {
+  background: #4f0006;
+}
+.very-unhealthy {
+  background: #770737;
+}
+.unhealthy {
+  background: #b90d01;
+}
+.sensitive {
+  background: #bca501;
+}
+.moderate {
+  background: #dbe22f;
+}
+.good {
+  background: #50cf50;
+}

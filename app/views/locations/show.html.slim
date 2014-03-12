@@ -30,7 +30,7 @@
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.hcho, :label => "HCHO", :units => "(μg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2", :units => "(μg/m³)"
+          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2", :units => "(ppmv)"
       .col-sm-12
         .pull-right
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
@@ -69,6 +69,10 @@
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
     var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
   coffee:
+    setIndoorReading = (current_reading)->
+      view = new AirAware.Views.Readings.Block model: current_reading
+      $("#mainReading").html(view.render().el)
+
     setChart = (readings) ->
       width = $(".container > .row > .col-sm-12").width()
       $("#chartContainer").html("""
@@ -123,9 +127,10 @@
 
     ## Set it to poll and update the data
     current_reading = r
+    setIndoorReading(current_reading)
     chart_display_ids = _.map readings.models, (item) -> return item.id
-    setInterval () ->
 
+    setInterval () ->
       readings.fetch().success () ->
         ## Push the new data to the chart, if there is new
         new_ids = _.map readings.models, (item) -> return item.id
@@ -134,8 +139,7 @@
         ## Check to update the main readings data
         if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
           current_reading = readings.models[0]
-          view = new AirAware.Views.Readings.Block model: current_reading
-          $("#mainReading").html(view.render().el)
+          setIndoorReading(current_reading)
     , 3000
 
     ## GET and SET U.S. Consulate Data
