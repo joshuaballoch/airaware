@@ -56,6 +56,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.3.6)
+    curb (0.8.5)
     database_cleaner (1.2.0)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
@@ -80,6 +81,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.2)
     mono_logger (1.1.0)
     multi_json (1.8.4)
     mysql2 (0.3.15)
@@ -90,6 +92,8 @@ GEM
     net-ssh (2.8.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
     polyglot (0.3.4)
     rack (1.4.5)
     rack-cache (1.2)
@@ -212,10 +216,12 @@ DEPENDENCIES
   capistrano (~> 2.15.0)
   capistrano-unicorn!
   coffee-rails (~> 3.2.1)
+  curb (~> 0.8.5)
   database_cleaner (>= 0.7.0)
   factory_girl_rails (>= 1.4.0)
   jquery-rails
   mysql2
+  nokogiri (~> 1.6.1)
   rails (= 3.2.17)
   randexp
   resque_spec

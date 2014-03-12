@@ -14,6 +14,11 @@ gem 'slim'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Nokigiri to run xml requests from other servers
+gem "nokogiri", "~> 1.6.1"
+
+gem "curb", "~> 0.8.5"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
