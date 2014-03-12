@@ -64,12 +64,4 @@
               = "(ppmv)"
 .col-sm-12
   .pull-right.timestamp
-    - date = new Date(@model.get('reading_time'))
-    - hours = date.getHours()-8
-    - if hours < 0 then hours = 24 + hours
-    - minutes = date.getMinutes()
-    - seconds = date.getSeconds()
-    - hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
-    - minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
-    - seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"
-    = "Last reading at: #{hours}:#{minutes}:#{seconds}"
+    = "Last reading at: #{AirAware.parseTime(@model.get('reading_time'))}"

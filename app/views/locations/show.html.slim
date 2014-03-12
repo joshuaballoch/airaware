@@ -68,6 +68,7 @@
   javascript:
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
     var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
+
   coffee:
     setIndoorReading = (current_reading)->
       view = new AirAware.Views.Readings.Block model: current_reading
@@ -84,6 +85,12 @@
 
       times = _.map readings.models, (item) ->
         return item.get('reading_time');
+      _.each times, (item, index) ->
+        if parseInt(index/5)*5 == index
+          time = AirAware.parseTime(item)
+          times[index] = time.substring(0,time.length-3)
+        else
+          times[index] = ""
       pm2p5 = _.map readings.models, (item) ->
         return item.get('pm2p5');
 
@@ -99,19 +106,17 @@
           }
         ]
       }
-      if _.uniq(pm2p5).length < 2
-        val = _.uniq(pm2p5)
-        options = {
-          animation: false,
-          scaleOverride: true,
-          scaleSteps : 10,
-          #Number - The value jump in the hard coded scale
-          scaleStepWidth : val/10,
-          #Number - The scale starting value
-          scaleStartValue : 0.5*val,
-        }
-      else
-        options = {animation: false}
+
+      options = {
+        animation: false,
+        scaleOverride: true,
+        scaleSteps : 10,
+        #Number - The value jump in the hard coded scale
+        scaleStepWidth : 10*parseInt(0.1*parseInt(_.max(pm2p5)/7.5)),
+        #Number - The scale starting value
+        scaleStartValue : 0,
+        pointDot: false,
+      }
       myChart = new Chart(ctx).Line(data, options);
 
     ## END OF SET CHART
@@ -140,7 +145,7 @@
         if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
           current_reading = readings.models[0]
           setIndoorReading(current_reading)
-    , 3000
+    , 30000
 
     ## GET and SET U.S. Consulate Data
     setUSData = () ->

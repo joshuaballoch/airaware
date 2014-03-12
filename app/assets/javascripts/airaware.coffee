@@ -48,3 +48,16 @@
     return "very-unhealthy"
   else
     return "hazardous"
+
+@AirAware.parseTime = (datetime, options) ->
+  defaults = {seconds: true, hours: true, minutes: true}
+  options = _.extend defaults, options
+  date = new Date(datetime)
+  hours = date.getHours()-8
+  if hours < 0 then hours = 24 + hours
+  minutes = date.getMinutes()
+  seconds = date.getSeconds()
+  hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
+  minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
+  seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"
+  return "#{hours if options.hours}#{':' if options.hours && (options.minutes || options.seconds)}#{minutes if options.minutes}#{':' if options.minutes && options.seconds}#{seconds if options.seconds}"
