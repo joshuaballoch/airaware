@@ -9,6 +9,7 @@ Airaware::Application.routes.draw do
       get :us_consulate
     end
   end
+  resources :sign_ups, :only => [:create]
 
 
   namespace :api do

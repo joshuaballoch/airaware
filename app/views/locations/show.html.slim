@@ -52,15 +52,12 @@
         p
           = "AirAware will soon be launching at schools, offices, and homes around Shanghai."
         p
-          = "Sign up and get monitoring your air quality."
+          = "Sign up to learn more."
         p
-          form
+          = form_for SignUp.new do |f|
             .form-group
-              / label for="asdf"
-                = "Email:"
-              input.form-control id="asdf" placeholder="email or phone number"
-            button.btn.btn-success
-              = "Sign up"
+              = f.text_field :email, :class => "form-control", :placeholder => "email, phone, or qq"
+            = f.submit "Sign up", :class => "btn btn-success"
 
 
 
