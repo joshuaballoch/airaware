@@ -18,19 +18,19 @@
         .location-title
           = "SCIS Indoor"
       .cc-col.cc-col-6
-        = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading"
+        = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
     .row
       .readings-secondrow-container
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature"
+          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature", :units => "(°C)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity"
+          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity", :units => "(%)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC"
+          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC", :units => "(μg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.hcho, :label => "HCHO"
+          = render 'shared/reading_block', :value => @last_reading.hcho, :label => "HCHO", :units => "(μg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2"
+          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2", :units => "(μg/m³)"
       .col-sm-12
         .pull-right
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")

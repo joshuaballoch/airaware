@@ -12,6 +12,8 @@
           = @model.get('pm2p5')
         .reading-label
           = "PM 2.5"
+        .reading-units
+          = "(μg/m³)"
 - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
   .row
     .readings-secondrow-container
@@ -22,6 +24,8 @@
               = @model.get('temperature') || "N/A"
             .reading-label
               = "Temperature"
+            .reading-units
+              = "(°C)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
@@ -29,6 +33,8 @@
               = @model.get('humidity') || "N/A"
             .reading-label
               = "Humidity"
+            .reading-units
+              = "(%)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
@@ -36,6 +42,8 @@
               = @model.get('tvoc') || "N/A"
             .reading-label
               = "TVOC"
+            .reading-units
+              = "(μg/m³)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
@@ -43,6 +51,8 @@
               = @model.get('hcho') || "N/A"
             .reading-label
               = "HCHO"
+            .reading-units
+              = "(μg/m³)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
@@ -50,6 +60,8 @@
               = @model.get('co2') || "N/A"
             .reading-label
               = "CO2"
+            .reading-units
+              = "(μg/m³)"
 .col-sm-12
   .pull-right
     - date = new Date(@model.get('reading_time'))
