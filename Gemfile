@@ -19,6 +19,8 @@ gem "nokogiri", "~> 1.6.1"
 
 gem "curb", "~> 0.8.5"
 
+gem 'h2ocube_rails_cache'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
