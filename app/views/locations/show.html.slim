@@ -6,10 +6,11 @@
       = @location.description
 
 .container.aa-page-container
+
   .row
     .col-sm-12
       h3.page-header
-        = "Gymnasium Air Quality Monitor"
+        = "SCIS Air Quality Monitor"
 
   #mainReading
     .row
@@ -33,10 +34,17 @@
   .row
     .col-sm-12
       h3.page-header
+        = "US Embassy Shanghai"
+  #consulateReading
+    = "Loading.."
+  .row
+    .col-sm-12
+      h3.page-header
         = "Real Time Charts"
       h4
         = "Live PM 2.5 Readings"
       #chartContainer
+
   .row
     .col-sm-12
       .page-block
@@ -107,6 +115,7 @@
 
     # Initialize chart
     setChart(readings)
+
     ## RESIZE AND RESTART CHART ON WINDOW RESIZE
     throttled_set = _.throttle setChart, 500
 
@@ -128,8 +137,23 @@
           current_reading = readings.models[0]
           view = new AirAware.Views.Readings.Block model: current_reading
           $("#mainReading").html(view.render().el)
-    , 1000
+    , 3000
 
-
-
-
+    ## GET and SET U.S. Consulate Data
+    setUSData = () ->
+      payload = {
+        url: "/readings/us_consulate.xml",
+        dataType: 'xml',
+        type: 'get',
+      };
+      $.ajax(payload).success (data) ->
+        response = $.xml2json(data)
+        air_data = response.channel.item
+        last_reading = air_data[0]
+        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: last_reading.ReadingDateTime}
+        view = new AirAware.Views.Readings.Block model: model
+        $("#consulateReading").html(view.render().el)
+    setUSData()
+    setInterval () ->
+      setUSData()
+    , 90000

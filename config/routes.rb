@@ -4,6 +4,12 @@ Airaware::Application.routes.draw do
   resources :locations do
     resources :readings, :only => [:index]
   end
+  resources :readings, :only => [] do
+    collection do
+      get :us_consulate
+    end
+  end
+
 
   namespace :api do
     namespace :v0 do
