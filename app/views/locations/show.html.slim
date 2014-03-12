@@ -59,6 +59,16 @@
               = f.text_field :email, :class => "form-control", :placeholder => "email, phone, or qq"
             = f.submit "Sign up", :class => "btn btn-success"
 
+  .row
+    .col-sm-12
+      .page-block
+        h2
+          = "Try AirAware on your phone"
+        p
+          = "Scan the QR code below, or visit "
+          = link_to 'airaware.gigabase.org/demo', '/demo'
+        .centered style="text-align:center;"
+          = image_tag '/qrcode.png'
 
 
 - content_for :bottom do
