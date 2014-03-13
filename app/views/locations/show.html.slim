@@ -89,6 +89,9 @@
       pm2p5 = _.map readings.models, (item) ->
         return item.get('pm2p5');
 
+      times.reverse()
+      pm2p5.reverse()
+
       data = {
         labels : times,
         datasets : [
