@@ -23,7 +23,7 @@ class ReadingsController < ApplicationController
   end
 
   def us_consulate
-    cache_key = ['us_consulate', 'v3', Time.now.strftime('%y %m %d %H')]
+    cache_key = ['us_consulate', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
 
     ce = Rails.cache.fetch cache_key do
       ace = Curl::Easy.new("http://airpi.gigabase.org/web/rss/1/4.xml")
