@@ -71,4 +71,8 @@
 $(document).ready () ->
   # Initialize Tooltips
   $(document).on 'mouseenter','[data-toggle="tooltip"], .enable-tooltip', () -> $(this).tooltip({ container: this, animation: false }).triggerHandler('mouseover')
-
+  # Hack to fix tooltips for mobile..
+  $(document).on 'click', (e) ->
+    $target = $(event.currentTarget)
+    unless $target.data('toggle') == "tooltip"
+      $('[data-toggle="tooltip"]').trigger('mouseout')
