@@ -54,7 +54,7 @@ Airaware::Application.configure do
   # }
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( html5shiv.js excanvas.js respond.js )
 
   # Adding Webfonts to the Asset Pipeline
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/

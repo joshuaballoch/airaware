@@ -17,7 +17,6 @@
 //= require json2
 //= require bootstrap
 //= require backbone
-//= require respond
 //= require chart
 //= require xml2json
 //= require_tree .

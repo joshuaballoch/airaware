@@ -158,6 +158,8 @@
       """)
 
       #Get context with jQuery - using jQuery's .get() method.
+      unless $("#myChart").get(0).getContext
+        G_vmlCanvasManager.initElement($("#myChart").get(0))
       ctx = $("#myChart").get(0).getContext("2d");
 
       times = _.map readings.models, (item) ->
