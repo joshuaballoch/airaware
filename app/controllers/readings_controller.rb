@@ -26,7 +26,7 @@ class ReadingsController < ApplicationController
     cache_key = ['us_consulate', 'v3', Time.now.strftime('%H')]
 
     ce = Rails.cache.fetch cache_key do
-      ace = Curl::Easy.new("http://www.stateair.net/web/rss/1/4.xml")
+      ace = Curl::Easy.new("http://airpi.gigabase.org/web/rss/1/4.xml")
       ace.perform
       ace.body_str
     end
