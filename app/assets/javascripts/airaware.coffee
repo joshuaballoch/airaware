@@ -76,3 +76,4 @@ $(document).ready () ->
     $target = $(event.currentTarget)
     unless $target.data('toggle') == "tooltip"
       $('[data-toggle="tooltip"]').trigger('mouseout')
+    return true
