@@ -156,7 +156,12 @@
         response = $.xml2json(data)
         air_data = response.channel.item
         last_reading = air_data[0]
-        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: last_reading.ReadingDateTime, usdata: true}
+        time_arr = last_reading.ReadingDateTime.match(/(\d{2})\/(\d{2})\/(\d{4}) (\d{1,2}):(\d{2}):(\d{2}) ([\D]{2})/)
+        hours = time_arr[4]
+        midi = time_arr[7]
+        hours = "#{parseInt(hours)+12}" if midi == "PM"
+        parsedTime = "#{time_arr[3]}-#{time_arr[1]}-#{time_arr[2]}T#{hours}:#{time_arr[5]}:#{time_arr[6]}Z"
+        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: parsedTime, usdata: true}
         view = new AirAware.Views.Readings.Block model: model
         $("#consulateReading").html(view.render().el)
     setUSData()

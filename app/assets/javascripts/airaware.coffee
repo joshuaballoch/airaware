@@ -53,8 +53,7 @@
   defaults = {seconds: true, hours: true, minutes: true}
   options = _.extend defaults, options
   date = new Date(datetime)
-  hours = date.getHours()-8
-  if hours < 0 then hours = 24 + hours
+  hours = date.getUTCHours()
   minutes = date.getMinutes()
   seconds = date.getSeconds()
   hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
