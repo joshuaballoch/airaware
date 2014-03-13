@@ -33,7 +33,7 @@
     .row
       .readings-secondrow-container
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.temperature.to_i, :label => "Temperature", :units => "(°C)"
+          = render 'shared/reading_block', :value => @last_reading.temperature.to_i, :label => "Temp", :units => "(°C)"
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => "Humidity", :units => "(%)"
         .cc-col.cc-col-20p

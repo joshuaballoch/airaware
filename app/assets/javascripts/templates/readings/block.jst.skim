@@ -23,7 +23,7 @@
             .value
               = parseInt(@model.get('temperature')) || "N/A"
             .reading-label
-              = "Temperature"
+              = "Temp"
             .reading-units
               = "(°C)"
       .cc-col.cc-col-20p
