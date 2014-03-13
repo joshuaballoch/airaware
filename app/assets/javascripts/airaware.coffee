@@ -63,3 +63,8 @@
 
 @AirAware.precise_round = (num,decimals) ->
   return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
+
+$(document).ready () ->
+  # Initialize Tooltips
+  $(document).on 'mouseenter','[data-toggle="tooltip"], .enable-tooltip', () -> $(this).tooltip({ container: this, animation: false }).triggerHandler('mouseover')
+
