@@ -13,6 +13,16 @@
         = "Indoor Air Monitoring for Schools"
       h4
         = "Get real time indoor and outdoor air quality readings."
+  .row
+    .col-xs-12
+      .dropdown.pull-right style="margin-top:-30px; margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title="AirAware can install multiple sensors per location."
+        .btn.btn-default data-toggle="dropdown" href="#"
+          = "SCIS Indoor  "
+          b.caret
+        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
+          li
+            a href="javascript:void(0)"
+              = "SCIS Indoor"
   #mainReading.location-container
     .row
       .cc-col.cc-col-6
@@ -35,6 +45,16 @@
       .col-sm-12
         .pull-right
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
+  .row
+    .col-xs-12
+      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title="Outdoor air can be reported on-site or from nearby stations"
+        .btn.btn-default data-toggle="dropdown" href="#"
+          = "Outdoor Air  "
+          b.caret
+        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
+          li
+            a href="javascript:void(0)"
+              = "Outdoor Air"
 
   #consulateReading.location-container
     = "Loading.."
@@ -115,8 +135,6 @@
     .col-sm-12
       h4
         = "Charts and graphs enable users to take a closer look."
-      h5
-        = "P.M. 2.5 over the last hour:"
       .pull-right
         .btn-group data-toggle="tooltip" data-placement="top" title="Paid Feature"
           .btn.btn-default.active
