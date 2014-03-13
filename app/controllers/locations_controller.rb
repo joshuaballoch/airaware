@@ -17,6 +17,6 @@ class LocationsController < ApplicationController
         LIMIT 60
       }
     )
-    @last_reading = @location.readings.last
+    @last_reading = @location.readings.ordered.first
   end
 end

@@ -60,3 +60,6 @@
   minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
   seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"
   return "#{hours if options.hours}#{':' if options.hours && (options.minutes || options.seconds)}#{minutes if options.minutes}#{':' if options.minutes && options.seconds}#{seconds if options.seconds}"
+
+@AirAware.precise_round = (num,decimals) ->
+  return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);

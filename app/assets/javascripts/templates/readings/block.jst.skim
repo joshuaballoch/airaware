@@ -9,7 +9,7 @@
     .reading.big-reading class="#{AirAware.assessAirClass(@model.get('pm2p5'))}"
       .reading-inner
         .value
-          = @model.get('pm2p5')
+          = parseInt(@model.get('pm2p5'))
         .reading-label
           = "PM 2.5"
         .reading-units
@@ -21,7 +21,7 @@
         .reading
           .reading-inner
             .value
-              = @model.get('temperature') || "N/A"
+              = parseInt(@model.get('temperature')) || "N/A"
             .reading-label
               = "Temperature"
             .reading-units
@@ -30,7 +30,7 @@
         .reading class="#{AirAware.assessHumidityClass(@model.get('humidity'))}"
           .reading-inner
             .value
-              = @model.get('humidity') || "N/A"
+              = parseInt(@model.get('humidity')) || "N/A"
             .reading-label
               = "Humidity"
             .reading-units
@@ -39,25 +39,25 @@
         .reading
           .reading-inner
             .value
-              = @model.get('tvoc') || "N/A"
+              = AirAware.precise_round(@model.get('tvoc'),2) || "<0.1"
             .reading-label
               = "TVOC"
             .reading-units
-              = "(μg/m³)"
+              = "(mg/m³)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
             .value
-              = @model.get('hcho') || "N/A"
+              = AirAware.precise_round(@model.get('hcho'),2) || "N/A"
             .reading-label
               = "HCHO"
             .reading-units
-              = "(μg/m³)"
+              = "(mg/m³)"
       .cc-col.cc-col-20p
         .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
           .reading-inner
             .value
-              = @model.get('co2') || "N/A"
+              = parseInt(@model.get('co2')) || "N/A"
             .reading-label
               = "CO2"
             .reading-units

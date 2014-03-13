@@ -19,19 +19,19 @@
         .location-title
           = "SCIS Indoor"
       .cc-col.cc-col-6
-        = render 'shared/reading_block', :value => @last_reading.pm2p5, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
+        = render 'shared/reading_block', :value => @last_reading.pm2p5.to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
     .row
       .readings-secondrow-container
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.temperature, :label => "Temperature", :units => "(°C)"
+          = render 'shared/reading_block', :value => @last_reading.temperature.to_i, :label => "Temperature", :units => "(°C)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.humidity, :label => "Humidity", :units => "(%)"
+          = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => "Humidity", :units => "(%)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.tvoc, :label => "TVOC", :units => "(μg/m³)"
+          = render 'shared/reading_block', :value => @last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.hcho, :label => "HCHO", :units => "(μg/m³)"
+          = render 'shared/reading_block', :value => @last_reading.hcho.round(2), :label => "HCHO", :units => "(mg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.co2, :label => "CO2", :units => "(ppmv)"
+          = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => "CO2", :units => "(ppmv)"
       .col-sm-12
         .pull-right
           = @last_reading.reading_time.strftime("Last reading at: %H:%M:%S")
@@ -133,16 +133,21 @@
     setIndoorReading(current_reading)
     chart_display_ids = _.map readings.models, (item) -> return item.id
 
+    # Faster checking of main readings
     setInterval () ->
       readings.fetch().success () ->
-        ## Push the new data to the chart, if there is new
-        new_ids = _.map readings.models, (item) -> return item.id
-        if chart_display_ids != new_ids
-          throttled_set(readings)
         ## Check to update the main readings data
         if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
           current_reading = readings.models[0]
           setIndoorReading(current_reading)
+    , 3000
+
+    # Slower update of chart
+    setInterval () ->
+        ## Push the new data to the chart, if there is new
+        new_ids = _.map readings.models, (item) -> return item.id
+        if chart_display_ids != new_ids
+          throttled_set(readings)
     , 30000
 
     ## GET and SET U.S. Consulate Data
