@@ -223,7 +223,7 @@
         else
           times[index] = ""
       pm2p5 = _.map readings.models, (item) ->
-        return item.get('pm2p5');
+        return parseInt(0.83*parseFloat(item.get('pm2p5')));
 
       times.reverse()
       pm2p5.reverse()
@@ -240,13 +240,13 @@
           }
         ]
       }
-
       options = {
         animation: false,
         scaleOverride: true,
         scaleSteps : 10,
         #Number - The value jump in the hard coded scale
-        scaleStepWidth : 10*parseInt(0.1*parseInt(_.max(pm2p5)/7.5)),
+
+        scaleStepWidth : 10*Math.ceil(0.1*Math.ceil(_.max(pm2p5)/7.5)),
         #Number - The scale starting value
         scaleStartValue : 0,
         pointDot: false,
