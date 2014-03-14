@@ -39,7 +39,7 @@
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => (1/14)*@last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.hcho.round(2), :label => "HCHO", :units => "(mg/m³)"
+          = render 'shared/reading_block', :value => (@last_reading.hcho/8).round(2), :label => "HCHO", :units => "(mg/m³)"
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => "CO2", :units => "(ppm)"
       .col-sm-12

@@ -48,10 +48,11 @@
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
-        .reading class="#{AirAware.assessHchoClass(@model.get('hcho'))}"
+        - hcho = parseFloat(@model.get('hcho'))/8
+        .reading class="#{AirAware.assessHchoClass(hcho)}"
           .reading-inner
             .value
-              = AirAware.precise_round(@model.get('hcho'),2) || "N/A"
+              = AirAware.precise_round(hcho,2) || "N/A"
             .reading-label
               = "HCHO"
             .reading-units
