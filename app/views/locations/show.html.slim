@@ -72,9 +72,13 @@
                 th
                   = "P.M. 2.5"
                 th
-                  = "CO2"
-                th
                   = "Humidity"
+                th
+                  = "TVOC"
+                th
+                  = "HCHO"
+                th
+                  = "CO2"
               tbody
                 tr.good
                   td
@@ -82,54 +86,84 @@
                   td
                     = "< 35"
                   td
-                    = "< 700"
-                  td
                     = "< 55"
+                  td
+                    = "< 0.45"
+                  td
+                    = "< 0.072"
+                  td
+                    = "< 700"
+
                 tr.moderate
                   td
                     = "Moderate"
                   td
                     = "35-75"
                   td
-                    = "700-1000"
-                  td
                     = "55-65"
+                  td
+                    = "0.45-0.55"
+                  td
+                    = "0.072-0.088"
+                  td
+                    = "700-1000"
+
                 tr.sensitive
                   td
                     = "Bad for Sensitive Groups (Children, Seniors)"
                   td
                     = "75-100"
                   td
-                    = "1000-1300"
-                  td
                     = "65-75"
+                  td
+                    = " - "
+                  td
+                    = " - "
+                  td
+                    = "1000-1300"
+
                 tr.unhealthy
                   td
                     = "Unhealthy"
                   td
                     = "100-120"
                   td
-                    = "1300-1600"
-                  td
                     = "75-85"
+                  td
+                    = "> 0.55"
+                  td
+                    = "> 0.088"
+                  td
+                    = "1300-1600"
+
                 tr.very-unhealthy
                   td
                     = "Very Unhealthy"
                   td
                     = "120-200"
                   td
-                    = "1600-3000"
-                  td
                     = "85-90"
+                  td
+                    = " - "
+                  td
+                    = " - "
+                  td
+                    = "1600-3000"
+
                 tr.hazardous
                   td
                     = "Hazardous"
                   td
                     = "> 200"
                   td
-                    = "> 3000"
-                  td
                     = "> 90"
+                  td
+                    = " - "
+                  td
+                    = " - "
+                  td
+                    = "> 3000"
+
 
   .row
     .col-sm-12

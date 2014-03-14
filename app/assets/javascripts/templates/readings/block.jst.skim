@@ -36,7 +36,7 @@
             .reading-units
               = "(%)"
       .cc-col.cc-col-20p
-        .reading
+        .reading class="#{AirAware.assessTvocClass(@model.get('tvoc'))}"
           .reading-inner
             .value
               = AirAware.precise_round(@model.get('tvoc'),2) || "<0.1"
@@ -45,7 +45,7 @@
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
-        .reading
+        .reading class="#{AirAware.assessHchoClass(@model.get('hcho'))}"
           .reading-inner
             .value
               = AirAware.precise_round(@model.get('hcho'),2) || "N/A"

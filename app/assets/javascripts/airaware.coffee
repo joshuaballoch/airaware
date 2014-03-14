@@ -49,6 +49,24 @@
   else
     return "hazardous"
 
+@AirAware.assessHchoClass = (reading) ->
+  value = parseFloat(reading)
+  if value < 0.072
+    return "good"
+  else if value < 0.088
+    return "moderate"
+  else
+    return "unhealthy"
+
+@AirAware.assessTvocClass = (reading) ->
+  value = parseFloat(reading)
+  if value < 0.45
+    return "good"
+  else if value < 0.55
+    return "moderate"
+  else
+    return "unhealthy"
+
 @AirAware.parseTime = (datetime, options) ->
   defaults = {seconds: true, hours: true, minutes: true}
   options = _.extend defaults, options
