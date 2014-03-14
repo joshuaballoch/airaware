@@ -29,7 +29,7 @@
         .location-title
           = "SCIS Indoor"
       .cc-col.cc-col-6
-        = render 'shared/reading_block', :value => (0.3*@last_reading.pm2p5).to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
+        = render 'shared/reading_block', :value => (0.43*@last_reading.pm2p5).to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
     .row
       .readings-secondrow-container
         .cc-col.cc-col-20p
@@ -223,7 +223,7 @@
         else
           times[index] = ""
       pm2p5 = _.map readings.models, (item) ->
-        return parseInt(0.3*parseFloat(item.get('pm2p5')));
+        return parseInt(0.43*parseFloat(item.get('pm2p5')));
 
       times.reverse()
       pm2p5.reverse()
