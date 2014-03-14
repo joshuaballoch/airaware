@@ -37,9 +37,9 @@
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => "Humidity", :units => "(%)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.tvoc.round(2), :label => "TVOC", :units => "(ppm)"
+          = render 'shared/reading_block', :value => @last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.hcho.round(2), :label => "HCHO", :units => "(ppm)"
+          = render 'shared/reading_block', :value => @last_reading.hcho.round(2), :label => "HCHO", :units => "(mg/m³)"
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => "CO2", :units => "(ppm)"
       .col-sm-12

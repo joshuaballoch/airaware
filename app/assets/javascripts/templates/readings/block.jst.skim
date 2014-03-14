@@ -43,7 +43,7 @@
             .reading-label
               = "TVOC"
             .reading-units
-              = "(ppm)"
+              = "(mg/m³)"
       .cc-col.cc-col-20p
         .reading
           .reading-inner
@@ -52,7 +52,7 @@
             .reading-label
               = "HCHO"
             .reading-units
-              = "(ppm)"
+              = "(mg/m³)"
       .cc-col.cc-col-20p
         .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
           .reading-inner
@@ -61,7 +61,7 @@
             .reading-label
               = "CO2"
             .reading-units
-              = "(ppm)"
+              = "(ppmv)"
 .col-sm-12
   .pull-right.timestamp
     = "Last reading at: #{AirAware.parseTime(@model.get('reading_time'))}"
