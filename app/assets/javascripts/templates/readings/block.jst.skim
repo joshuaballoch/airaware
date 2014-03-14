@@ -39,7 +39,7 @@
             .reading-units
               = "(%)"
       .cc-col.cc-col-20p
-        .reading class="#{AirAware.assessTvocClass(@model.get('tvoc'))}"
+        .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc'))/14)}"
           .reading-inner
             .value
               = AirAware.precise_round(parseFloat(@model.get('tvoc'))/14,2) || "<0.1"
