@@ -42,7 +42,7 @@
         .reading class="#{AirAware.assessTvocClass(@model.get('tvoc'))}"
           .reading-inner
             .value
-              = AirAware.precise_round(@model.get('tvoc'),2) || "<0.1"
+              = AirAware.precise_round(parseFloat(@model.get('tvoc'))/14,2) || "<0.1"
             .reading-label
               = "TVOC"
             .reading-units
