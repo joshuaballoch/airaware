@@ -21,6 +21,12 @@ gem "curb", "~> 0.8.5"
 
 gem 'h2ocube_rails_cache'
 
+# _("Translations support!")
+gem 'gettext_i18n_rails'
+gem 'gettext_i18n_rails_js', github: 'rdd-giga/gettext_i18n_rails_js'
+gem 'gettext', require: false
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
