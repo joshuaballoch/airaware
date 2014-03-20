@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
     def set_gettext_locale
-      puts "asdfasdfasdfasdfa\n\n"
-      puts params[:locale]
-      requested_locale = params[:locale] || session[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.default_locale
+      # Fix me! the default locale is now chinese
+      requested_locale = params[:locale] || session[:locale] || "zh-CN" #I18n.default_locale
       requested_locale = 'zh-CN' if %w(zh zh-tw zh_tw).include?(requested_locale.downcase)
       requested_locale = 'en-US' if %w(en en-gb en_gb).include?(requested_locale.downcase)
       locale = FastGettext.set_locale(requested_locale)

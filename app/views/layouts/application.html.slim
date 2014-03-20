@@ -30,10 +30,16 @@ body
         ul.nav.navbar-nav
           li
             = link_to _("Demo"), "/demo"
-        /ul.nav.navbar-nav.navbar-right
+        ul.nav.navbar-nav.navbar-right
           li
             a
-              = "something"
+              - if I18n.locale =~ /zh/
+                li
+                  = link_to "English", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'en'
+              - else
+                li
+                  = link_to "中文", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'zh'
+
   #flashMessages
     - if flash.notice
       .alert.alert-success.alert-dismissable
