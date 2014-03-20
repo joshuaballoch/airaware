@@ -23,10 +23,17 @@ class ReadingsController < ApplicationController
   end
 
   def us_consulate
-    cache_key = ['us_consulate', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
-
+    if params[:city] == "shanghai"
+      cache_key = ['us_consulate_shanghai', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
+      url = "http://airpi.gigabase.org/web/rss/1/4.xml"
+    elsif params[:city] == "beijing"
+      cache_key = ['us_consulate_beijing', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
+      url = "http://airpi.gigabase.org/web/rss/1/1.xml"
+    else
+      raise BadRequest
+    end
     ce = Rails.cache.fetch cache_key do
-      ace = Curl::Easy.new("http://airpi.gigabase.org/web/rss/1/4.xml")
+      ace = Curl::Easy.new(url)
       ace.perform
       ace.body_str
     end
@@ -34,4 +41,5 @@ class ReadingsController < ApplicationController
     @result = Nokogiri::XML::Document.parse(ce)
     render :xml => @result
   end
+
 end

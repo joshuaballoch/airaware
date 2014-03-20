@@ -49,14 +49,28 @@
     .col-xs-12
       .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title="Outdoor air can be reported on-site or from nearby stations"
         .btn.btn-default data-toggle="dropdown" href="#"
-          = "Outdoor Air  "
+          = "Beijing Outdoor "
           b.caret
         ul.dropdown-menu role="menu" aria-labelledby="dLabel"
           li
             a href="javascript:void(0)"
-              = "Outdoor Air"
+              = "Beijing Outdoor"
 
-  #consulateReading.location-container
+  #consulateReading-beijing.location-container
+    = "Loading.."
+
+  .row
+    .col-xs-12
+      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title="Outdoor air can be reported on-site or from nearby stations"
+        .btn.btn-default data-toggle="dropdown" href="#"
+          = "Shanghai Outdoor "
+          b.caret
+        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
+          li
+            a href="javascript:void(0)"
+              = "Shanghai Outdoor"
+
+  #consulateReading-shanghai.location-container
     = "Loading.."
   .row
     .col-xs-12
@@ -287,11 +301,13 @@
     , 30000
 
     ## GET and SET U.S. Consulate Data
-    setUSData = () ->
+    setUSData = (city) ->
       payload = {
         url: "/readings/us_consulate.xml",
         dataType: 'xml',
         type: 'get',
+        data:
+          city: city
       };
       $.ajax(payload).success (data) ->
         response = $.xml2json(data)
@@ -306,10 +322,13 @@
           hours == "00"
         hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
         parsedTime = "#{time_arr[3]}-#{time_arr[1]}-#{time_arr[2]}T#{hours}:#{time_arr[5]}:#{time_arr[6]}Z"
-        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: parsedTime, usdata: true}
+        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: parsedTime, usdata: true, city: city}
         view = new AirAware.Views.Readings.Block model: model
-        $("#consulateReading").html(view.render().el)
-    setUSData()
+        $("#consulateReading-#{city}").html(view.render().el)
+    setUSData('shanghai')
+    setUSData('beijing')
+
     setInterval () ->
-      setUSData()
+      setUSData('shanghai')
+      setUSData('beijing')
     , 90000
