@@ -11,6 +11,7 @@ head
   = csrf_meta_tags
   meta name="viewport" content="width=device-width, initial-scale=1.0"
   meta http-equiv="X-UA-Compatible" content="IE=edge"
+  meta name="locale" content=I18n.locale
 
 body
   header.navbar.navbar-static-top id="top" role="banner"
@@ -18,7 +19,7 @@ body
       .navbar-header
         .navbar-toggle type="button" data-toggle="collapse" data-target=".aa-navbar-collapse"
           .sr-only
-            = "Toggle navigation"
+            = _("Toggle navigation")
           span.icon-bar
           span.icon-bar
           span.icon-bar
@@ -28,7 +29,7 @@ body
       nav.navbar-collapse.collapse.aa-navbar-collapse role="navigation"
         ul.nav.navbar-nav
           li
-            = link_to "Demo", "/demo"
+            = link_to _("Demo"), "/demo"
         /ul.nav.navbar-nav.navbar-right
           li
             a

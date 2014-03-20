@@ -1,7 +1,11 @@
 .aa-page-header id="content"
   .container
     h1
-      = @location.name
+      - if I18n.locale.to_s == "zh-CN"
+        = "办公室演示"
+      - else
+        = "Office Demo"
+      /= @location.name
     p
       = _("Indoor Air Reporting Demo")
 
@@ -45,7 +49,6 @@
           = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => _("CO2"), :units => "(ppm)"
       .col-sm-12
         .pull-right
-          - if i18n.local
           = @last_reading.reading_time.strftime("%H:%M:%S")
   .row
     .col-xs-12
@@ -203,7 +206,7 @@
         h1
           = _("Get AirAware.")
         h4
-          = _("AirAware is now launching at schools across Shanghai. Sign up to learn more!")
+          = _("AirAware is now launching at offices and schools across China. Sign up to learn more!")
         p
           = form_for SignUp.new do |f|
             .form-group

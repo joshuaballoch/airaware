@@ -1,0 +1,175 @@
+# Chinese translations for app package.
+# Copyright (C) 2014 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 23:33+0800\n"
+"PO-Revision-Date: 2014-03-20 23:41+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.5\n"
+
+msgid "A breath of fresh air"
+msgstr ""
+
+msgid "AirAware can install multiple sensors per location."
+msgstr ""
+
+msgid ""
+"AirAware installs air monitors in schools and, soon, in office buildings, "
+"factories, and workplaces across Shanghai and the rest of China."
+msgstr ""
+
+msgid ""
+"AirAware is now launching at offices and schools across China. Sign up to "
+"learn more!"
+msgstr "AirAware项目正在国内的学校和办公室中启动，请输入邮箱以获取更多信息！"
+
+msgid "Bad for Sensitive Groups (Children, Seniors)"
+msgstr "轻度污染"
+
+msgid "Beijing Outdoor"
+msgstr "北京室外"
+
+msgid "CO2"
+msgstr "二氧化碳"
+
+msgid "Charts and graphs enable users to take a closer look."
+msgstr "用户可通过图表查看详尽数据。"
+
+msgid "Clear The Air"
+msgstr ""
+
+msgid "Concerned about Air Pollution in China?"
+msgstr ""
+
+msgid "Demo"
+msgstr "演示"
+
+msgid "Filters are not enough"
+msgstr ""
+
+msgid "Get AirAware."
+msgstr "获取AirAware"
+
+msgid "Get real time indoor and outdoor air quality readings."
+msgstr "获取室内外实时空气质量数据"
+
+msgid "Good"
+msgstr "优"
+
+msgid "HCHO"
+msgstr "甲醛"
+
+msgid "Hazardous"
+msgstr "严重污染"
+
+msgid "Humidity"
+msgstr "湿度"
+
+msgid "Indoor Air"
+msgstr "室内"
+
+msgid "Indoor Air Monitoring for Schools & Offices"
+msgstr "办公室和学校室内空气质量监测"
+
+msgid "Indoor Air Quality Monitoring"
+msgstr ""
+
+msgid "Indoor Air Reporting Demo"
+msgstr "室内空气质量演示报告"
+
+msgid ""
+"Indoor air pollution can be just as bad and often worse than outdoor air, "
+"and we spend most of our days inside."
+msgstr ""
+
+msgid ""
+"Installing air filtration is the first step toward a healthier environment, "
+"but it's not enough."
+msgstr ""
+
+msgid "Loading.."
+msgstr "加载中..."
+
+msgid ""
+"Many filters are not run at the right settings to get your air clean. Some "
+"may also not alleviate all indoor pollutants, like volatile organic "
+"compounds, CO2, and formaldehyde."
+msgstr ""
+
+msgid "Moderate"
+msgstr "良"
+
+msgid "Outdoor air can be reported on-site or from nearby stations"
+msgstr ""
+
+msgid "P.M. 2.5"
+msgstr ""
+
+msgid "Paid Feature"
+msgstr ""
+
+msgid "Past day"
+msgstr "日"
+
+msgid "Past hour"
+msgstr "时"
+
+msgid "Past week"
+msgstr "周"
+
+msgid "Scan the QR code below, or visit"
+msgstr ""
+
+msgid "See AirAware in action."
+msgstr ""
+
+msgid "Shanghai Outdoor"
+msgstr "上海室外"
+
+msgid "Show Legend"
+msgstr "显示图例"
+
+msgid "Sign up"
+msgstr "确定"
+
+msgid "TVOC"
+msgstr "总挥发性有机化合物"
+
+msgid "Temp"
+msgstr "温度"
+
+msgid "Toggle navigation"
+msgstr ""
+
+msgid "Unhealthy"
+msgstr "中度污染"
+
+msgid "Very Unhealthy"
+msgstr "重度污染"
+
+msgid "View the demo"
+msgstr "去看演示"
+
+msgid ""
+"We enable schools to monitor their air quality, and integrate with other "
+"services to provide a healthy indoor environment for their pupils."
+msgstr ""
+
+msgid ""
+"Worry over P.M. 2.5 readings has skyrocketed in recent years, but outdoor "
+"air quality is just half the battle."
+msgstr ""
+
+msgid "email, phone, or qq"
+msgstr "邮箱，电话，qq"

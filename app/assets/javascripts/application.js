@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 
+// GetText for I18n
+//= require_tree ./locale
+//= require gettext/all
+
 //= require underscore
 //= require json2
 //= require bootstrap
@@ -20,3 +24,4 @@
 //= require chart
 //= require xml2json
 //= require_tree .
+

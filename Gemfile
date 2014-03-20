@@ -63,6 +63,9 @@ group :development do
   # https://github.com/defunkt/unicorn/pull/7
   gem 'capistrano-unicorn', github: 'rdd-giga/capistrano-unicorn'
 
+  # https://github.com/grosser/gettext_i18n_rails/issues/89
+  gem 'ruby_parser', :require => false
+
 end
 
 group :test do
