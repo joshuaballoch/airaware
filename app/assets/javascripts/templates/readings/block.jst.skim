@@ -1,10 +1,12 @@
 .row
   .cc-col.cc-col-6
     .location-title
-      - if @model.get('usdata')
-        = "Outdoor Air"
+      - if @model.get('city') == "shanghai"
+        = __("Shanghai Outdoor")
+      - else if @model.get('city') == "beijing"
+        = __("Beijing Outdoor")
       - else
-        = "SCIS Indoor"
+        = __("Indoor Air")
   .cc-col.cc-col-6
     - if @model.get('usdata')
       - pm2p5 = parseInt(@model.get('pm2p5'))
@@ -16,7 +18,7 @@
         .value
           = pm2p5
         .reading-label
-          = "PM 2.5"
+          = __("PM 2.5")
         .reading-units
           = "(μg/m³)"
 - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
@@ -28,7 +30,7 @@
             .value
               = parseInt(@model.get('temperature')) || "N/A"
             .reading-label
-              = "Temp"
+              = __("Temp")
             .reading-units
               = "(°C)"
       .cc-col.cc-col-20p
@@ -37,7 +39,7 @@
             .value
               = parseInt(@model.get('humidity')) || "N/A"
             .reading-label
-              = "Humidity"
+              = __("Humidity")
             .reading-units
               = "(%)"
       .cc-col.cc-col-20p
@@ -46,7 +48,7 @@
             .value
               = AirAware.precise_round(parseFloat(@model.get('tvoc'))/14,2) || "<0.1"
             .reading-label
-              = "TVOC"
+              = __("TVOC")
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
@@ -56,7 +58,7 @@
             .value
               = AirAware.precise_round(hcho,2) || "N/A"
             .reading-label
-              = "HCHO"
+              = __("HCHO")
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
@@ -65,9 +67,9 @@
             .value
               = parseInt(@model.get('co2')) || "N/A"
             .reading-label
-              = "CO2"
+              = __("CO2")
             .reading-units
               = "(ppmv)"
 .col-sm-12
   .pull-right.timestamp
-    = "Last reading at: #{AirAware.parseTime(@model.get('reading_time'))}"
+    = "#{AirAware.parseTime(@model.get('reading_time'))}"

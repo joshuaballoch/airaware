@@ -21,6 +21,12 @@ gem "curb", "~> 0.8.5"
 
 gem 'h2ocube_rails_cache'
 
+# _("Translations support!")
+gem 'gettext_i18n_rails'
+gem 'gettext_i18n_rails_js', github: 'rdd-giga/gettext_i18n_rails_js'
+gem 'gettext', require: false
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -56,6 +62,9 @@ group :development do
   # Do not use new capistrano-unicorn until unicorn gem updates..
   # https://github.com/defunkt/unicorn/pull/7
   gem 'capistrano-unicorn', github: 'rdd-giga/capistrano-unicorn'
+
+  # https://github.com/grosser/gettext_i18n_rails/issues/89
+  gem 'ruby_parser', :require => false
 
 end
 

@@ -3,6 +3,8 @@
 @AirAware.Collections = {}
 @AirAware.Views = {}
 
+@AirAware.locale = ()->
+  if location.pathname.substring(0,3) == "/zh" then 'zh' else 'en'
 
 @AirAware.assessAirClass = (reading) ->
   value = parseInt(reading)
