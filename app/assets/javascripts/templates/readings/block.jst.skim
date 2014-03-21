@@ -48,7 +48,7 @@
             .value
               = AirAware.precise_round(parseFloat(@model.get('tvoc'))/14,2) || "<0.1"
             .reading-label
-              = __("TVOC")
+              = "TVOC"
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p

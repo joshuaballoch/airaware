@@ -42,7 +42,7 @@
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => _("Humidity"), :units => "(%)"
         .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => (1/14)*@last_reading.tvoc.round(2), :label => _("TVOC"), :units => "(mg/m³)"
+          = render 'shared/reading_block', :value => (1/14)*@last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
         .cc-col.cc-col-20p
           = render 'shared/reading_block', :value => (@last_reading.hcho/8).round(2), :label => _("HCHO"), :units => "(mg/m³)"
         .cc-col.cc-col-20p
