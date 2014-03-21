@@ -11,7 +11,7 @@
     - if @model.get('usdata')
       - pm2p5 = parseInt(@model.get('pm2p5'))
     - else
-      - pm2p5 = parseInt(0.43*parseFloat(@model.get('pm2p5')))
+      - pm2p5 = parseInt(0.7*parseFloat(@model.get('pm2p5')))
 
     .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
       .reading-inner
