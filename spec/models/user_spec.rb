@@ -11,6 +11,7 @@ describe User do
     it { should respond_to :timezone }
     it { should respond_to :remember_me }
     it { should respond_to :locale }
+    it { should respond_to :admin }
   end
 
   context "mass assignment" do
