@@ -1,5 +1,13 @@
+require 'sidekiq/web'
+
 Airaware::Application.routes.draw do
   devise_for :users
+
+  namespace :admin do
+    constraints AdminAuthorization do
+      mount Sidekiq::Web, :at => '/sidekiq'
+    end
+  end
 
   root :to => "pages#home"
   scope "(:locale)", :shallow_path => "(:locale)", :locale => /en|zh/ do

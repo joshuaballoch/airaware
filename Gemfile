@@ -31,6 +31,10 @@ gem 'gettext_i18n_rails'
 gem 'gettext_i18n_rails_js', github: 'rdd-giga/gettext_i18n_rails_js'
 gem 'gettext', require: false
 
+# Add Sidekiq for Delayed Jobs
+gem "sidekiq"
+gem "sidetiq" #Used for scheduled jobs
+gem 'sinatra', '>= 1.3.0', :require => false #sinatra is used for Sidekiq::Web
 
 # Gems used only for assets and not required
 # in production environments by default.
