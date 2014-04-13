@@ -19,6 +19,9 @@ gem 'devise'
 gem 'devise-async'
 gem 'cancan'
 
+# Enumerations
+gem 'enumerate_it'
+
 # Nokigiri to run xml requests from other servers
 gem "nokogiri", "~> 1.6.1"
 
