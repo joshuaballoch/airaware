@@ -39,7 +39,8 @@ describe User do
   end
 
   context "associations" do
-
+    it { should have_many(:location_users) }
+    it { should have_many(:locations).through(:location_users) }
   end
 
 end
