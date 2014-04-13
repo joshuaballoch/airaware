@@ -28,17 +28,31 @@ body
           = "AirAware"
       nav.navbar-collapse.collapse.aa-navbar-collapse role="navigation"
         ul.nav.navbar-nav
-          li
-            = link_to _("Demo"), "/demo"
+          - unless user_signed_in?
+            li
+              = link_to _("Demo"), "/demo"
         ul.nav.navbar-nav.navbar-right
           li
-            a
-              - if I18n.locale =~ /zh/
-                li
-                  = link_to "English", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'en'
+            - if I18n.locale =~ /zh/
+                = link_to "English", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'en'
+            - else
+                = link_to "中文", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'zh'
+          li
+            - if user_signed_in?
+              - if Rails.env.development?
+                = link_to destroy_user_session_path, :method => :delete do
+                  i.icon-signout
+                  = _("Log Out")
               - else
-                li
-                  = link_to "中文", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'zh'
+                / Fix me: add (:protocol => 'https')
+                = link_to destroy_user_session_url, :method => :delete do
+                  i.icon-signout
+                  = _("Sign Out")
+            - else
+              = link_to new_user_session_url
+                i.icon-signin
+                  = _("Sign In")
+
 
   #flashMessages
     - if flash.notice
