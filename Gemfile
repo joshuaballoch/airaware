@@ -14,6 +14,11 @@ gem 'slim'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Authentication & Accounts Gems
+gem 'devise'
+gem 'devise-async'
+gem 'cancan'
+
 # Nokigiri to run xml requests from other servers
 gem "nokogiri", "~> 1.6.1"
 
