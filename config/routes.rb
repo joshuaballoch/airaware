@@ -1,4 +1,6 @@
 Airaware::Application.routes.draw do
+  devise_for :users
+
   root :to => "pages#home"
   scope "(:locale)", :shallow_path => "(:locale)", :locale => /en|zh/ do
 

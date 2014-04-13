@@ -1,0 +1,40 @@
+.login-wrap
+  .container
+    .sub-header
+      h2
+        = _("Sign in")
+    .row
+      .col-sm-8
+        .form-wrap
+          = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f|
+            .form-group
+              = f.label _("email"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.email_field :email, :autofocus => true, :class => "form-control input-lg"
+
+            .form-group
+              = f.label _("password"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.password_field :password, :class => "form-control input-lg"
+
+            - if devise_mapping.rememberable?
+              .form-group
+                .col-sm-offset-4.col-sm-8
+                  .checkbox
+                    label
+                      = f.check_box :remember_me
+                      = _("remember me")
+
+            .form-group.form-btn
+              .col-sm-offset-4.col-sm-8
+                = f.submit _("Sign in"), :class => "btn btn-default"
+      .col-sm-4
+    .extra-links
+      ul.clearfix
+        li
+          - if devise_mapping.recoverable? && controller_name != 'passwords'
+            = link_to _("Forgot your password?"), new_password_path(resource_name)
+        li |
+        li
+          - if devise_mapping.registerable? && controller_name != 'registrations'
+            = link_to _("Sign up"), new_registration_path(resource_name)

@@ -1,0 +1,43 @@
+.login-wrap
+  .container
+    .sub-header
+      h2
+        = _("Sign Up")
+    .row
+      .col-sm-8
+        .form-wrap
+          = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f|
+            = devise_error_messages!
+            .form-group
+              = f.label _("email"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.email_field :email, :autofocus => true, :class => "form-control input-lg"
+            .form-group
+              = f.label _("username"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.text_field :username, :class => "form-control input-lg"
+            .form-group
+              = f.label _("first_name"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.text_field :first_name, :class => "form-control input-lg"
+            .form-group
+              = f.label _("last_name"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.text_field :last_name, :class => "form-control input-lg"
+            .form-group
+              = f.label _("password"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.password_field :password, :class => "form-control input-lg"
+            .form-group
+              = f.label _("password_confirmation"), :class => "control-label col-sm-4"
+              .col-sm-8
+                = f.password_field :password_confirmation, :class => "form-control input-lg"
+            .form-group.form-btn
+              .col-sm-offset-4.col-sm-8
+                = f.submit "Sign up", :class => "btn btn-default"
+      .col-sm-4
+    .extra-links
+      ul.clearfix
+        li
+          - if controller_name != 'sessions'
+            = link_to _("Sign in"), new_session_path(resource_name)

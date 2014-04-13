@@ -1,0 +1,43 @@
+h2
+  = _("Edit %{resource_name}") % {resource_name: resource_name.to_s.humanize}
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+
+  div
+    = f.label _("email")
+    br
+    = f.email_field :email, :autofocus => true
+
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    div
+      =_("Currently waiting confirmation for: %{unconfirmed_email}") % {unconfirmed_email: resource.unconfirmed_email}
+  div
+    = f.label _("password")
+    i
+      =_("(leave blank if you don't want to change it)")
+    br
+    = f.password_field :password, :autocomplete => "off"
+
+  div
+    = f.label _("password_confirmation")
+    br
+    = f.password_field :password_confirmation
+
+  div
+    = f.label _("current_password")
+    i
+      = _("(we need your current password to confirm your changes)")
+    br
+    = f.password_field :current_password
+
+  div
+    = f.submit _("Update")
+h3
+  = _("Cancel my account")
+
+p
+  = _("Unhappy?")
+  = button_to _("Cancel my account"), registration_path(resource_name), :data => { :confirm => _("Are you sure?") }, :method => :delete
+
+= link_to _("Back"), :back
