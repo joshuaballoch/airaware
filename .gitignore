@@ -16,3 +16,5 @@
 
 # Ignore ds store files
 *.DS_STORE
+
+*.rdb
