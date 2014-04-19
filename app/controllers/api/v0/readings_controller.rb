@@ -8,14 +8,16 @@ module Api
         raise BadRequest unless params[:device_identifier]
 
         @reporting_device = ReportingDevice.where(:identifier => params[:device_identifier]).first
-        # TO DO: yield an error unless reporting device has previously been set up.
-        #   for now, just create the reporting device.
-        unless @reporting_device
-          location = Location.first
-          @reporting_device = ReportingDevice.new :location_id => location.id
-          @reporting_device.identifier = params[:device_identifier]
-          @reporting_device.save!
-        end
+
+        raise NotFound unless @reporting_device
+
+        # FORMER IMPLEMENTATION: this used to allow test API to initialize a new reporting device if it wasn't ther.
+        # unless @reporting_device
+        #   location = Location.first
+        #   @reporting_device = ReportingDevice.new :location_id => location.id
+        #   @reporting_device.identifier = params[:device_identifier]
+        #   @reporting_device.save!
+        # end
 
         @reading = @reporting_device.readings.build params[:reading]
         if @reading.save

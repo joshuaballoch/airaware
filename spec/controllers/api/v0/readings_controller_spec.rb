@@ -37,6 +37,14 @@ module Api
           }.to raise_error(ApiController::BadRequest)
         end
 
+        it "should return an UnprocessableEntity error if reading device does not exist" do
+          bypass_rescue
+          data = attributes_for :reading, :reporting_device => nil
+          expect {
+            post :create, :reading => data, :device_identifier => "123.1.12.1231a", :format => :json
+          }.to raise_error(ApiController::NotFound)
+        end
+
         it "should return errors in response" do
           send_data = @data.merge({:reading_time => "blah"})
           post :create, :reading => send_data, :device_identifier => @reporting_device.identifier, :format => :json
