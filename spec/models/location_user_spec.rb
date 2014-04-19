@@ -17,7 +17,7 @@ describe LocationUser do
     it { should validate_presence_of :user }
     it { should validate_presence_of :location }
     it { should validate_presence_of :role }
-    it { should validate_uniqueness_of(:user_id).on(:location_id) }
+    it { should validate_uniqueness_of(:user_id).scoped_to(:location_id) }
 
     it "should not be able to destroy if user is location.user" do
       location = create :location
