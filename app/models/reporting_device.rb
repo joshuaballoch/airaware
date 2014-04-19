@@ -1,9 +1,13 @@
 class ReportingDevice < ActiveRecord::Base
-  attr_accessible :location_id, :location
+  extend EnumerateIt
 
-  validates_presence_of :location_id, :identifier
+  attr_accessible :location_id, :location, :device_type
 
-  validates_uniqueness_of :identifier
+  validates_presence_of :location_id, :identifier, :device_type
+
+  validates_uniqueness_of :identifier, :scope => :device_type
+
+  has_enumeration_for :device_type, :with => ReportingDeviceType, :create_scopes => true, :create_helpers => true
 
   belongs_to :location
   has_many :readings, :dependent => :destroy
