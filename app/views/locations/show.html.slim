@@ -1,33 +1,17 @@
 .aa-page-header id="content"
   .container
     h1
-      - if I18n.locale.to_s == "zh-CN"
-        = "办公室演示"
-      - else
-        = "Office Demo"
-      /= @location.name
+      = @location.name
     p
-      = _("Indoor Air Reporting Demo")
+      = @location.description
 
 .container.aa-page-container
 
   .row
     .col-sm-12
       h3.page-header
-        = _("Indoor Air Monitoring for Schools & Offices")
-      h4
-        = _("Get real time indoor and outdoor air quality readings.")
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-top:-30px; margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("AirAware can install multiple sensors per location.")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Indoor Air")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Indoor Air")
+        = _("Latest Readings")
+
   #mainReading.location-container
     .row
       .cc-col.cc-col-6
@@ -185,35 +169,6 @@
                   td
                     = "> 3000"
 
-
-  .row
-    .col-sm-12
-      h4
-        = _("Charts and graphs enable users to take a closer look.")
-      .pull-right
-        .btn-group data-toggle="tooltip" data-placement="top" title=_("Paid Feature")
-          .btn.btn-default.active
-            = _("Past hour")
-          .btn.btn-default disabled="disabled"
-            = _("Past day")
-          .btn.btn-default disabled="Paid Feature"
-            = _("Past week")
-      #chartContainer
-
-  .row
-    .col-sm-12
-      .page-block
-        h1
-          = _("Get AirAware.")
-        h4
-          = _("AirAware is now launching at offices and schools across China. Sign up to learn more!")
-        p
-          = form_for SignUp.new do |f|
-            .form-group
-              = f.text_field :email, :class => "form-control", :placeholder => _("email, phone, or qq")
-            = f.submit _("Sign up"), :class => "btn btn-success"
-
-
 - content_for :bottom do
   javascript:
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
@@ -224,71 +179,9 @@
       view = new AirAware.Views.Readings.Block model: current_reading
       $("#mainReading").html(view.render().el)
 
-    setChart = (readings) ->
-      width = $(".container > .row > .col-sm-12").width()
-      $("#chartContainer").html("""
-        <canvas id="myChart" width="#{width}" height="400"></canvas>
-      """)
-
-      #Get context with jQuery - using jQuery's .get() method.
-      unless $("#myChart").get(0).getContext
-        G_vmlCanvasManager.initElement($("#myChart").get(0))
-      ctx = $("#myChart").get(0).getContext("2d");
-
-      times = _.map readings.models, (item) ->
-        return item.get('reading_time');
-      _.each times, (item, index) ->
-        if parseInt(index/5)*5 == index
-          time = AirAware.parseTime(item)
-          times[index] = time.substring(0,time.length-3)
-        else
-          times[index] = ""
-      pm2p5 = _.map readings.models, (item) ->
-        return parseInt(0.7*parseFloat(item.get('pm2p5')));
-
-      times.reverse()
-      pm2p5.reverse()
-
-      data = {
-        labels : times,
-        datasets : [
-          {
-            fillColor : "rgba(151,187,205,0.5)",
-            strokeColor : "rgba(220,220,220,1)",
-            pointColor : "rgba(220,220,220,1)",
-            pointStrokeColor : "#fff",
-            data : pm2p5
-          }
-        ]
-      }
-      options = {
-        animation: false,
-        scaleOverride: true,
-        scaleSteps : 10,
-        #Number - The value jump in the hard coded scale
-
-        scaleStepWidth : 10*Math.ceil(0.1*Math.ceil(_.max(pm2p5)/7.5)),
-        #Number - The scale starting value
-        scaleStartValue : 0,
-        pointDot: false,
-      }
-      myChart = new Chart(ctx).Line(data, options);
-
-    ## END OF SET CHART
-
-    # Initialize chart
-    setChart(readings)
-
-    ## RESIZE AND RESTART CHART ON WINDOW RESIZE
-    throttled_set = _.throttle setChart, 500
-
-    $(window).on "resize", () ->
-      throttled_set(readings)
-
     ## Set it to poll and update the data
     current_reading = r
     setIndoorReading(current_reading)
-    chart_display_ids = _.map readings.models, (item) -> return item.id
 
     # Faster checking of main readings
     setInterval () ->
@@ -298,14 +191,6 @@
           current_reading = readings.models[0]
           setIndoorReading(current_reading)
     , 3000
-
-    # Slower update of chart
-    setInterval () ->
-        ## Push the new data to the chart, if there is new
-        new_ids = _.map readings.models, (item) -> return item.id
-        if chart_display_ids != new_ids
-          throttled_set(readings)
-    , 30000
 
     ## GET and SET U.S. Consulate Data
     setUSData = (city) ->
@@ -332,6 +217,7 @@
         model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: parsedTime, usdata: true, city: city}
         view = new AirAware.Views.Readings.Block model: model
         $("#consulateReading-#{city}").html(view.render().el)
+
     setUSData('shanghai')
     setUSData('beijing')
 

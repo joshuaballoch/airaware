@@ -6,5 +6,8 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @location = Location.find(params[:id])
+    @readings = @location.readings.limit(100)
+    @last_reading = @readings.first
   end
 end
