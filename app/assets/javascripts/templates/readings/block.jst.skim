@@ -11,7 +11,7 @@
     - if @model.get('usdata')
       - pm2p5 = parseInt(@model.get('pm2p5'))
     - else
-      - pm2p5 = parseInt(0.7*parseFloat(@model.get('pm2p5')))
+      - pm2p5 = parseInt(parseFloat(@model.get('pm2p5')))
 
     .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
       .reading-inner
@@ -43,16 +43,16 @@
             .reading-units
               = "(%)"
       .cc-col.cc-col-20p
-        .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc'))/14)}"
+        .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc')))}"
           .reading-inner
             .value
-              = AirAware.precise_round(parseFloat(@model.get('tvoc'))/14,2) || "<0.1"
+              = AirAware.precise_round(parseFloat(@model.get('tvoc')),2) || "<0.1"
             .reading-label
               = "TVOC"
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
-        - hcho = parseFloat(@model.get('hcho'))/8
+        - hcho = parseFloat(@model.get('hcho'))
         .reading class="#{AirAware.assessHchoClass(hcho)}"
           .reading-inner
             .value

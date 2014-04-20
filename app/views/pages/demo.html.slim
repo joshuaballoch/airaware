@@ -29,27 +29,7 @@
             a href="javascript:void(0)"
               = _("Indoor Air")
   #mainReading.location-container
-    .row
-      .cc-col.cc-col-6
-        .location-title
-          = _("Indoor Air")
-      .cc-col.cc-col-6
-        = render 'shared/reading_block', :value => (0.7*@last_reading.pm2p5).to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
-    .row
-      .readings-secondrow-container
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.temperature.to_i, :label => _("Temp"), :units => "(°C)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => _("Humidity"), :units => "(%)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => (1/14)*@last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => (@last_reading.hcho/8).round(2), :label => _("HCHO"), :units => "(mg/m³)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => _("CO2"), :units => "(ppm)"
-      .col-sm-12
-        .pull-right
-          = @last_reading.reading_time.strftime("%H:%M:%S")
+    = render 'shared/reading_hud', :reading => @last_reading
   .row
     .col-xs-12
       .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("Outdoor air can be reported on-site or from nearby stations")
@@ -243,7 +223,7 @@
         else
           times[index] = ""
       pm2p5 = _.map readings.models, (item) ->
-        return parseInt(0.7*parseFloat(item.get('pm2p5')));
+        return item.get('pm2p5');
 
       times.reverse()
       pm2p5.reverse()

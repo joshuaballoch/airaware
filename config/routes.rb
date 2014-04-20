@@ -12,7 +12,7 @@ Airaware::Application.routes.draw do
   root :to => "pages#home"
   scope "(:locale)", :shallow_path => "(:locale)", :locale => /en|zh/ do
 
-    get '/demo', to: "locations#show"
+    get '/demo', to: "pages#demo"
     resources :locations do
       resources :readings, :only => [:index]
     end

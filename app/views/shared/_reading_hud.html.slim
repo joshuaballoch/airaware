@@ -1,0 +1,21 @@
+.row
+  .cc-col.cc-col-6
+    .location-title
+      = _("Indoor Air")
+  .cc-col.cc-col-6
+    = render 'shared/reading_block', :value => (reading.pm2p5).to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
+.row
+  .readings-secondrow-container
+    .cc-col.cc-col-20p
+      = render 'shared/reading_block', :value => reading.temperature.to_i, :label => _("Temp"), :units => "(°C)"
+    .cc-col.cc-col-20p
+      = render 'shared/reading_block', :value => reading.humidity.to_i, :label => _("Humidity"), :units => "(%)"
+    .cc-col.cc-col-20p
+      = render 'shared/reading_block', :value => reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
+    .cc-col.cc-col-20p
+      = render 'shared/reading_block', :value => (reading.hcho).round(2), :label => _("HCHO"), :units => "(mg/m³)"
+    .cc-col.cc-col-20p
+      = render 'shared/reading_block', :value => reading.co2.to_i, :label => _("CO2"), :units => "(ppm)"
+  .col-sm-12
+    .pull-right
+      = reading.reading_time.strftime("%H:%M:%S")
