@@ -11,9 +11,9 @@
     .cc-col.cc-col-20p
       = render 'shared/reading_block', :value => reading.humidity.to_i, :label => _("Humidity"), :units => "(%)"
     .cc-col.cc-col-20p
-      = render 'shared/reading_block', :value => reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
+      = render 'shared/reading_block', :value => (reading.tvoc || 0).round(2), :label => "TVOC", :units => "(mg/m³)"
     .cc-col.cc-col-20p
-      = render 'shared/reading_block', :value => (reading.hcho).round(2), :label => _("HCHO"), :units => "(mg/m³)"
+      = render 'shared/reading_block', :value => (reading.hcho || 0).round(2), :label => _("HCHO"), :units => "(mg/m³)"
     .cc-col.cc-col-20p
       = render 'shared/reading_block', :value => reading.co2.to_i, :label => _("CO2"), :units => "(ppm)"
   .col-sm-12
