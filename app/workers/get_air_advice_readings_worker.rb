@@ -5,7 +5,7 @@ class GetAirAdviceReadingsWorker
   recurrence  { hourly.minute_of_hour(0, 15, 30, 45) }
 
   def perform
-    ReportingDevice.air_advice.find_each do |device|
+    ReportingDevice.where(:device_type => ReportingDeviceType::AIR_ADVICE).find_each do |device|
       service = GetAirAdviceReadingsService.new :reporting_device_id => device.id
       service.perform
     end
