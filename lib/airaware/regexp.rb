@@ -18,5 +18,7 @@ module AirAware
     GIGA_NUMBER = /\A[0-9]{2}\.[0-9]{6}\z/
 
     CSI_CODE = /(\d*) (\d*) (\d*)\D{0,}[.]{0,1}(\d*)/
+
+    DATE_TIME = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/
   end
 end
