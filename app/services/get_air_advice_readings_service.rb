@@ -107,7 +107,7 @@ class GetAirAdviceReadingsService
   private
     def persist!
       @to_save.each do |r|
-        r.save!
+        r.save
       end
     end
 
