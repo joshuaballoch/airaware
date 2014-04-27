@@ -28,6 +28,8 @@ Spork.prefork do
       add_group "Observers", "app/observers"
       add_group "Jobs", "app/jobs"
       add_group "Libraries", "/lib/"
+      add_group "Services", "app/services"
+      add_group "Workers", "app/workers"
     end
   end
 
