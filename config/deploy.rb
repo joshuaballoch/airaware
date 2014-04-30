@@ -2,6 +2,7 @@ set :stages, %w(staging)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 require "bundler/capistrano"
+require "sidekiq/capistrano2"
 
 # Include Thinking sphinx on deploy when incorporate in app
 # require 'thinking_sphinx/deploy/capistrano'
