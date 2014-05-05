@@ -196,7 +196,7 @@
 - content_for :bottom do
   javascript:
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
-    var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
+    var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: #{raw @location.id}})
 
   coffee:
     setIndoorReading = (current_reading)->
