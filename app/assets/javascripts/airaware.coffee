@@ -8,6 +8,7 @@
 
 @AirAware.assessAirClass = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 35
     return "good"
   else if value < 75
@@ -23,6 +24,7 @@
 
 @AirAware.assessCo2Class = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 700
     return "good"
   else if value < 1000
@@ -38,6 +40,7 @@
 
 @AirAware.assessHumidityClass = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 55
     return "good"
   else if value < 65
@@ -53,6 +56,7 @@
 
 @AirAware.assessHchoClass = (reading) ->
   value = parseFloat(reading)
+  return unless value > 0
   if value < 0.072
     return "good"
   else if value < 0.088
@@ -62,6 +66,7 @@
 
 @AirAware.assessTvocClass = (reading) ->
   value = parseFloat(reading)
+  return unless value > 0
   if value < 0.45
     return "good"
   else if value < 0.55
