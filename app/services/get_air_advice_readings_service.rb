@@ -31,11 +31,11 @@ class GetAirAdviceReadingsService
     raise InvalidParams unless params[:reporting_device_id]
     @device = ReportingDevice.find(params[:reporting_device_id])
 
-    @last_reading = @device.readings.ordered.first || Reading.new({reading_time: DateTime.new(2014, 04, 29)})
+    @last_reading = @device.readings.ordered.first || Reading.new({reading_time: DateTime.new(2014, 05, 06)})
     @identifier = @device.identifier
 
     # Initialize Offset and Limit
-    @limit = 20
+    @limit = 100
     @offset = 0
 
     # Initialize a readings array
