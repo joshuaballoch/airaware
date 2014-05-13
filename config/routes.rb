@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
 Airaware::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
   namespace :admin do
     constraints AdminAuthorization do
