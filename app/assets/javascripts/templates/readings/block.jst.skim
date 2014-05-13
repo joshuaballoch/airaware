@@ -16,7 +16,10 @@
     .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
       .reading-inner
         .value
-          = pm2p5
+          - if pm2p5 < 0
+            = "N/A"
+          - else
+            = pm2p5
         .reading-label
           = __("PM 2.5")
         .reading-units
