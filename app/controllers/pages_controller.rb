@@ -25,8 +25,9 @@ class PagesController < ApplicationController
   end
 
   def home
-    if current_user
-      @locations = current_user.locations
+    if current_user && current_user.locations.first
+      redirect_to location_path(:id => current_user.locations.first.id)
+      #@locations = current_user.locations
     end
   end
 end

@@ -1,7 +1,14 @@
 - if user_signed_in?
   .container.aa-page-container
     / = link_to _("Create a new location"), new_location_path
-
+    h2
+      = _("Oops..")
+    h3
+      = _("It seems like you do not have any locations monitored by AirAware.")
+    p
+      = _("Please contact us to resolve this issue.")
+    p
+      = _("Contact Email: rkw@gigabase.org")
 - else
   .aa-page-header id="content"
     .container
