@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Airaware::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :skip => 'registration'
 
   namespace :admin do

@@ -61,6 +61,12 @@ class ApplicationController < ActionController::Base
     head :not_implemented
   end
 
+  def authenticate_admin_user!
+    unless AdminAuthorization.matches?(request)
+      redirect_to root_path, :alert => _("Unauthorized Access!")
+    end
+  end
+
   private
 
     def set_gettext_locale

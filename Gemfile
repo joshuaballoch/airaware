@@ -19,6 +19,10 @@ gem 'devise'
 gem 'devise-async'
 gem 'cancan'
 
+# Admin Dashboard
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem "meta_search",    '>= 1.1.0.pre'
+
 # Enumerations
 gem 'enumerate_it'
 
