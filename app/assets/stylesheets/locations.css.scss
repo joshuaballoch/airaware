@@ -2,7 +2,25 @@
   max-width:100%;
   overflow:scroll;
 }
+.aa-page-header {
+  position:relative;
+  .privacy-sign {
+    float:right;
+    text-align:center;
+    margin-top:33px;
+    font-size:37px;
+    max-width:250px;
+    background:#444;
+    opacity:0.6;
+    padding:10px 10px 0px 10px;
+    .span.text {
+      display:inline-block;
+    }
+    @include border-top-radius(5px);
+    @include border-bottom-radius(5px);
+  }
 
+}
 .reading {
   height: 100px;
   width:100%;

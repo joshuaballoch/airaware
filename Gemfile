@@ -30,6 +30,8 @@ gem "curb", "~> 0.8.5"
 gem 'h2ocube_rails_cache'
 
 # _("Translations support!")
+gem 'globalize'
+
 gem 'gettext_i18n_rails'
 gem 'gettext_i18n_rails_js', github: 'rdd-giga/gettext_i18n_rails_js'
 gem 'gettext', require: false
@@ -54,7 +56,7 @@ group :assets do
   # Bootstrap-sass for putting Bootstrap into the application
   #gem 'bootstrap-sass'
   # Use github repo and 3 branch to use Bootstrap 3 (2.3.2 is on standard release gem)
-  gem 'bootstrap-sass', '>= 3.0'
+  gem 'bootstrap-sass', '~> 3.1.1'
 
   gem 'uglifier', '>= 1.0.3'
 
