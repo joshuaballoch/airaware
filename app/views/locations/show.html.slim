@@ -232,11 +232,12 @@
       times = _.map readings.models, (item) ->
         return item.get('reading_time');
       _.each times, (item, index) ->
-        if parseInt(index/100)*100 == index
+        if parseInt(index/5)*5 == index
           time = AirAware.parseTime(item)
           times[index] = time.substring(0,time.length-3)
         else
           times[index] = ""
+
       pm2p5 = _.map readings.models, (item) ->
         return item.get('pm2p5');
 

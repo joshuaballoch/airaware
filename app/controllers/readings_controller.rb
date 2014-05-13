@@ -3,21 +3,21 @@ class ReadingsController < ApplicationController
   respond_to :xml, :only => [:us_consulate]
   def index
     @location = Location.find(params[:location_id])
-    @readings = @location.readings.ordered.limit(1440)
-    # @readings = @location.readings.find_by_sql(
-    #   %{
-    #     SELECT *
-    #     FROM (
-    #         SELECT
-    #             @row := @row +1 AS rownum, reading_time, temperature, humidity, hcho, co2, tvoc, pm2p5, reporting_device_id
-    #         FROM (
-    #             SELECT @row :=0) r, readings
-    #         ) ranked
-    #     WHERE rownum % 20 = 1
-    #     ORDER BY reading_time DESC
-    #     LIMIT 60
-    #   }
-    # )
+    # @readings = @location.readings.ordered.limit(1440)
+    @readings = @location.readings.find_by_sql(
+      %{
+        SELECT *
+        FROM (
+            SELECT
+                @row := @row +1 AS rownum, reading_time, temperature, humidity, hcho, co2, tvoc, pm2p5, reporting_device_id
+            FROM (
+                SELECT @row :=0) r, readings
+            ) ranked
+        WHERE rownum % 115 = 1
+        ORDER BY reading_time DESC
+        LIMIT 72
+      }
+    )
 
     # TO DO: add specs, use a decorator instead of to_json
     render :json => @readings.to_json

@@ -7,7 +7,22 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @readings = @location.readings.ordered.limit(1440)
-    @last_reading = @readings.first
+    # @readings = @location.readings.ordered.limit(1440)
+    @readings = @location.readings.find_by_sql(
+      %{
+        SELECT *
+        FROM (
+            SELECT
+                @row := @row +1 AS rownum, reading_time, temperature, humidity, hcho, co2, tvoc, pm2p5, reporting_device_id
+            FROM (
+                SELECT @row :=0) r, readings
+            ) ranked
+        WHERE rownum % 115 = 1
+        ORDER BY reading_time DESC
+        LIMIT 72
+      }
+    )
+
+    @last_reading = @location.readings.ordered.first
   end
 end
