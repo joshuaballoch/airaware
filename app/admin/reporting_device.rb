@@ -1,5 +1,9 @@
 ActiveAdmin.register ReportingDevice do
 
+  filter :identifier
+  filter :location
+  filter :device_type
+
   index do
     selectable_column
     id_column
