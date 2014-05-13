@@ -95,7 +95,7 @@ class GetAirAdviceReadingsService
     @readings_received.each do |reading|
       r = @device.readings.build :reading_time => DateTime.from_str(reading["Timestamp"]),
                                  :pm2p5        => reading["Part"],
-                                 :temperature  => (reading["Temp"].to_f-32)*(5/9),
+                                 :temperature  => (reading["Temp"].to_f-32)*5/9,
                                  :humidity     => reading["Humi"],
                                  :co2          => reading["CO2"],
                                  :co           => reading["CO"],
