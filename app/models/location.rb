@@ -3,6 +3,8 @@ class Location < ActiveRecord::Base
   extend EnumerateIt
 
   attr_accessible :name, :description, :user, :privacy
+  attr_accessible :name, :description, :user, :user_id, :privacy, :location_users_attributes, :as => :admin
+
 
   ## VALIDATIONS
   #
@@ -16,6 +18,8 @@ class Location < ActiveRecord::Base
   has_many :readings, :through => :reporting_devices
 
   has_many :location_users, :dependent => :destroy
+  accepts_nested_attributes_for :location_users
+
   has_many :users, :through => :location_users
   has_many :admins, :through => :location_users, :source => :user, :conditions => proc { ['`location_users`.`role` = ?', LocationUserRole::ADMIN] }
 

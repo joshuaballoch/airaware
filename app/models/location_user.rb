@@ -4,6 +4,7 @@ class LocationUser < ActiveRecord::Base
 
   ## Mass Assignment
   attr_accessible :user, :user_id, :location, :location_id, :role
+  attr_accessible :user, :user_id, :location, :location_id, :role, :as => :admin
 
   ## Validations
   #

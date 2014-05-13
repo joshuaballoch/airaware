@@ -21,8 +21,7 @@ ActiveAdmin.register User do
       f.input :last_name
       f.input :password
       f.input :password_confirmation
-      f.input :confirmed_at
-      f.input :confirmation_sent_at
+      f.input :confirmed_at, :as => :datepicker
       f.input :confirmation_token
       f.input :unconfirmed_email
       f.input :locale

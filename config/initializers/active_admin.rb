@@ -241,3 +241,10 @@ ActiveAdmin.setup do |config|
   # config.filters = true
 
 end
+
+module ActiveAdmin
+  class BaseController
+    with_role :admin
+  end
+end
+
