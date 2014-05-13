@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
   respond_to :xml, :only => [:us_consulate]
   def index
     @location = Location.find(params[:location_id])
-    @readings = @location.readings.limit(100)
+    @readings = @location.readings.ordered.limit(1440)
     # @readings = @location.readings.find_by_sql(
     #   %{
     #     SELECT *
@@ -21,6 +21,12 @@ class ReadingsController < ApplicationController
 
     # TO DO: add specs, use a decorator instead of to_json
     render :json => @readings.to_json
+  end
+
+  def latest
+    @location = Location.find(params[:location_id])
+    @reading = @location.readings.ordered.first
+    render :json => @reading.to_json
   end
 
   def us_consulate

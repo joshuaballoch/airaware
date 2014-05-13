@@ -16,7 +16,11 @@ Airaware::Application.routes.draw do
 
     get '/demo', to: "pages#demo"
     resources :locations do
-      resources :readings, :only => [:index]
+      resources :readings, :only => [:index] do
+        collection do
+          get :latest
+        end
+      end
     end
     resources :readings, :only => [] do
       collection do

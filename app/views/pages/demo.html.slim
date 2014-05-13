@@ -195,6 +195,7 @@
 
 - content_for :bottom do
   javascript:
+    var location_id = #{ raw @location.id }
     var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
     var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: #{raw @location.id}})
 
@@ -217,7 +218,7 @@
       times = _.map readings.models, (item) ->
         return item.get('reading_time');
       _.each times, (item, index) ->
-        if parseInt(index/5)*5 == index
+        if parseInt(index/100)*100 == index
           time = AirAware.parseTime(item)
           times[index] = time.substring(0,time.length-3)
         else
@@ -259,10 +260,10 @@
     setChart(readings)
 
     ## RESIZE AND RESTART CHART ON WINDOW RESIZE
-    throttled_set = _.throttle setChart, 500
+    throttled_set_chart = _.throttle setChart, 500
 
     $(window).on "resize", () ->
-      throttled_set(readings)
+      throttled_set_chart(readings)
 
     ## Set it to poll and update the data
     current_reading = r
@@ -271,19 +272,27 @@
 
     # Faster checking of main readings
     setInterval () ->
-      readings.fetch().success () ->
+      payload =
+        url: "/locations/#{location_id}/readings/latest"
+        dataType: "json"
+        type: "GET"
+
+      $.ajax(payload).success (data) ->
         ## Check to update the main readings data
-        if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
-          current_reading = readings.models[0]
+        new_reading = new AirAware.Models.Reading(data)
+        if new Date(new_reading.get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
+          current_reading = new_reading
           setIndoorReading(current_reading)
     , 3000
 
     # Slower update of chart
     setInterval () ->
+      readings.fetch().success () ->
         ## Push the new data to the chart, if there is new
         new_ids = _.map readings.models, (item) -> return item.id
         if chart_display_ids != new_ids
-          throttled_set(readings)
+          throttled_set_chart(readings)
+          chart_display_ids = new_ids
     , 30000
 
     ## GET and SET U.S. Consulate Data

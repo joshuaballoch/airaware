@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @readings = @location.readings.ordered.limit(100)
-    @last_reading = @readings.ordered.first
+    @readings = @location.readings.ordered.limit(1440)
+    @last_reading = @readings.first
   end
 end
