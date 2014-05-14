@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     else
       @location = Location.find(7)
     end
-    @readings = @location.readings.find_by_sql(
+    @readings = @location.readings.ordered.find_by_sql(
       %{
         SELECT *
         FROM (
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
         LIMIT 72
       }
     )
-    @last_reading = @readings.first
+    @last_reading = @readings.ordered.first
   end
 
   def home
