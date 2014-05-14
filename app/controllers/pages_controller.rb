@@ -20,7 +20,7 @@ class PagesController < ApplicationController
         LIMIT 72
       }
     )
-    @last_reading = @readings.ordered.first
+    @last_reading = @readings.first
   end
 
   def home
