@@ -99,7 +99,7 @@ class GetAirAdviceReadingsService
                                  :humidity     => reading["Humi"],
                                  :co2          => reading["CO2"],
                                  :co           => reading["CO"],
-                                 :tvoc         => reading["Gas"].to_f*0.001
+                                 :tvoc         => reading["Gas"].to_f*0.002295
       @to_save << r
     end
   end
