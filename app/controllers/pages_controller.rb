@@ -16,7 +16,7 @@ class PagesController < ApplicationController
             FROM (
                 SELECT @row :=0) r, readings
             ) ranked
-        WHERE rownum % 115 = 1 AND reporting_device_id = ?
+        WHERE reporting_device_id = ? AND rownum % 115 = 1
         ORDER BY reading_time DESC
         LIMIT 72
       ", @location.reporting_devices.first.id]
