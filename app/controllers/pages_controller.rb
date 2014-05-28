@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
 
   def demo
-    if Rails.env.development?
-      @location = Location.find(1)
-    else
-      @location = Location.find(7)
-    end
+    # if Rails.env.development?
+    #   @location = Location.find(1)
+    # else
+    @location = Location.find(7)
+    # end
     @readings = @location.readings.ordered.find_by_sql(
       %{
         SELECT *
