@@ -5,7 +5,7 @@ class ReadingsController < ApplicationController
     @location = Location.find(params[:location_id])
     # @readings = @location.readings.ordered.limit(1440)
     @readings = @location.readings.find_by_sql(
-      %{
+      ["
         SELECT *
         FROM (
             SELECT
@@ -13,10 +13,10 @@ class ReadingsController < ApplicationController
             FROM (
                 SELECT @row :=0) r, readings
             ) ranked
-        WHERE rownum % 115 = 1
+        WHERE rownum % 115 = 1 AND reporting_device_id = ?
         ORDER BY reading_time DESC
         LIMIT 72
-      }
+      ", @location.reporting_devices.first.id]
     )
 
     # TO DO: add specs, use a decorator instead of to_json
