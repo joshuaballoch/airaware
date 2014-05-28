@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
             FROM (
                 SELECT @row :=0) r, readings
             ) ranked
-        WHERE reporting_device_id = ? AND rownum % 115 = 1
+        WHERE reporting_device_id = ? AND rownum % 20 = 1
         ORDER BY reading_time DESC
         LIMIT 72
       ", @location.reporting_devices.first.id]
