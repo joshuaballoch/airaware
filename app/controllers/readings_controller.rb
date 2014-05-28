@@ -31,10 +31,10 @@ class ReadingsController < ApplicationController
 
   def us_consulate
     if params[:city] == "shanghai"
-      cache_key = ['us_consulate_shanghai', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
+      cache_key = ['us_consulate_shanghai', 'v4', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
       url = "http://airpi.gigabase.org/web/rss/1/4.xml"
     elsif params[:city] == "beijing"
-      cache_key = ['us_consulate_beijing', 'v3', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
+      cache_key = ['us_consulate_beijing', 'v4', Time.now.strftime('%y %m %d %H'), Time.now.strftime("%M").to_i/10*10]
       url = "http://airpi.gigabase.org/web/rss/1/1.xml"
     else
       raise BadRequest
