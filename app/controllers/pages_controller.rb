@@ -21,7 +21,7 @@ class PagesController < ApplicationController
         LIMIT 72
       ", @location.reporting_devices.first.id]
     )
-    @last_reading = @location.readings.ordered
+    @last_reading = @location.readings.ordered.first
   end
 
   def home
