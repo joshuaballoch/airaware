@@ -35,6 +35,11 @@ class AirAware.Models.Reading extends Backbone.Epoxy.Model
       get: (co2) ->
         parseInt(co2) || "N/A"
 
+    disp_reading_time:
+      deps: ["reading_time"]
+      get: (reading_time) ->
+        AirAware.parseTime(reading_time) if reading_time
+
 class AirAware.Collections.Readings extends Backbone.Collection
   model: AirAware.Models.Reading
 

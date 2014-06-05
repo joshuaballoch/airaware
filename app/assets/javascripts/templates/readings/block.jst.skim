@@ -12,7 +12,7 @@
       - pm2p5 = parseInt(@model.get('pm2p5'))
     - else
       - pm2p5 = parseInt(parseFloat(@model.get('pm2p5')))
-
+    span.pm2p5-badge
     .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
       .reading-inner
         span.pm2p5.value
@@ -32,6 +32,7 @@
             .reading-units
               = "(°C)"
       .cc-col.cc-col-20p
+        span.humidity-badge
         .reading class="#{AirAware.assessHumidityClass(@model.get('humidity'))}"
           .reading-inner
             span.humidity.value
@@ -40,6 +41,7 @@
             .reading-units
               = "(%)"
       .cc-col.cc-col-20p
+        span.tvoc-badge
         .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc')))}"
           .reading-inner
             span.tvoc.value
@@ -48,8 +50,8 @@
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
-        - hcho = parseFloat(@model.get('hcho'))
-        .reading class="#{AirAware.assessHchoClass(hcho)}"
+        span.hcho-badge
+        .reading
           .reading-inner
             span.hcho.value
             .reading-label
@@ -57,6 +59,7 @@
             .reading-units
               = "(mg/m³)"
       .cc-col.cc-col-20p
+        span.co2-badge
         .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
           .reading-inner
             span.co2.value
@@ -65,5 +68,4 @@
             .reading-units
               = "(ppmv)"
 .col-sm-12
-  .pull-right.timestamp
-    = "#{AirAware.parseTime(@model.get('reading_time'))}"
+  span.readingtime.pull-right.timestamp

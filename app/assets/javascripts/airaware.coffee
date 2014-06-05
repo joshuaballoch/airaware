@@ -81,10 +81,14 @@
   # hours = date.getUTCHours()
   # minutes = date.getMinutes()
   # seconds = date.getSeconds()
-  date = datetime.match(/\d{4}-\d{2}-\d{2}T(\d{2}):(\d{2}):(\d{2})Z/)
-  hours = parseInt(date[1])
-  minutes = parseInt(date[2])
-  seconds = parseInt(date[3])
+  date = datetime.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/)
+  year    = parseInt(date[1])
+  month   = parseInt(date[2])
+  day     = parseInt(date[3])
+  hours   = parseInt(date[4])
+  minutes = parseInt(date[5])
+  seconds = parseInt(date[6])
+
   hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
   minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
   seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"
