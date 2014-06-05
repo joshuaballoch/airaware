@@ -15,11 +15,7 @@
 
     .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
       .reading-inner
-        .value
-          - if pm2p5 < 0
-            = "N/A"
-          - else
-            = pm2p5
+        span.pm2p5.value
         .reading-label
           = __("PM 2.5")
         .reading-units
@@ -30,8 +26,7 @@
       .cc-col.cc-col-20p
         .reading
           .reading-inner
-            .value
-              = parseInt(@model.get('temperature')) || "N/A"
+            span.temperature.value
             .reading-label
               = __("Temp")
             .reading-units
@@ -39,8 +34,7 @@
       .cc-col.cc-col-20p
         .reading class="#{AirAware.assessHumidityClass(@model.get('humidity'))}"
           .reading-inner
-            .value
-              = parseInt(@model.get('humidity')) || "N/A"
+            span.humidity.value
             .reading-label
               = __("Humidity")
             .reading-units
@@ -48,8 +42,7 @@
       .cc-col.cc-col-20p
         .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc')))}"
           .reading-inner
-            .value
-              = AirAware.precise_round(parseFloat(@model.get('tvoc')),2) || "<0.1"
+            span.tvoc.value
             .reading-label
               = "TVOC"
             .reading-units
@@ -58,8 +51,7 @@
         - hcho = parseFloat(@model.get('hcho'))
         .reading class="#{AirAware.assessHchoClass(hcho)}"
           .reading-inner
-            .value
-              = AirAware.precise_round(hcho,2) || "N/A"
+            span.hcho.value
             .reading-label
               = __("HCHO")
             .reading-units
@@ -67,8 +59,7 @@
       .cc-col.cc-col-20p
         .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
           .reading-inner
-            .value
-              = parseInt(@model.get('co2')) || "N/A"
+            span.co2.value
             .reading-label
               = __("CO2")
             .reading-units

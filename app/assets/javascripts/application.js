@@ -21,6 +21,7 @@
 //= require json2
 //= require bootstrap
 //= require backbone
+//= require backbone.epoxy
 //= require chart
 //= require xml2json
 //= require_tree .
