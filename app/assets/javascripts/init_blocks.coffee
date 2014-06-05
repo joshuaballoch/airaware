@@ -4,3 +4,6 @@ $(document).ready () ->
 
   _.each $('.aa-outdoor-reading-block'), (item) ->
     $(item).dynamizeOutdoorReadingBlock()
+
+  _.each $('.aa-chart-block'), (item) ->
+    $(item).dynamizeChart()
