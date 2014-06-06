@@ -1,4 +1,4 @@
-.aa-page-header id="content"
+/.aa-page-header id="content"
   .container
     .row
       .col-xs-7
@@ -13,23 +13,19 @@
             span.text.hidden-xs
               = _("Private")
 .container.aa-page-container
+  .skin
 
-  .row
-    .col-sm-12
-      h3.page-header
-        = _("Latest Readings")
+  .aa-block-wrapper
+    div.aa-block.aa-reading-block data-location-id=@location.id
+    .skin
 
-  .row
-    .col-xs-12.aa-block-wrapper
-      div.aa-reading-block data-location-id=@location.id
+  .aa-block-wrapper
+    .skin
+    div.aa-block.aa-outdoor-reading-block data-location="beijing"
 
-  .row
-    .col-xs-12.aa-block-wrapper
-      div.aa-outdoor-reading-block data-location="beijing"
-
-  .row
-    .col-xs-12.aa-block-wrapper
-      div.aa-outdoor-reading-block data-location="shanghai"
+  .aa-block-wrapper
+    .skin
+    div.aa-block.aa-outdoor-reading-block data-location="shanghai"
 
   = render 'shared/legend'
 
@@ -47,4 +43,4 @@
             = _("Past week")
   .row
     .col-xs-12.aa-block-wrapper
-      div.aa-chart-block data-location-id=@location.id
+      div.aa-block.aa-chart-block data-location-id=@location.id

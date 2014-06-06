@@ -1,4 +1,7 @@
-.row
+.aa-block-title
+  h3
+    = "Indoor Air"
+.aa-block-row
   .cc-col.cc-col-6
     .location-title
       - if @model.get('city') == "shanghai"

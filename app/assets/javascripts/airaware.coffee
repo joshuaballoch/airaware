@@ -6,6 +6,15 @@
 @AirAware.locale = ()->
   if location.pathname.substring(0,3) == "/zh" then 'zh' else 'en'
 
+@AirAware.humanizeRating = (rating) ->
+  return __("Hazardous") if rating == "hazardous"
+  return __("Very Unhealthy") if rating == "very-unhealthy"
+  return __("Unhealthy") if rating == "unhealthy"
+  return __("Sensitive") if rating == "sensitive"
+  return __("Moderate") if rating == "moderate"
+  return __("Good") if rating == "good"
+  __("Unknown")
+
 @AirAware.assessAirClass = (reading) ->
   value = parseInt(reading)
   return unless value > 0

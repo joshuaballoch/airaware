@@ -8,7 +8,7 @@ class AirAware.Models.Reading extends Backbone.Epoxy.Model
       deps: ["pm2p5"]
       get: (pm2p5) ->
         return "N/A" if pm2p5 <= 0
-        pm2p5
+        parseInt(pm2p5)
 
     disp_temperature:
       deps: ["temperature"]

@@ -22,15 +22,20 @@ class AirAware.Views.Readings.Block extends Backbone.Epoxy.View
 
   computeds: {
     "pm2p5_rating"      : () ->
-      "<span class='badge #{AirAware.assessAirClass(@getBinding('pm2p5'))}' >ah!</span>"
+      rating = AirAware.assessAirClass(@getBinding('pm2p5'))
+      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
     "humidity_rating"   : () ->
-      "<span class='badge #{AirAware.assessHumidityClass(@getBinding('humidity'))}' >ah!</span>"
+      rating = AirAware.assessHumidityClass(@getBinding('humidity'))
+      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
     "tvoc_rating"       : () ->
-      "<span class='badge #{AirAware.assessTvocClass(@getBinding('tvoc'))}' >ah!</span>"
+      rating = AirAware.assessTvocClass(@getBinding('tvoc'))
+      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
     "hcho_rating"       : () ->
-      "<span class='badge #{AirAware.assessHchoClass(@getBinding('hcho'))}' >ah!</span>"
+      rating = AirAware.assessHchoClass(@getBinding('hcho'))
+      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
     "co2_rating"        : () ->
-      "<span class='badge #{AirAware.assessCo2Class(@getBinding('co2'))}' >ah!</span>"
+      rating = AirAware.assessCo2Class(@getBinding('co2'))
+      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
   }
 
   render: () ->

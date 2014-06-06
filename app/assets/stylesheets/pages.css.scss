@@ -37,11 +37,42 @@ body {
     }
   }
   .aa-page-container {
-    background:white;
     opacity:0.9;
     margin-bottom:20px;
     padding-bottom:10px;
+    position:relative;
+    z-index:1;
+    .aa-block-wrapper {
+      position:relative;
+      margin-bottom:20px;
+      z-index:1;
+      .skin {
+        background:#000;
+      }
+      .aa-block {
+        z-index: 1;
+        position: relative;
+        padding: 1px 20px;
+        .aa-block-title {
+          color: #fff;
+          border-bottom:1px solid #fff;
+          width:100%;
+          z-index:1;
+        }
+
+      }
+    }
   }
+}
+.skin {
+  position: absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  background: #444;
+  z-index:0;
+  opacity: 0.2;
 }
 .t-o {
   overflow:hidden;
