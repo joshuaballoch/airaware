@@ -65,4 +65,23 @@ Airaware::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { :host => 'www.airaware.co' }
+  config.action_mailer.asset_host = 'www.airaware.co'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.sendgrid.net",
+    :port                 => 587,
+    :domain               => 'gigabase.org',
+    :user_name            => 'giga-test',
+    :password             => 'V37eecHv2kQw',
+    :authentication       => 'plain',
+    :enable_starttls_auto => false  }
+
+  config.middleware.use ExceptionNotification::Rack, :email => {
+    :email_prefix => "[Exception AirAware/Giga Production] ",
+    :sender_address => %{"Exception Notifier" <support@gigabase.org>},
+    :exception_recipients => %w{joshuaballoch@gmail.com}
+    }
+
 end

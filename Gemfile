@@ -45,6 +45,9 @@ gem "sidekiq"
 gem "sidetiq" #Used for scheduled jobs
 gem 'sinatra', '>= 1.3.0', :require => false #sinatra is used for Sidekiq::Web
 
+# Exception notifier for rails
+gem 'exception_notification'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
