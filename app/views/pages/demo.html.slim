@@ -1,64 +1,36 @@
-.aa-page-header id="content"
+.aa-page-header.simple id="content"
   .container
-    h1
-      - if I18n.locale.to_s == "zh-CN"
-        = "办公室演示"
-      - else
-        = "Office Demo"
-      /= @location.name
-    p
-      = _("Indoor Air Reporting Demo")
+    .aa-banner.thin
+      h1
+        = _("AirAware Demo")
+      h2
+        = _("Our monitors are already installed in schools and offices across China.")
+      p
+        = _("See what they see")
+    .divider
 
-.container.aa-page-container
-
+.container.aa-public-container
   .row
     .col-sm-12
-      h3.page-header
-        = _("Indoor Air Monitoring for Schools & Offices")
-      h4
-        = _("Get real time indoor and outdoor air quality readings.")
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-top:-30px; margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("AirAware can install multiple sensors per location.")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Indoor Air")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Indoor Air")
+      h3
+        = _("Simple Interface")
+      p
+        = _("Users can see their indoor air quality at a glance.")
+
   .row
     .col-xs-12.aa-block-wrapper
       div.aa-reading-block data-location-id=@location.id
 
   .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("Outdoor air can be reported on-site or from nearby stations")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Beijing Outdoor")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Beijing Outdoor")
+    .col-sm-12
+      h3
+        = _("Outdoor Comparisons")
+      p
+        = _("Quickly compare against outdoor air pollution.")
 
   .row
     .col-xs-12.aa-block-wrapper
       div.aa-outdoor-reading-block data-location="beijing"
-
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("Outdoor air can be reported on-site or from nearby stations")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Shanghai Outdoor")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Shanghai Outdoor")
 
   .row
     .col-xs-12.aa-block-wrapper
@@ -68,29 +40,34 @@
 
   .row
     .col-sm-12
-      h4
-        = _("Charts and graphs enable users to take a closer look.")
-      .pull-right
-        .btn-group data-toggle="tooltip" data-placement="top" title=_("Paid Feature")
-          .btn.btn-default disabled="disabled"
-            = _("Past hour")
-          .btn.btn-default.active
-            = _("Past day")
-          .btn.btn-default disabled="Paid Feature"
-            = _("Past week")
+      h3
+        = _("Visualize Trends")
+      p
+        = _("Charts give users simple, powerful ways to see recent trends.")
   .row
     .col-xs-12.aa-block-wrapper
       div.aa-chart-block data-location-id=@location.id
-
+  .spacer
   .row
-    .col-sm-12
-      .page-block
-        h1
-          = _("Get AirAware.")
-        h4
-          = _("AirAware is now launching at offices and schools across China. Sign up to learn more!")
-        p
-          = form_for SignUp.new do |f|
-            .form-group
-              = f.text_field :email, :class => "form-control", :placeholder => _("email, phone, or qq")
-            = f.submit _("Sign up"), :class => "btn btn-success"
+    h2.centered
+        = _("Interested in AirAware?")
+  .row.demo-cards
+    .col-md-6
+      .card
+        h3
+          = _("Let us contact you")
+        .divider
+        = form_for SignUp.new do |f|
+          .form-group
+            .hint.small
+              = _("Leave your email, phone, wechat, or qq id.")
+            = f.text_field :email, :class => "form-control", :placeholder => _("email, phone, wechat, or qq")
+          = f.submit _("Sign up"), :class => "btn btn-success"
+    .col-md-6
+      .card
+        h3
+          = _("Get in touch with us")
+        .divider
+        = mail_to 'rkw@gigabase.org', _("By Email"), :class => "btn btn-success"
+        .btn.btn-success
+          = "By Phone: (021) 80"
