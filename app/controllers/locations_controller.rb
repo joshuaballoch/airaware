@@ -1,10 +1,16 @@
 class LocationsController < ApplicationController
+  layout 'application_public'
+  load_and_authorize_resource
+
+  def new
+    @location = Location.new
+  end
 
   def show
-    id = params[:id] || 1
-    @location = Location.find_by_id(id)
-    @readings = @location.readings.find_by_sql(
-      %{
+    @location = Location.find(params[:id])
+    # @readings = @location.readings.ordered.limit(1440)
+    @readings = @location.readings.ordered.find_by_sql(
+      ["
         SELECT *
         FROM (
             SELECT
@@ -12,11 +18,12 @@ class LocationsController < ApplicationController
             FROM (
                 SELECT @row :=0) r, readings
             ) ranked
-        WHERE rownum % 20 = 1
+        WHERE reporting_device_id = ? AND rownum % 20 = 1
         ORDER BY reading_time DESC
-        LIMIT 60
-      }
+        LIMIT 72
+      ", @location.reporting_devices.first.id]
     )
+
     @last_reading = @location.readings.ordered.first
   end
 end

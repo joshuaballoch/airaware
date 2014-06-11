@@ -23,7 +23,9 @@ module Airaware
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-
+    config.autoload_paths += Dir["#{config.root}/app/models/**/*"].select {|d| File.directory? d}
+    ActiveSupport::Dependencies.autoload_paths << "#{config.root}/app/services"
+    ActiveSupport::Dependencies.autoload_paths << "#{config.root}/app/workers"
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -66,5 +68,15 @@ module Airaware
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Use application_public layout for all devise views
+    config.to_prepare do
+      Devise::SessionsController.layout "application_public"
+      Devise::RegistrationsController.layout "application_public"
+      Devise::ConfirmationsController.layout "application_public"
+      Devise::UnlocksController.layout "application_public"
+      Devise::PasswordsController.layout "application_public"
+    end
+
   end
 end

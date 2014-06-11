@@ -16,3 +16,8 @@
 
 # Ignore ds store files
 *.DS_STORE
+
+*.rdb
+
+.ruby-gemset*
+.ruby-version*

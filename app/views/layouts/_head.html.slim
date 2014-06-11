@@ -1,0 +1,11 @@
+head
+  title AirAware
+  = stylesheet_link_tag "application", :media => "all"
+  /[if lt IE 9]
+    = javascript_include_tag "html5shiv", :media => "all"
+    = javascript_include_tag "excanvas"
+    = javascript_include_tag "respond"
+  = csrf_meta_tags
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+  meta http-equiv="X-UA-Compatible" content="IE=edge"
+  meta name="locale" content=I18n.locale

@@ -1,0 +1,105 @@
+.row
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading style="height:40px; background:#fff;"
+        a.panel-title.pull-right class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1"
+          = _("Show Legend")
+      #panel1.panel-collapse.collapse
+        .panel-body.fix-width-table
+          table.table style="color:#fff;"
+            thead style="color:#000;"
+              th
+              th
+                = _("P.M. 2.5")
+              th
+                = _("Humidity")
+              th
+                = _("TVOC")
+              th
+                = _("HCHO")
+              th
+                = _("CO2")
+            tbody
+              tr.good
+                td
+                  = _("Good")
+                td
+                  = "< 35"
+                td
+                  = "< 55"
+                td
+                  = "< 0.45"
+                td
+                  = "< 0.072"
+                td
+                  = "< 700"
+
+              tr.moderate
+                td
+                  = _("Moderate")
+                td
+                  = "35-75"
+                td
+                  = "55-65"
+                td
+                  = "0.45-0.55"
+                td
+                  = "0.072-0.088"
+                td
+                  = "700-1000"
+
+              tr.sensitive
+                td
+                  = _("Bad for Sensitive Groups (Children, Seniors)")
+                td
+                  = "75-100"
+                td
+                  = "65-75"
+                td
+                  = " - "
+                td
+                  = " - "
+                td
+                  = "1000-1300"
+
+              tr.unhealthy
+                td
+                  = _("Unhealthy")
+                td
+                  = "100-120"
+                td
+                  = "75-85"
+                td
+                  = "> 0.55"
+                td
+                  = "> 0.088"
+                td
+                  = "1300-1600"
+
+              tr.very-unhealthy
+                td
+                  = _("Very Unhealthy")
+                td
+                  = "120-200"
+                td
+                  = "85-90"
+                td
+                  = " - "
+                td
+                  = " - "
+                td
+                  = "1600-3000"
+
+              tr.hazardous
+                td
+                  = _("Hazardous")
+                td
+                  = "> 200"
+                td
+                  = "> 90"
+                td
+                  = " - "
+                td
+                  = " - "
+                td
+                  = "> 3000"

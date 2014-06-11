@@ -28,6 +28,8 @@ Spork.prefork do
       add_group "Observers", "app/observers"
       add_group "Jobs", "app/jobs"
       add_group "Libraries", "/lib/"
+      add_group "Services", "app/services"
+      add_group "Workers", "app/workers"
     end
   end
 
@@ -46,11 +48,12 @@ Spork.prefork do
   # end
 
   Rails.logger.level = 4
-  # Devise.stretches = 1
+  Devise.stretches = 1
 
   RSpec.configure do |config|
     config.include FactoryGirl::Syntax::Methods
     # config.include Paperclip::Shoulda::Matchers
+    config.include Devise::TestHelpers, type: :controller
 
     # == Mock Framework
     #

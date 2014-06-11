@@ -1,0 +1,14 @@
+- if user_signed_in?
+  /- if Rails.env.development?
+  = link_to destroy_user_session_path, :method => :delete do
+    i.icon-signout
+    = _("Log Out")
+  /- else
+    / Fix me: add (:protocol => 'https')
+    = link_to destroy_user_session_url, :method => :delete do
+      i.icon-signout
+      = _("Sign Out")
+- else
+  = link_to new_user_session_url
+    i.icon-signin
+      = _("Sign In")

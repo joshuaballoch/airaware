@@ -1,0 +1,73 @@
+.aa-page-header.simple id="content"
+  .container
+    .aa-banner.thin
+      h1
+        = _("AirAware Demo")
+      h2
+        = _("Our monitors are already installed in schools and offices across China.")
+      p
+        = _("See what they see")
+    .divider
+
+.container.aa-public-container
+  .row
+    .col-sm-12
+      h3
+        = _("Simple Interface")
+      p
+        = _("Users can see their indoor air quality at a glance.")
+
+  .row
+    .col-xs-12.aa-block-wrapper
+      div.aa-reading-block data-location-id=@location.id
+
+  .row
+    .col-sm-12
+      h3
+        = _("Outdoor Comparisons")
+      p
+        = _("Quickly compare against outdoor air pollution.")
+
+  .row
+    .col-xs-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
+
+  .row
+    .col-xs-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
+
+  = render 'shared/legend'
+
+  .row
+    .col-sm-12
+      h3
+        = _("Visualize Trends")
+      p
+        = _("Charts give users simple, powerful ways to see recent trends.")
+  .row
+    .col-xs-12.aa-block-wrapper
+      div.aa-chart-block data-location-id=@location.id
+  .spacer
+  .row
+    h2.centered
+        = _("Interested in AirAware?")
+  .row.demo-cards
+    .col-md-6
+      .card
+        h3
+          = _("Let us contact you")
+        .divider
+        = form_for SignUp.new do |f|
+          .form-group
+            .hint.small
+              = _("Leave your email, phone, wechat, or qq id.")
+            = f.text_field :email, :class => "form-control", :placeholder => _("email, phone, wechat, or qq")
+          = f.submit _("Sign up"), :class => "btn btn-success"
+    .col-md-6
+      .card
+        h3
+          = _("Get in touch with us")
+        .divider
+        = mail_to 'rkw@gigabase.org', _("By Email"), :class => "btn btn-success"
+        .btn.btn-success
+          = "By Phone: (021) 3469-2269"

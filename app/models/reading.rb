@@ -1,6 +1,6 @@
 class Reading < ActiveRecord::Base
   # TO DO : sanitize input!!
-  attr_accessible :reporting_device_id, :temperature, :humidity, :hcho, :co2, :tvoc, :pm2p5, :reading_time
+  attr_accessible :reporting_device_id, :temperature, :humidity, :hcho, :co2, :co, :tvoc, :pm2p5, :reading_time
 
   validates_presence_of :reporting_device_id, :reading_time
 

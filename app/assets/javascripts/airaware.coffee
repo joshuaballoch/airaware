@@ -6,8 +6,18 @@
 @AirAware.locale = ()->
   if location.pathname.substring(0,3) == "/zh" then 'zh' else 'en'
 
+@AirAware.humanizeRating = (rating) ->
+  return __("Hazardous") if rating == "hazardous"
+  return __("Very Unhealthy") if rating == "very-unhealthy"
+  return __("Unhealthy") if rating == "unhealthy"
+  return __("Sensitive") if rating == "sensitive"
+  return __("Moderate") if rating == "moderate"
+  return __("Good") if rating == "good"
+  __("Unknown")
+
 @AirAware.assessAirClass = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 35
     return "good"
   else if value < 75
@@ -23,6 +33,7 @@
 
 @AirAware.assessCo2Class = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 700
     return "good"
   else if value < 1000
@@ -38,6 +49,7 @@
 
 @AirAware.assessHumidityClass = (reading) ->
   value = parseInt(reading)
+  return unless value > 0
   if value < 55
     return "good"
   else if value < 65
@@ -53,6 +65,7 @@
 
 @AirAware.assessHchoClass = (reading) ->
   value = parseFloat(reading)
+  return unless value > 0
   if value < 0.072
     return "good"
   else if value < 0.088
@@ -62,6 +75,7 @@
 
 @AirAware.assessTvocClass = (reading) ->
   value = parseFloat(reading)
+  return unless value > 0
   if value < 0.45
     return "good"
   else if value < 0.55
@@ -76,10 +90,14 @@
   # hours = date.getUTCHours()
   # minutes = date.getMinutes()
   # seconds = date.getSeconds()
-  date = datetime.match(/\d{4}-\d{2}-\d{2}T(\d{2}):(\d{2}):(\d{2})Z/)
-  hours = parseInt(date[1])
-  minutes = parseInt(date[2])
-  seconds = parseInt(date[3])
+  date = datetime.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/)
+  year    = parseInt(date[1])
+  month   = parseInt(date[2])
+  day     = parseInt(date[3])
+  hours   = parseInt(date[4])
+  minutes = parseInt(date[5])
+  seconds = parseInt(date[6])
+
   hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
   minutes = if "#{minutes}".length < 2 then "0#{minutes}" else "#{minutes}"
   seconds = if "#{seconds}".length < 2 then "0#{seconds}" else "#{seconds}"

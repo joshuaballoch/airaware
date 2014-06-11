@@ -14,6 +14,18 @@ gem 'slim'
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Authentication & Accounts Gems
+gem 'devise'
+gem 'devise-async'
+gem 'cancan'
+
+# Admin Dashboard
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem "meta_search",    '>= 1.1.0.pre'
+
+# Enumerations
+gem 'enumerate_it'
+
 # Nokigiri to run xml requests from other servers
 gem "nokogiri", "~> 1.6.1"
 
@@ -22,10 +34,19 @@ gem "curb", "~> 0.8.5"
 gem 'h2ocube_rails_cache'
 
 # _("Translations support!")
+gem 'globalize'
+
 gem 'gettext_i18n_rails'
 gem 'gettext_i18n_rails_js', github: 'rdd-giga/gettext_i18n_rails_js'
 gem 'gettext', require: false
 
+# Add Sidekiq for Delayed Jobs
+gem "sidekiq"
+gem "sidetiq" #Used for scheduled jobs
+gem 'sinatra', '>= 1.3.0', :require => false #sinatra is used for Sidekiq::Web
+
+# Exception notifier for rails
+gem 'exception_notification'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,7 +63,7 @@ group :assets do
   # Bootstrap-sass for putting Bootstrap into the application
   #gem 'bootstrap-sass'
   # Use github repo and 3 branch to use Bootstrap 3 (2.3.2 is on standard release gem)
-  gem 'bootstrap-sass', '>= 3.0'
+  gem 'bootstrap-sass', '~> 3.1.1'
 
   gem 'uglifier', '>= 1.0.3'
 

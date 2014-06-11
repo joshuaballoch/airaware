@@ -1,58 +1,34 @@
 doctype html
 html lang=I18n.locale
-head
-  title AirAware
-  = stylesheet_link_tag "application", :media => "all"
-  = javascript_include_tag "application"
-  /[if lt IE 9]
-    = javascript_include_tag "html5shiv", :media => "all"
-    = javascript_include_tag "excanvas"
-    = javascript_include_tag "respond"
-  = csrf_meta_tags
-  meta name="viewport" content="width=device-width, initial-scale=1.0"
-  meta http-equiv="X-UA-Compatible" content="IE=edge"
-  meta name="locale" content=I18n.locale
+  = render 'layouts/head'
+  body
+    header.navbar.navbar-static-top id="top" role="banner"
+      .container
+        .navbar-header
+          .navbar-toggle type="button" data-toggle="collapse" data-target=".aa-navbar-collapse"
+            .sr-only
+              = _("Toggle navigation")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
 
-body
-  header.navbar.navbar-static-top id="top" role="banner"
-    .container
-      .navbar-header
-        .navbar-toggle type="button" data-toggle="collapse" data-target=".aa-navbar-collapse"
-          .sr-only
-            = _("Toggle navigation")
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-
-        a.navbar-brand href="../"
-          = "AirAware"
-      nav.navbar-collapse.collapse.aa-navbar-collapse role="navigation"
-        ul.nav.navbar-nav
-          li
-            = link_to _("Demo"), "/demo"
-        ul.nav.navbar-nav.navbar-right
-          li
-            a
-              - if I18n.locale =~ /zh/
-                li
-                  = link_to "English", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'en'
-              - else
-                li
-                  = link_to "中文", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'zh'
-
-  #flashMessages
-    - if flash.notice
-      .alert.alert-success.alert-dismissable
-        = flash.notice
-        button type="button" class="close" data-dismiss="alert" aria-hidden="true"
-          = "x"
-    - if flash.alert
-      .alert.alert-danger.alert-dismissable
-        = flash.alert
-        button type="button" class="close" data-dismiss="alert" aria-hidden="true"
-          = "x"
-  = yield
+          a.navbar-brand href="../"
+            = "AirAware"
+        nav.navbar-collapse.collapse.aa-navbar-collapse role="navigation"
+          ul.nav.navbar-nav
+            - unless user_signed_in?
+              li
+                = link_to _("Demo"), "/demo"
+          ul.nav.navbar-nav.navbar-right
+            li
+              = render 'shared/locale_links'
+            li
+              = render 'shared/session_links'
 
 
-  .bottom.hide
-    = yield :bottom
+    = render 'shared/flash_messages'
+    = yield
+
+    .bottom.hide
+      = yield :bottom
+      = render 'layouts/javascripts'

@@ -46,7 +46,8 @@ Airaware::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( active_admin.js active_admin.css )
+  config.assets.precompile += %w( html5shiv.js respond.js excanvas.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -64,4 +65,23 @@ Airaware::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { :host => 'www.airaware.co' }
+  config.action_mailer.asset_host = 'www.airaware.co'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.sendgrid.net",
+    :port                 => 587,
+    :domain               => 'gigabase.org',
+    :user_name            => 'giga-test',
+    :password             => 'V37eecHv2kQw',
+    :authentication       => 'plain',
+    :enable_starttls_auto => false  }
+
+  config.middleware.use ExceptionNotification::Rack, :email => {
+    :email_prefix => "[Exception AirAware/Giga Production] ",
+    :sender_address => %{"Exception Notifier" <support@gigabase.org>},
+    :exception_recipients => %w{joshuaballoch@gmail.com}
+    }
+
 end

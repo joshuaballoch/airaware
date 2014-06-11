@@ -1,0 +1,8 @@
+p
+  = _("Hello %{email}!") % {email: @email}
+
+p
+  = _("You can confirm your account email through the link below:")
+
+p
+  = link_to _("Confirm my account"), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

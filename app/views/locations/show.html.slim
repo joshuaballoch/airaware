@@ -1,341 +1,38 @@
-.aa-page-header id="content"
+.aa-page-header.simple id="content"
   .container
-    h1
-      - if I18n.locale.to_s == "zh-CN"
-        = "办公室演示"
-      - else
-        = "Office Demo"
-      /= @location.name
-    p
-      = _("Indoor Air Reporting Demo")
+    .aa-banner.thin
+      h1
+        = @location.name
+      p
+        = @location.description.blank? ? _("Indoor Air Monitoring") : @location.description
 
-.container.aa-page-container
-
-  .row
-    .col-sm-12
-      h3.page-header
-        = _("Indoor Air Monitoring for Schools & Offices")
-      h4
-        = _("Get real time indoor and outdoor air quality readings.")
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-top:-30px; margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("AirAware can install multiple sensors per location.")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Indoor Air")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Indoor Air")
-  #mainReading.location-container
+/.aa-page-header id="content"
+  .container
     .row
-      .cc-col.cc-col-6
-        .location-title
-          = _("Indoor Air")
-      .cc-col.cc-col-6
-        = render 'shared/reading_block', :value => (0.7*@last_reading.pm2p5).to_i, :label => "PM 2.5", :class_name => "big-reading", :units => "(μg/m³)"
-    .row
-      .readings-secondrow-container
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.temperature.to_i, :label => _("Temp"), :units => "(°C)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.humidity.to_i, :label => _("Humidity"), :units => "(%)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => (1/14)*@last_reading.tvoc.round(2), :label => "TVOC", :units => "(mg/m³)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => (@last_reading.hcho/8).round(2), :label => _("HCHO"), :units => "(mg/m³)"
-        .cc-col.cc-col-20p
-          = render 'shared/reading_block', :value => @last_reading.co2.to_i, :label => _("CO2"), :units => "(ppm)"
-      .col-sm-12
-        .pull-right
-          = @last_reading.reading_time.strftime("%H:%M:%S")
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("Outdoor air can be reported on-site or from nearby stations")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Beijing Outdoor")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Beijing Outdoor")
-
-  #consulateReading-beijing.location-container
-    = _("Loading..")
-
-  .row
-    .col-xs-12
-      .dropdown.pull-right style="margin-bottom:10px;" data-toggle="tooltip" data-placement="top" data-title=_("Outdoor air can be reported on-site or from nearby stations")
-        .btn.btn-default data-toggle="dropdown" href="#"
-          = _("Shanghai Outdoor")
-          = " "
-          b.caret
-        ul.dropdown-menu role="menu" aria-labelledby="dLabel"
-          li
-            a href="javascript:void(0)"
-              = _("Shanghai Outdoor")
-
-  #consulateReading-shanghai.location-container
-    = _("Loading..")
-  .row
-    .col-xs-12
-      .panel.panel-default
-        .panel-heading style="height:40px; background:#fff;"
-          a.panel-title.pull-right class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1"
-            = _("Show Legend")
-        #panel1.panel-collapse.collapse
-          .panel-body.fix-width-table
-            table.table style="color:#fff;"
-              thead style="color:#000;"
-                th
-                th
-                  = _("P.M. 2.5")
-                th
-                  = _("Humidity")
-                th
-                  = _("TVOC")
-                th
-                  = _("HCHO")
-                th
-                  = _("CO2")
-              tbody
-                tr.good
-                  td
-                    = _("Good")
-                  td
-                    = "< 35"
-                  td
-                    = "< 55"
-                  td
-                    = "< 0.45"
-                  td
-                    = "< 0.072"
-                  td
-                    = "< 700"
-
-                tr.moderate
-                  td
-                    = _("Moderate")
-                  td
-                    = "35-75"
-                  td
-                    = "55-65"
-                  td
-                    = "0.45-0.55"
-                  td
-                    = "0.072-0.088"
-                  td
-                    = "700-1000"
-
-                tr.sensitive
-                  td
-                    = _("Bad for Sensitive Groups (Children, Seniors)")
-                  td
-                    = "75-100"
-                  td
-                    = "65-75"
-                  td
-                    = " - "
-                  td
-                    = " - "
-                  td
-                    = "1000-1300"
-
-                tr.unhealthy
-                  td
-                    = _("Unhealthy")
-                  td
-                    = "100-120"
-                  td
-                    = "75-85"
-                  td
-                    = "> 0.55"
-                  td
-                    = "> 0.088"
-                  td
-                    = "1300-1600"
-
-                tr.very-unhealthy
-                  td
-                    = _("Very Unhealthy")
-                  td
-                    = "120-200"
-                  td
-                    = "85-90"
-                  td
-                    = " - "
-                  td
-                    = " - "
-                  td
-                    = "1600-3000"
-
-                tr.hazardous
-                  td
-                    = _("Hazardous")
-                  td
-                    = "> 200"
-                  td
-                    = "> 90"
-                  td
-                    = " - "
-                  td
-                    = " - "
-                  td
-                    = "> 3000"
-
-
-  .row
-    .col-sm-12
-      h4
-        = _("Charts and graphs enable users to take a closer look.")
-      .pull-right
-        .btn-group data-toggle="tooltip" data-placement="top" title=_("Paid Feature")
-          .btn.btn-default.active
-            = _("Past hour")
-          .btn.btn-default disabled="disabled"
-            = _("Past day")
-          .btn.btn-default disabled="Paid Feature"
-            = _("Past week")
-      #chartContainer
-
-  .row
-    .col-sm-12
-      .page-block
+      .col-xs-7
         h1
-          = _("Get AirAware.")
-        h4
-          = _("AirAware is now launching at offices and schools across China. Sign up to learn more!")
+          = @location.name
         p
-          = form_for SignUp.new do |f|
-            .form-group
-              = f.text_field :email, :class => "form-control", :placeholder => _("email, phone, or qq")
-            = f.submit _("Sign up"), :class => "btn btn-success"
+          = @location.description
+      .col-xs-4.col-xs-offset-1
+        - if @location.private?
+          .privacy-sign
+            i.glyphicon.glyphicon-lock
+            span.text.hidden-xs
+              = _("Private")
+.container.aa-public-container
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-block.aa-reading-block data-location-id=@location.id
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
 
+  = render 'shared/legend'
 
-- content_for :bottom do
-  javascript:
-    var r = new AirAware.Models.Reading(#{raw @last_reading.to_json})
-    var readings = new AirAware.Collections.Readings(#{raw @readings.to_json }, {location_id: 1})
-
-  coffee:
-    setIndoorReading = (current_reading)->
-      view = new AirAware.Views.Readings.Block model: current_reading
-      $("#mainReading").html(view.render().el)
-
-    setChart = (readings) ->
-      width = $(".container > .row > .col-sm-12").width()
-      $("#chartContainer").html("""
-        <canvas id="myChart" width="#{width}" height="400"></canvas>
-      """)
-
-      #Get context with jQuery - using jQuery's .get() method.
-      unless $("#myChart").get(0).getContext
-        G_vmlCanvasManager.initElement($("#myChart").get(0))
-      ctx = $("#myChart").get(0).getContext("2d");
-
-      times = _.map readings.models, (item) ->
-        return item.get('reading_time');
-      _.each times, (item, index) ->
-        if parseInt(index/5)*5 == index
-          time = AirAware.parseTime(item)
-          times[index] = time.substring(0,time.length-3)
-        else
-          times[index] = ""
-      pm2p5 = _.map readings.models, (item) ->
-        return parseInt(0.7*parseFloat(item.get('pm2p5')));
-
-      times.reverse()
-      pm2p5.reverse()
-
-      data = {
-        labels : times,
-        datasets : [
-          {
-            fillColor : "rgba(151,187,205,0.5)",
-            strokeColor : "rgba(220,220,220,1)",
-            pointColor : "rgba(220,220,220,1)",
-            pointStrokeColor : "#fff",
-            data : pm2p5
-          }
-        ]
-      }
-      options = {
-        animation: false,
-        scaleOverride: true,
-        scaleSteps : 10,
-        #Number - The value jump in the hard coded scale
-
-        scaleStepWidth : 10*Math.ceil(0.1*Math.ceil(_.max(pm2p5)/7.5)),
-        #Number - The scale starting value
-        scaleStartValue : 0,
-        pointDot: false,
-      }
-      myChart = new Chart(ctx).Line(data, options);
-
-    ## END OF SET CHART
-
-    # Initialize chart
-    setChart(readings)
-
-    ## RESIZE AND RESTART CHART ON WINDOW RESIZE
-    throttled_set = _.throttle setChart, 500
-
-    $(window).on "resize", () ->
-      throttled_set(readings)
-
-    ## Set it to poll and update the data
-    current_reading = r
-    setIndoorReading(current_reading)
-    chart_display_ids = _.map readings.models, (item) -> return item.id
-
-    # Faster checking of main readings
-    setInterval () ->
-      readings.fetch().success () ->
-        ## Check to update the main readings data
-        if new Date(readings.models[0].get('reading_time')).getTime() > new Date(current_reading.get('reading_time')).getTime()
-          current_reading = readings.models[0]
-          setIndoorReading(current_reading)
-    , 3000
-
-    # Slower update of chart
-    setInterval () ->
-        ## Push the new data to the chart, if there is new
-        new_ids = _.map readings.models, (item) -> return item.id
-        if chart_display_ids != new_ids
-          throttled_set(readings)
-    , 30000
-
-    ## GET and SET U.S. Consulate Data
-    setUSData = (city) ->
-      payload = {
-        url: "/readings/us_consulate.xml",
-        dataType: 'xml',
-        type: 'get',
-        data:
-          city: city
-      };
-      $.ajax(payload).success (data) ->
-        response = $.xml2json(data)
-        air_data = response.channel.item
-        last_reading = air_data[0]
-        time_arr = last_reading.ReadingDateTime.match(/(\d{2})\/(\d{2})\/(\d{4}) (\d{1,2}):(\d{2}):(\d{2}) ([\D]{2})/)
-        hours = time_arr[4]
-        midi = time_arr[7]
-        if midi == "PM" && parseInt(hours) != 12
-          hours = "#{parseInt(hours)+12}"
-        else if parseInt(hours) == 12
-          hours == "00"
-        hours = if "#{hours}".length < 2 then "0#{hours}" else "#{hours}"
-        parsedTime = "#{time_arr[3]}-#{time_arr[1]}-#{time_arr[2]}T#{hours}:#{time_arr[5]}:#{time_arr[6]}Z"
-        model = new AirAware.Models.Reading {pm2p5: last_reading.Conc, reading_time: parsedTime, usdata: true, city: city}
-        view = new AirAware.Views.Readings.Block model: model
-        $("#consulateReading-#{city}").html(view.render().el)
-    setUSData('shanghai')
-    setUSData('beijing')
-
-    setInterval () ->
-      setUSData('shanghai')
-      setUSData('beijing')
-    , 90000
+  .row
+    .col-xs-12.aa-block-wrapper
+      div.aa-block.aa-chart-block data-location-id=@location.id
