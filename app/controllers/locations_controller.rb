@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  layout 'application_public'
   load_and_authorize_resource
 
   def new

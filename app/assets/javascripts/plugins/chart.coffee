@@ -45,7 +45,7 @@ setChart = (readings, options) ->
   opts = prepChartData(readings)
 
   # Add the chart again
-  options.target.html(options.base_html())
+  options.target.html(_.template(options.base_html()))
 
   # Find the ctx
   ctx = options.find_ctx()
@@ -65,7 +65,15 @@ $.fn.dynamizeChart = () ->
   options.width_reference = $(".container > .row > .col-sm-12")
   options.base_html = () =>
     """
-      <canvas class="chart" width="#{options.width_reference.width()}" height="400"></canvas>
+      <div class="skin"></div>
+      <div class="aa-block-inner">
+        <div class="aa-block-title">
+          <h3><%= __("Trending Outlook - PM 2.5") %></h3>
+        </div>
+        <div class="aa-block-body">
+          <canvas class="chart" width="#{options.width_reference.width()}" height="400"></canvas>
+        </div>
+      </div>
     """
   options.find_ctx = () =>
     $canvas = options.target.find('canvas')

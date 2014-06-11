@@ -1,3 +1,11 @@
+.aa-page-header.simple id="content"
+  .container
+    .aa-banner.thin
+      h1
+        = @location.name
+      p
+        = @location.description.blank? ? _("Indoor Air Monitoring") : @location.description
+
 /.aa-page-header id="content"
   .container
     .row
@@ -12,35 +20,19 @@
             i.glyphicon.glyphicon-lock
             span.text.hidden-xs
               = _("Private")
-.container.aa-page-container
-  .skin
-
-  .aa-block-wrapper
-    div.aa-block.aa-reading-block data-location-id=@location.id
-    .skin
-
-  .aa-block-wrapper
-    .skin
-    div.aa-block.aa-outdoor-reading-block data-location="beijing"
-
-  .aa-block-wrapper
-    .skin
-    div.aa-block.aa-outdoor-reading-block data-location="shanghai"
+.container.aa-public-container
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-block.aa-reading-block data-location-id=@location.id
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
+  .row
+    .col-sm-12.aa-block-wrapper
+      div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
 
   = render 'shared/legend'
 
-  .row
-    .col-sm-12
-      h4
-        = _("PM 2.5 24 Hour Outlook")
-      .pull-right
-        .btn-group data-toggle="tooltip" data-placement="top" title=_("Other Intervals Coming Soon")
-          .btn.btn-default disabled="disabled"
-            = _("Past hour")
-          .btn.btn-default.active
-            = _("Past day")
-          .btn.btn-default disabled="disabled"
-            = _("Past week")
   .row
     .col-xs-12.aa-block-wrapper
       div.aa-block.aa-chart-block data-location-id=@location.id

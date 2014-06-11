@@ -42,7 +42,17 @@
     }
   }
 }
-
+.aa-chart-block {
+  .aa-block-inner {
+    .aa-block-body {
+      background:#fff;
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
 .aa-reading-block {
   .aa-block-inner {
     .aa-block-body {
