@@ -10,7 +10,7 @@ header.navbar {
 }
 
 body {
-  background-image:url('/greyzz.png');
+  //background-image:url('/greyzz.png');
   header {
     background:white;
   }
@@ -21,20 +21,6 @@ body {
     width:200px;
     margin-left:-100px;
     z-index:10000;
-  }
-  .aa-page-header {
-    background: #306391;
-    background-image: url("http://dn-giga-test-webapp.qbox.me/sky.jpg");
-    background-size:cover;
-    background-position:center;
-    color:#fff;
-    margin-top:-20px;
-    h1 {
-      margin-top:30px;
-    }
-    h3, p {
-      margin-bottom:22px;
-    }
   }
   .aa-page-container {
     opacity:0.9;
