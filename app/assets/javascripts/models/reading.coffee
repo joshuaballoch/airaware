@@ -40,7 +40,8 @@ class AirAware.Models.Reading extends Backbone.Epoxy.Model
     disp_reading_time:
       deps: ["reading_time"]
       get: (reading_time) ->
-        jQuery.timeago("#{reading_time}+08") if reading_time
+        # s = "2014-06-11T18:00:00Z+08:00"
+        jQuery.timeago(AirAware.UTCTime(reading_time)) if reading_time
 
 class AirAware.Collections.Readings extends Backbone.Collection
   model: AirAware.Models.Reading

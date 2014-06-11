@@ -83,6 +83,19 @@
   else
     return "unhealthy"
 
+@AirAware.UTCTime = (datetime, options) ->
+  defaults = {seconds: true, hours: true, minutes: true}
+  options = _.extend defaults, options
+  date = datetime.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/)
+  year    = parseInt(date[1])
+  month   = parseInt(date[2])
+  day     = parseInt(date[3])
+  hours   = parseInt(date[4])-8
+  minutes = parseInt(date[5])
+  seconds = parseInt(date[6])
+
+  return "#{year}-#{month}-#{day}T#{hours}:#{minutes}:#{seconds}Z"
+
 @AirAware.parseTime = (datetime, options) ->
   defaults = {seconds: true, hours: true, minutes: true}
   options = _.extend defaults, options
