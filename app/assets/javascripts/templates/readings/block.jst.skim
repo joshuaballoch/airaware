@@ -63,5 +63,5 @@
                       span.value class="#{unit.ident}"
                     td.reading-badge
                       span class="#{unit.ident}-badge"
-      .row.reading-time
-        span.readingtime.pull-right.timestamp
+    .row.reading-time
+      span.readingtime.pull-right.timestamp
