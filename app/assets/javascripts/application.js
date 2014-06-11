@@ -16,7 +16,7 @@
 // GetText for I18n
 //= require_tree ./locale
 //= require gettext/all
-
+//= require timeago
 //= require underscore
 //= require json2
 //= require bootstrap
