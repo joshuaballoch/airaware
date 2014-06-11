@@ -29,12 +29,13 @@ html lang=I18n.locale
     = render 'shared/flash_messages'
     = yield
 
-    .bottom.hide
-      = yield :bottom
-
     footer
       .container
         .row
           .col-sm-12
             .copyright
               = _("Copyright 2014 AirAware")
+
+    .bottom.hide
+      = yield :bottom
+      = render 'layouts/javascripts'
