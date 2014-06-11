@@ -19,3 +19,91 @@
 .good {
   background: #50cf50;
 }
+.aa-block-wrapper {
+  margin-top: 20px;
+  margin-bottom:20px;
+  .skin {
+    opacity:0.7;
+  }
+  .aa-block-inner {
+    position:relative;
+    z-index:1;
+    color:white;
+    .aa-block-title {
+      border-bottom:1px solid #fff;
+      margin-bottom:10px;
+      h3 {
+        font-size:15px;
+      }
+    }
+    .aa-block-body {
+
+    }
+  }
+}
+.aa-reading-block {
+  .aa-block-inner {
+    .aa-block-body {
+      .reading-large {
+        div[class*='col-'] {
+          display:inline-block;
+          vertical-align: bottom;
+          float:none;
+        }
+        label.device-label {
+          padding-left:10px;
+          font-size:36px;
+          font-weight:200;
+          padding-bottom:10px;
+        }
+        .reading-value {
+          font-size:96px;
+          text-align:right;
+          padding-top:20px;
+          span.value {
+            line-height:80px;
+          }
+        }
+        .reading-info {
+          padding-bottom:30px;
+          .reading-badge, .reading-label, .reading-units {
+            display:block;
+            width:100%;
+            text-align: center;
+            font-size:12px;
+          }
+          .reading-badge {
+            margin-bottom: 8px;
+            span {
+              font-size:17px;
+              font-weight:200;
+            }
+          }
+        }
+      }
+      .reading-details {
+        table {
+          tr {
+            td {
+              text-align: center;
+              &.reading-label {
+                width:60%;
+                text-align: left;
+              }
+              &.reading-units {
+                width:10%;
+              }
+              &.reading-value {
+                width:20%;
+              }
+              &.reading-badge {
+                width:10%;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

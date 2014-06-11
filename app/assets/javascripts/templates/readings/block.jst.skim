@@ -1,74 +1,53 @@
-.aa-block-title
-  h3
-    = "Indoor Air"
-.aa-block-row
-  .cc-col.cc-col-6
-    .location-title
-      - if @model.get('city') == "shanghai"
-        = __("Shanghai Outdoor")
-      - else if @model.get('city') == "beijing"
-        = __("Beijing Outdoor")
-      - else
-        = __("Indoor Air")
-  .cc-col.cc-col-6
-    - if @model.get('usdata')
-      - pm2p5 = parseInt(@model.get('pm2p5'))
-    - else
-      - pm2p5 = parseInt(parseFloat(@model.get('pm2p5')))
-    span.pm2p5-badge
-    .reading.big-reading class="#{AirAware.assessAirClass(pm2p5)}"
-      .reading-inner
-        span.pm2p5.value
-        .reading-label
-          = __("PM 2.5")
-        .reading-units
-          = "(μg/m³)"
-- if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
-  .row
-    .readings-secondrow-container
-      .cc-col.cc-col-20p
-        .reading
-          .reading-inner
-            span.temperature.value
+.skin
+.aa-block-inner
+  - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
+    .aa-block-title
+      h3
+        - if @model.get('city') == "shanghai"
+          = __("Shanghai Outdoor")
+        - else if @model.get('city') == "beijing"
+          = __("Beijing Outdoor")
+        - else
+          = "Change Location Name"
+  .aa-block-body
+    .row.reading-large
+      .col-xs-7
+        label.device-label
+          - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
+            = __("U.S. Consulate")
+          - else
+            / FIX ME TO DO TODO: put the reporting device name when this is added
+            = __("Indoor Air")
+      .col-xs-5
+        .reading-value.col-xs-8
+          span.pm2p5.value
+        .col-xs-4
+          .reading-info
+            .reading-badge
+              span.pm2p5-badge
             .reading-label
-              = __("Temp")
+              span.reading-label
+                = __("PM 2.5")
             .reading-units
-              = "(°C)"
-      .cc-col.cc-col-20p
-        span.humidity-badge
-        .reading class="#{AirAware.assessHumidityClass(@model.get('humidity'))}"
-          .reading-inner
-            span.humidity.value
-            .reading-label
-              = __("Humidity")
-            .reading-units
-              = "(%)"
-      .cc-col.cc-col-20p
-        span.tvoc-badge
-        .reading class="#{AirAware.assessTvocClass(parseFloat(@model.get('tvoc')))}"
-          .reading-inner
-            span.tvoc.value
-            .reading-label
-              = "TVOC"
-            .reading-units
-              = "(mg/m³)"
-      .cc-col.cc-col-20p
-        span.hcho-badge
-        .reading
-          .reading-inner
-            span.hcho.value
-            .reading-label
-              = __("HCHO")
-            .reading-units
-              = "(mg/m³)"
-      .cc-col.cc-col-20p
-        span.co2-badge
-        .reading class="#{AirAware.assessCo2Class(@model.get('co2'))}"
-          .reading-inner
-            span.co2.value
-            .reading-label
-              = __("CO2")
-            .reading-units
-              = "(ppmv)"
-.col-sm-12
-  span.readingtime.pull-right.timestamp
+              span.reading-units
+                = "(μg/m³)"
+
+    - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
+      .row.reading-details
+        .col-sm-12
+          table.table
+            tbody
+              / (°C)
+              - _.each [{ident: "temperature", units: "", label: __("Temperature")}, {ident: "humidity", units: "", label: __("Humidity")}, {ident: "tvoc", units: "mg/m³", label: __("Volatile Organic Compounds")}, {ident: "hcho", units: "mg/m³", label: __("Formaldehyde")}, {ident: "co2", units: "ppmv", label: __("CO2")}], (unit) ->
+                  tr
+                    td.reading-label
+                      == unit.label
+                    td.reading-units
+                      == unit.units
+                    td.reading-value
+                      span.value class="#{unit.ident}"
+                    td.reading-badge
+                      span class="#{unit.ident}-badge"
+
+  .col-sm-12
+    span.readingtime.pull-right.timestamp

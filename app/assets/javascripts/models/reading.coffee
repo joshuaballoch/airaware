@@ -13,12 +13,14 @@ class AirAware.Models.Reading extends Backbone.Epoxy.Model
     disp_temperature:
       deps: ["temperature"]
       get: (temperature) ->
-        parseInt(temperature) || "N/A"
+        return "N/A" unless temperature
+        "#{parseInt(temperature)} °C"
 
     disp_humidity:
       deps: ["humidity"]
       get: (humidity) ->
-        parseInt(humidity) || "N/A"
+        return "N/A" unless humidity && humidity > 0
+        "#{parseInt(humidity)} %"
 
     disp_tvoc:
       deps: ["tvoc"]
