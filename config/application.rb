@@ -68,5 +68,15 @@ module Airaware
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Use application_public layout for all devise views
+    config.to_prepare do
+      Devise::SessionsController.layout "application_public"
+      Devise::RegistrationsController.layout "application_public"
+      Devise::ConfirmationsController.layout "application_public"
+      Devise::UnlocksController.layout "application_public"
+      Devise::PasswordsController.layout "application_public"
+    end
+
   end
 end
