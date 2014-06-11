@@ -11,14 +11,14 @@
           = "Change Location Name"
   .aa-block-body
     .row.reading-large
-      .col-xs-7
+      .col-xs-5
         label.device-label
           - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
             = __("U.S. Consulate")
           - else
             / FIX ME TO DO TODO: put the reporting device name when this is added
             = __("Indoor Air")
-      .col-xs-5
+      .col-xs-7.visible-xs
         .reading-value.col-xs-8
           span.pm2p5.value
         .col-xs-4
@@ -31,6 +31,21 @@
             .reading-units
               span.reading-units
                 = "(μg/m³)"
+      .col-xs-2.hidden-xs
+      .col-xs-5.hidden-xs
+        .reading-value.col-xs-8
+          span.pm2p5.value
+        .col-xs-4
+          .reading-info
+            .reading-badge
+              span.pm2p5-badge
+            .reading-label
+              span.reading-label
+                = __("PM 2.5")
+            .reading-units
+              span.reading-units
+                = "(μg/m³)"
+
 
     - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
       .row.reading-details

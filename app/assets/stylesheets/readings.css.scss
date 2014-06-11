@@ -41,6 +41,7 @@
     }
   }
 }
+
 .aa-reading-block {
   .aa-block-inner {
     .aa-block-body {
@@ -49,6 +50,11 @@
           display:inline-block;
           vertical-align: bottom;
           float:none;
+        }
+        @media(max-width: 767px) {
+          .visible-xs {
+            display:inline-block !important;
+          }
         }
         label.device-label {
           padding-left:10px;
