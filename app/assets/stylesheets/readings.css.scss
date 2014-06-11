@@ -101,6 +101,26 @@
             }
           }
         }
+        @media(max-width: 400px) {
+          label.device-label {
+            font-size: 26px;
+          }
+          .reading-value {
+            font-size: 68px;
+          }
+          .reading-info {
+            padding-bottom:5px;
+            .reading-badge {
+              span {
+                font-size:12px;
+                font-weight:200;
+              }
+            }
+
+          }
+
+        }
+
       }
       .reading-details {
         table {
