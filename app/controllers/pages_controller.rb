@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  layout 'application_public'
   def demo
     # if Rails.env.development?
     #   @location = Location.find(1)

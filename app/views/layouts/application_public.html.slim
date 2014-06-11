@@ -1,8 +1,8 @@
 doctype html
 html lang=I18n.locale
   = render 'layouts/head'
-  body
-    header.navbar.navbar-static-top id="top" role="banner"
+  body.public
+    header.aa-public-header.navbar.navbar-static-top id="top" role="banner"
       .container
         .navbar-header
           .navbar-toggle type="button" data-toggle="collapse" data-target=".aa-navbar-collapse"
@@ -19,16 +19,22 @@ html lang=I18n.locale
             - unless user_signed_in?
               li
                 = link_to _("Demo"), "/demo"
+
           ul.nav.navbar-nav.navbar-right
             li
               = render 'shared/locale_links'
             li
               = render 'shared/session_links'
 
-
     = render 'shared/flash_messages'
     = yield
 
-
     .bottom.hide
       = yield :bottom
+
+    footer
+      .container
+        .row
+          .col-sm-12
+            .copyright
+              = _("Copyright 2014 AirAware")

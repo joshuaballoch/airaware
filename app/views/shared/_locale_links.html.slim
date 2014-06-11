@@ -1,0 +1,4 @@
+- if I18n.locale =~ /zh/
+    = link_to "English", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'en'
+- else
+    = link_to "中文", 'javascript:void(0)', :class => 'js-switch-locale', :'data-locale' => 'zh'
