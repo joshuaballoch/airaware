@@ -23,8 +23,12 @@
   margin-top: 20px;
   margin-bottom:20px;
   padding-bottom: 15px;
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
   .skin {
     opacity:0.7;
+    @include border-top-radius(5px);
+    @include border-bottom-radius(5px);
   }
   .aa-block-inner {
     position:relative;
@@ -33,12 +37,12 @@
     .aa-block-title {
       border-bottom:1px solid #fff;
       margin-bottom:10px;
+      padding-top:1px;
       h3 {
         font-size:15px;
       }
     }
     .aa-block-body {
-
     }
   }
 }
