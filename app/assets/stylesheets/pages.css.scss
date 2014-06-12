@@ -23,7 +23,7 @@ body {
     z-index:10000;
   }
   .aa-page-container {
-    opacity:0.9;
+    @include opacity(0.9);
     margin-bottom:20px;
     padding-bottom:10px;
     position:relative;
@@ -58,7 +58,7 @@ body {
   left:0;
   background: #444;
   z-index:0;
-  opacity: 0.2;
+  @include opacity(0.2);
 }
 .t-o {
   overflow:hidden;

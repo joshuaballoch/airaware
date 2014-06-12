@@ -8,6 +8,7 @@ header.aa-public-header {
 .centered {
   text-align:center;
 }
+
 body.public {
   background:#F3F3F3;
   .row.spaced {
@@ -27,8 +28,11 @@ body.public {
     margin-top:-20px;
     &.with-img {
       color: #fff;
-      background-image: url("/office-bkgd.jpg");
-      background-size:cover;
+      background: url("/office-bkgd.jpg");
+      background-size:100% auto; /* in case browser doesn't support the :cover value. */
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.office-bkgd.jpg', sizingMethod='scale');
+      -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='office-bkgd.jpg', sizingMethod='scale')";
+      background-size: cover;
       background-position:center;
     }
     .skin {
