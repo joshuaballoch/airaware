@@ -19,6 +19,7 @@ $.fn.dynamizeReadingBlock = () ->
   # Poll for new readings
   setInterval () ->
     model.fetch({url: options.url})
-    console.log "fetching for lcoation #{options.location_id}"
+    # if window.console
+    #   console.log "fetching for lcoation #{options.location_id}"
   , 3000
 
