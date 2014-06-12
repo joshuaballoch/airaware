@@ -23,7 +23,7 @@ class AirAware.Views.Readings.Block extends Backbone.Epoxy.View
   computeds: {
     "pm2p5_rating"      : () ->
       rating = AirAware.assessAirClass(@getBinding('pm2p5'))
-      "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
+      "<span class='badge #{rating} t-o' >#{AirAware.humanizeRating(rating)}</span>"
     "humidity_rating"   : () ->
       rating = AirAware.assessHumidityClass(@getBinding('humidity'))
       "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"

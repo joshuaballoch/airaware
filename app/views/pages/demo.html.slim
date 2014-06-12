@@ -68,6 +68,14 @@
         h3
           = _("Get in touch with us")
         .divider
-        = mail_to 'rkw@gigabase.org', _("By Email"), :class => "btn btn-success"
+        - mail_content = capture do
+          .glyphicon.glyphicon-envelope
+          = " "
+          = _("By Email")
+
+        = mail_to 'rkw@gigabase.org', mail_content, :class => 'btn btn-success' do
+          .btn.btn-success
+
         .btn.btn-success
-          = "By Phone: (021) 3469-2269"
+          .glyphicon.glyphicon-earphone
+          = " (021) 3469-2269"

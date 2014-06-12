@@ -102,18 +102,25 @@
           }
         }
         @media(max-width: 400px) {
+          .reading-info {
+            margin-left:-10px;
+            width:180%;
+          }
           label.device-label {
-            font-size: 26px;
+            font-size: 24px;
           }
           .reading-value {
-            font-size: 68px;
+            font-size: 36px;
           }
           .reading-info {
             padding-bottom:5px;
+            padding-left:0;
+            padding-right:0;
             .reading-badge {
               span {
                 font-size:12px;
                 font-weight:200;
+                max-width:67px;
               }
             }
 
@@ -140,6 +147,25 @@
               &.reading-badge {
                 width:10%;
                 text-align: left;
+              }
+            }
+            @media(max-width: 400px) {
+              td {
+                &.reading-label {
+                  width:40%;
+                  text-align: left;
+                }
+                &.reading-units {
+                  width:10%;
+                }
+                &.reading-value {
+                  width:40%;
+                  min-width:60px;
+                }
+                &.reading-badge {
+                  width:10%;
+                  text-align: left;
+                }
               }
             }
           }

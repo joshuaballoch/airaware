@@ -19,12 +19,12 @@
             / FIX ME TO DO TODO: put the reporting device name when this is added
             = __("Indoor Air")
       .col-xs-7.visible-xs
-        .reading-value.col-xs-8
+        .reading-value.col-xs-7
           span.pm2p5.value
-        .col-xs-4
+        .col-xs-5
           .reading-info
             .reading-badge
-              span.pm2p5-badge
+              span.pm2p5-badge.t-o
             .reading-label
               span.reading-label
                 = __("PM 2.5")

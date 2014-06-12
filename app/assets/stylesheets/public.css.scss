@@ -8,7 +8,9 @@ header.aa-public-header {
 .centered {
   text-align:center;
 }
-
+body {
+  min-width:320px;
+}
 body.public {
   background:#F3F3F3;
   .row.spaced {
@@ -97,6 +99,12 @@ body.public {
       font-weight: 400;
       h3 {
         margin-top:40px;
+        margin-right:10px;
+        margin-left:10px;
+      }
+      p {
+        margin-right:10px;
+        margin-left:10px;
       }
       form {
         margin: 30px 20px 20px 20px;
