@@ -5,8 +5,8 @@ var locales = locales || {}; locales['zh-CN'] = {
       "": {
         "Project-Id-Version": " app 1.0.0",
         "Report-Msgid-Bugs-To": " ",
-        "POT-Creation-Date": " 2014-06-11 17:43+0800",
-        "PO-Revision-Date": " 2014-06-12 10:34+0800",
+        "POT-Creation-Date": " 2014-06-12 11:14+0800",
+        "PO-Revision-Date": " 2014-06-12 11:19+0800",
         "Last-Translator": " FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": " Chinese",
         "Language": " zh_CN",
@@ -205,7 +205,7 @@ var locales = locales || {}; locales['zh-CN'] = {
       ],
       "Log Out": [
         null,
-        "登出"
+        "退出"
       ],
       "Member": [
         null,

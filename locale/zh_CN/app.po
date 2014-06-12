@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-12 11:14+0800\n"
-"PO-Revision-Date: 2014-06-12 10:34+0800\n"
+"PO-Revision-Date: 2014-06-12 11:19+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese\n"
 "Language: zh_CN\n"
@@ -157,7 +157,7 @@ msgid "Let us contact you"
 msgstr "让我们联络您"
 
 msgid "Log Out"
-msgstr "登出"
+msgstr "退出"
 
 msgid "Member"
 msgstr "会员"
@@ -231,7 +231,9 @@ msgstr "确定"
 msgid "Simple Interface"
 msgstr "简单的界面"
 
-msgid "Someone has requested a link to change your password. You can do this through the link below."
+msgid ""
+"Someone has requested a link to change your password. You can do this "
+"through the link below."
 msgstr "（有人以要求连接更改您的密码，您可以透过此连接操作）"
 
 msgid "TVOC"
@@ -294,10 +296,14 @@ msgstr "您可以用以下链接验证你的用户邮箱"
 msgid "You to not have permission to access %{url}."
 msgstr ""
 
-msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+msgid ""
+"Your account has been locked due to an excessive number of unsuccessful sign "
+"in attempts."
 msgstr "因为多次密码输入错误，您的帐号已被锁定"
 
-msgid "Your password won't change until you access the link above and create a new one."
+msgid ""
+"Your password won't change until you access the link above and create a new "
+"one."
 msgstr "(在您点击连接创建一个新的密码前，您的密码无法更改）"
 
 msgid "current_password"
@@ -332,33 +338,48 @@ msgstr "用户民"
 #~ "learn more!"
 #~ msgstr ""
 #~ "AirAware项目正在国内的学校和办公室中启动，请输入邮箱以获取更多信息！"
+
 #~ msgid "Beijing Outdoor"
 #~ msgstr "北京室外"
+
 #~ msgid "Charts and graphs enable users to take a closer look."
 #~ msgstr "用户可通过图表查看详尽数据。"
+
 #~ msgid "Get AirAware."
 #~ msgstr "获取AirAware"
+
 #~ msgid "Get real time indoor and outdoor air quality readings."
 #~ msgstr "获取室内外实时空气质量数据"
+
 #~ msgid "Indoor Air"
 #~ msgstr "室内"
+
 #~ msgid "Indoor Air Monitoring for Schools & Offices"
 #~ msgstr "办公室和学校室内空气质量监测"
+
 #~ msgid "Indoor Air Reporting Demo"
 #~ msgstr "室内空气质量演示报告"
+
 #~ msgid "Loading.."
 #~ msgstr "加载中..."
+
 #~ msgid "Past day"
 #~ msgstr "日"
+
 #~ msgid "Past hour"
 #~ msgstr "时"
+
 #~ msgid "Past week"
 #~ msgstr "周"
+
 #~ msgid "Shanghai Outdoor"
 #~ msgstr "上海室外"
+
 #~ msgid "Temp"
 #~ msgstr "温度"
+
 #~ msgid "View the demo"
 #~ msgstr "去看演示"
+
 #~ msgid "email, phone, or qq"
 #~ msgstr "邮箱，电话，qq"
