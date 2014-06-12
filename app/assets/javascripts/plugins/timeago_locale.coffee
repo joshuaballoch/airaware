@@ -1,6 +1,5 @@
 $(document).ready () ->
   locale = $('meta[name="locale"]').attr('content')
-  console.log locale
   if locale == "zh-CN"
     jQuery.timeago.settings.strings = {
       prefixAgo: null,
