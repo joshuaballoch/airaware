@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-11 17:43+0800\n"
-"PO-Revision-Date: 2014-03-20 23:41+0800\n"
+"PO-Revision-Date: 2014-06-12 10:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese\n"
 "Language: zh_CN\n"
@@ -19,106 +19,106 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 
 msgid "(leave blank if you don't want to change it)"
-msgstr ""
+msgstr "（如果不希望更改请不要填写）"
 
 msgid "(we need your current password to confirm your changes)"
-msgstr ""
+msgstr "(如需做这些更改，我们需要您当前的密码）"
 
 msgid "Admin"
 msgstr ""
 
 msgid "AirAdvice"
-msgstr ""
+msgstr "AirAdvice"
 
 msgid "AirAware Demo"
-msgstr ""
+msgstr "AirAware的演示"
 
 msgid "AirAware monitors indoor air of schools, offices, and homes."
-msgstr ""
+msgstr "学校，办公室，以及家里的AirAware空气监测仪器"
 
 msgid "AirAware yourself."
 msgstr ""
 
 msgid "Are you sure?"
-msgstr ""
+msgstr "您确定吗？"
 
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 msgid "Bad for Sensitive Groups (Children, Seniors)"
 msgstr "轻度污染"
 
 msgid "Buy a monitor"
-msgstr ""
+msgstr "购买观测仪器"
 
 msgid "By Email"
-msgstr ""
+msgstr "使用邮箱"
 
 msgid "CO2"
 msgstr "二氧化碳"
 
 msgid "Cancel my account"
-msgstr ""
+msgstr "取消我的账户"
 
 msgid "Change my password"
-msgstr ""
+msgstr "更改密码"
 
 msgid "Change your password"
-msgstr ""
+msgstr "更改密码"
 
 msgid "Charts give users simple, powerful ways to see recent trends."
-msgstr ""
+msgstr "图表让使用者简单并清楚的了解近期趋势"
 
 msgid "Check your air quality!"
-msgstr ""
+msgstr "查看你周围的空气质量"
 
 msgid "Click the link below to unlock your account:"
-msgstr ""
+msgstr "点击以下链接将您的账号解锁"
 
 msgid "Confirm my account"
-msgstr ""
+msgstr "确认我的账号"
 
 msgid "Contact Email: rkw@gigabase.org"
-msgstr ""
+msgstr "联络邮箱：rkw@gigabase.org"
 
 msgid "Contact us."
-msgstr ""
+msgstr "联络我们"
 
 msgid "Copyright 2014 AirAware"
 msgstr ""
 
 msgid "Create a New Location"
-msgstr ""
+msgstr "创建新地点"
 
 msgid "Currently waiting confirmation for: %{unconfirmed_email}"
-msgstr ""
+msgstr "等待{unconfirmed_email} 的确认"
 
 msgid "Demo"
 msgstr "演示"
 
 msgid "Didn't receive confirmation instructions?"
-msgstr ""
+msgstr "没有收到确认步骤？"
 
 msgid "Didn't receive unlock instructions?"
-msgstr ""
+msgstr "没有收到解锁步骤？"
 
 msgid "Don't just take our word for it."
-msgstr ""
+msgstr "别光听我们的"
 
 msgid "Edit %{resource_name}"
-msgstr ""
+msgstr "修改 %{resource_name}"
 
 msgid "Fluke"
 msgstr ""
 
 msgid "Forgot your password?"
-msgstr ""
+msgstr "忘记你的密码？"
 
 msgid "Get in touch with us"
-msgstr ""
+msgstr "联络我们"
 
 msgid "Get started in a breeze"
-msgstr ""
+msgstr "立即开始"
 
 msgid "Good"
 msgstr "优"
@@ -130,119 +130,117 @@ msgid "Hazardous"
 msgstr "严重污染"
 
 msgid "Hello %{email}!"
-msgstr ""
+msgstr "你好%{email}!"
 
 msgid "Humidity"
 msgstr "湿度"
 
 msgid "If you didn't request this, please ignore this email."
-msgstr ""
+msgstr "如果你没有在等待这个邮件，请忽略。"
 
-#, fuzzy
 msgid "Indoor Air Monitoring"
-msgstr "室内空气质量演示报告"
+msgstr "室内空气质量观测"
 
 msgid "Indoor air pollution can't be seen."
-msgstr ""
+msgstr "室内的空气污染是看不到的。"
 
 msgid "Interested in AirAware?"
-msgstr ""
+msgstr "对AirAware有兴趣？"
 
 msgid "It seems like you do not have any locations monitored by AirAware."
-msgstr ""
+msgstr "你选择的地点没有AirAware的一起监测"
 
 msgid "Leave your email, phone, wechat, or qq id."
-msgstr ""
+msgstr "留下你的邮箱，微信，或者QQ账号"
 
 msgid "Let us contact you"
-msgstr ""
+msgstr "让我们联络您"
 
 msgid "Log Out"
-msgstr ""
+msgstr "登出"
 
 msgid "Member"
-msgstr ""
+msgstr "会员"
 
 msgid "Moderate"
 msgstr "良"
 
 msgid "Oops.."
-msgstr ""
+msgstr "糟糕。。。"
 
 msgid "Our monitors are already installed in schools and offices across China."
-msgstr ""
+msgstr "我们的监测仪器已经安装在中国各地的学校及办公室"
 
 msgid "Outdoor Comparisons"
-msgstr ""
+msgstr "与室外对比"
 
 msgid "P.M. 2.5"
-msgstr ""
+msgstr "P.M. 2.5"
 
 msgid "Peace of mind in the cloud"
-msgstr ""
+msgstr "悠享闲云"
 
 msgid "Please contact us to resolve this issue."
-msgstr ""
+msgstr "请联络我们帮助您解决这个问题"
 
 msgid "Private"
-msgstr ""
+msgstr "保密"
 
 msgid "Public"
-msgstr ""
+msgstr "公开"
 
 msgid "Quickly compare against outdoor air pollution."
-msgstr ""
+msgstr "迅速与室外空气污染比较"
 
 msgid "Real time data is pushed into the AirAware cloud."
-msgstr ""
+msgstr "实时数据被上传到AirAware云端"
 
 msgid "Reporting Devices"
-msgstr ""
+msgstr "空气检测设备"
 
 msgid "Resend confirmation instructions"
-msgstr ""
+msgstr "从新发送验证步骤"
 
 msgid "Resend unlock instructions"
-msgstr ""
+msgstr "从新发送解锁步骤"
 
 msgid "Scan the QR code below, or visit"
-msgstr ""
+msgstr "扫一扫，或者查看"
 
 msgid "See what they see"
-msgstr ""
+msgstr "看见他们所看见的"
 
 msgid "Sensitive"
-msgstr ""
+msgstr "敏感"
 
 msgid "Show Legend"
 msgstr "显示图例"
 
-#, fuzzy
 msgid "Sign In"
-msgstr "确定"
+msgstr "登录"
 
-#, fuzzy
 msgid "Sign Up"
-msgstr "确定"
+msgstr "加入会员"
 
-#, fuzzy
 msgid "Sign in"
-msgstr "确定"
+msgstr "登录"
 
 msgid "Sign up"
 msgstr "确定"
 
 msgid "Simple Interface"
-msgstr ""
+msgstr "简单的界面"
 
-msgid "Someone has requested a link to change your password. You can do this through the link below."
-msgstr ""
+msgid ""
+"Someone has requested a link to change your password. You can do this "
+"through the link below."
+msgstr "（有人以要求连接更改您的密码，您可以透过此连接操作）"
 
 msgid "TVOC"
 msgstr "总挥发性有机化合物"
 
 msgid "Team Members"
-msgstr ""
+msgstr "队员"
 
 msgid "Toggle navigation"
 msgstr ""
@@ -260,83 +258,86 @@ msgid "Unhealthy"
 msgstr "中度污染"
 
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 msgid "Unlock my account"
-msgstr ""
+msgstr "将我的账号解锁"
 
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 msgid "User Name"
-msgstr ""
+msgstr "用户名"
 
 msgid "Users"
-msgstr ""
+msgstr "用户"
 
 msgid "Users can see their indoor air quality at a glance."
-msgstr ""
+msgstr "用户可以轻松的查看室内空气品质"
 
 msgid "Users check their air quality on phone apps and the web."
-msgstr ""
+msgstr "用户可用手机app或者网络查看空气质量"
 
 msgid "Very Unhealthy"
 msgstr "重度污染"
 
-#, fuzzy
 msgid "View the Demo"
-msgstr "去看演示"
+msgstr "观看演示"
 
 msgid "Visualize Trends"
-msgstr ""
+msgstr "透过图表了解趋势"
 
 msgid "We install."
-msgstr ""
+msgstr "我们为您安装"
 
 msgid "You can confirm your account email through the link below:"
-msgstr ""
+msgstr "您可以用以下链接验证你的用户邮箱"
 
 msgid "You to not have permission to access %{url}."
 msgstr ""
 
-msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
-msgstr ""
+msgid ""
+"Your account has been locked due to an excessive number of unsuccessful sign "
+"in attempts."
+msgstr "因为多次密码输入错误，您的帐号已被锁定"
 
-msgid "Your password won't change until you access the link above and create a new one."
-msgstr ""
+msgid ""
+"Your password won't change until you access the link above and create a new "
+"one."
+msgstr "(在您点击连接创建一个新的密码前，您的密码无法更改）"
 
 msgid "current_password"
-msgstr ""
+msgstr "当前密码"
 
 msgid "email"
-msgstr ""
+msgstr "邮箱"
 
-#, fuzzy
 msgid "email, phone, wechat, or qq"
-msgstr "邮箱，电话，qq"
+msgstr "邮箱，电话，或者qq"
 
 msgid "first_name"
-msgstr ""
+msgstr "名字"
 
 msgid "last_name"
-msgstr ""
+msgstr "姓氏"
 
 msgid "password"
-msgstr ""
+msgstr "密码"
 
 msgid "password_confirmation"
-msgstr ""
+msgstr "密码_确认"
 
 msgid "remember me"
-msgstr ""
+msgstr "记住我"
 
 msgid "username"
-msgstr ""
+msgstr "用户民"
 
 #~ msgid ""
-#~ "AirAware is now launching at offices and schools across China. Sign up to lear"
-#~ "n more!"
-#~ msgstr "AirAware项目正在国内的学校和办公室中启动，请输入邮箱以获取更多信息！"
+#~ "AirAware is now launching at offices and schools across China. Sign up to "
+#~ "learn more!"
+#~ msgstr ""
+#~ "AirAware项目正在国内的学校和办公室中启动，请输入邮箱以获取更多信息！"
 
 #~ msgid "Beijing Outdoor"
 #~ msgstr "北京室外"
