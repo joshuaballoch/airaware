@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-20 23:40+0800\n"
-"PO-Revision-Date: 2014-03-20 23:40+0800\n"
+"POT-Creation-Date: 2014-06-11 17:43+0800\n"
+"PO-Revision-Date: 2014-06-11 17:43+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,46 +18,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid "A breath of fresh air"
+msgid "(leave blank if you don't want to change it)"
 msgstr ""
 
-msgid "AirAware can install multiple sensors per location."
+msgid "(we need your current password to confirm your changes)"
 msgstr ""
 
-msgid "AirAware installs air monitors in schools and, soon, in office buildings, factories, and workplaces across Shanghai and the rest of China."
+msgid "Admin"
 msgstr ""
 
-msgid "AirAware is now launching at offices and schools across China. Sign up to learn more!"
+msgid "AirAdvice"
+msgstr ""
+
+msgid "AirAware Demo"
+msgstr ""
+
+msgid "AirAware monitors indoor air of schools, offices, and homes."
+msgstr ""
+
+msgid "AirAware yourself."
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Back"
 msgstr ""
 
 msgid "Bad for Sensitive Groups (Children, Seniors)"
 msgstr ""
 
-msgid "Beijing Outdoor"
+msgid "Buy a monitor"
+msgstr ""
+
+msgid "By Email"
 msgstr ""
 
 msgid "CO2"
 msgstr ""
 
-msgid "Charts and graphs enable users to take a closer look."
+msgid "Cancel my account"
 msgstr ""
 
-msgid "Clear The Air"
+msgid "Change my password"
 msgstr ""
 
-msgid "Concerned about Air Pollution in China?"
+msgid "Change your password"
+msgstr ""
+
+msgid "Charts give users simple, powerful ways to see recent trends."
+msgstr ""
+
+msgid "Check your air quality!"
+msgstr ""
+
+msgid "Click the link below to unlock your account:"
+msgstr ""
+
+msgid "Confirm my account"
+msgstr ""
+
+msgid "Contact Email: rkw@gigabase.org"
+msgstr ""
+
+msgid "Contact us."
+msgstr ""
+
+msgid "Copyright 2014 AirAware"
+msgstr ""
+
+msgid "Create a New Location"
+msgstr ""
+
+msgid "Currently waiting confirmation for: %{unconfirmed_email}"
 msgstr ""
 
 msgid "Demo"
 msgstr ""
 
-msgid "Filters are not enough"
+msgid "Didn't receive confirmation instructions?"
 msgstr ""
 
-msgid "Get AirAware."
+msgid "Didn't receive unlock instructions?"
 msgstr ""
 
-msgid "Get real time indoor and outdoor air quality readings."
+msgid "Don't just take our word for it."
+msgstr ""
+
+msgid "Edit %{resource_name}"
+msgstr ""
+
+msgid "Fluke"
+msgstr ""
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Get in touch with us"
+msgstr ""
+
+msgid "Get started in a breeze"
 msgstr ""
 
 msgid "Good"
@@ -69,92 +129,200 @@ msgstr ""
 msgid "Hazardous"
 msgstr ""
 
+msgid "Hello %{email}!"
+msgstr ""
+
 msgid "Humidity"
 msgstr ""
 
-msgid "Indoor Air"
+msgid "If you didn't request this, please ignore this email."
 msgstr ""
 
-msgid "Indoor Air Monitoring for Schools & Offices"
+msgid "Indoor Air Monitoring"
 msgstr ""
 
-msgid "Indoor Air Quality Monitoring"
+msgid "Indoor air pollution can't be seen."
 msgstr ""
 
-msgid "Indoor Air Reporting Demo"
+msgid "Interested in AirAware?"
 msgstr ""
 
-msgid "Indoor air pollution can be just as bad and often worse than outdoor air, and we spend most of our days inside."
+msgid "It seems like you do not have any locations monitored by AirAware."
 msgstr ""
 
-msgid "Installing air filtration is the first step toward a healthier environment, but it's not enough."
+msgid "Leave your email, phone, wechat, or qq id."
 msgstr ""
 
-msgid "Loading.."
+msgid "Let us contact you"
 msgstr ""
 
-msgid "Many filters are not run at the right settings to get your air clean. Some may also not alleviate all indoor pollutants, like volatile organic compounds, CO2, and formaldehyde."
+msgid "Log Out"
+msgstr ""
+
+msgid "Member"
 msgstr ""
 
 msgid "Moderate"
 msgstr ""
 
-msgid "Outdoor air can be reported on-site or from nearby stations"
+msgid "Oops.."
+msgstr ""
+
+msgid "Our monitors are already installed in schools and offices across China."
+msgstr ""
+
+msgid "Outdoor Comparisons"
 msgstr ""
 
 msgid "P.M. 2.5"
 msgstr ""
 
-msgid "Paid Feature"
+msgid "Peace of mind in the cloud"
 msgstr ""
 
-msgid "Past day"
+msgid "Please contact us to resolve this issue."
 msgstr ""
 
-msgid "Past hour"
+msgid "Private"
 msgstr ""
 
-msgid "Past week"
+msgid "Public"
+msgstr ""
+
+msgid "Quickly compare against outdoor air pollution."
+msgstr ""
+
+msgid "Real time data is pushed into the AirAware cloud."
+msgstr ""
+
+msgid "Reporting Devices"
+msgstr ""
+
+msgid "Resend confirmation instructions"
+msgstr ""
+
+msgid "Resend unlock instructions"
 msgstr ""
 
 msgid "Scan the QR code below, or visit"
 msgstr ""
 
-msgid "See AirAware in action."
+msgid "See what they see"
 msgstr ""
 
-msgid "Shanghai Outdoor"
+msgid "Sensitive"
 msgstr ""
 
 msgid "Show Legend"
 msgstr ""
 
+msgid "Sign In"
+msgstr ""
+
+msgid "Sign Up"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
 msgid "Sign up"
+msgstr ""
+
+msgid "Simple Interface"
+msgstr ""
+
+msgid "Someone has requested a link to change your password. You can do this through the link below."
 msgstr ""
 
 msgid "TVOC"
 msgstr ""
 
-msgid "Temp"
+msgid "Team Members"
 msgstr ""
 
 msgid "Toggle navigation"
 msgstr ""
 
+msgid "Trending Outlook - PM 2.5"
+msgstr ""
+
+msgid "Unauthorized Access!"
+msgstr ""
+
+msgid "Unhappy?"
+msgstr ""
+
 msgid "Unhealthy"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Unlock my account"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "User Name"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Users can see their indoor air quality at a glance."
+msgstr ""
+
+msgid "Users check their air quality on phone apps and the web."
 msgstr ""
 
 msgid "Very Unhealthy"
 msgstr ""
 
-msgid "View the demo"
+msgid "View the Demo"
 msgstr ""
 
-msgid "We enable schools to monitor their air quality, and integrate with other services to provide a healthy indoor environment for their pupils."
+msgid "Visualize Trends"
 msgstr ""
 
-msgid "Worry over P.M. 2.5 readings has skyrocketed in recent years, but outdoor air quality is just half the battle."
+msgid "We install."
 msgstr ""
 
-msgid "email, phone, or qq"
+msgid "You can confirm your account email through the link below:"
+msgstr ""
+
+msgid "You to not have permission to access %{url}."
+msgstr ""
+
+msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+msgstr ""
+
+msgid "Your password won't change until you access the link above and create a new one."
+msgstr ""
+
+msgid "current_password"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid "email, phone, wechat, or qq"
+msgstr ""
+
+msgid "first_name"
+msgstr ""
+
+msgid "last_name"
+msgstr ""
+
+msgid "password"
+msgstr ""
+
+msgid "password_confirmation"
+msgstr ""
+
+msgid "remember me"
+msgstr ""
+
+msgid "username"
 msgstr ""
