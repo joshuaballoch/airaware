@@ -8,8 +8,11 @@ $.fn.dynamizeReadingBlock = () ->
   # options.device_id   = $target.data('device-id')
   options.url = "/locations/#{options.location_id}/readings/latest"
 
+
   # Get the current reading
   model = new AirAware.Models.Reading
+
+  model.simple = $target.data('simple')
 
   # Fetch the first reading and show the reading block
   model.fetch({url: options.url}).success () =>

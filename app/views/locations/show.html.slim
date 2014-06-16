@@ -21,15 +21,21 @@
             span.text.hidden-xs
               = _("Private")
 .container.aa-public-container
-  .row
-    .col-sm-12.aa-block-wrapper
-      div.aa-block.aa-reading-block data-location-id=@location.id
+  - if [18,19,20].include? @location.id
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-block.aa-reading-block data-location-id=@location.id data-simple="true"
+  - else
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-block.aa-reading-block data-location-id=@location.id
   .row
     .col-sm-12.aa-block-wrapper
       div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
-  .row
-    .col-sm-12.aa-block-wrapper
-      div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
+  - unless [18,19,20].include? @location.id
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
 
   = render 'shared/legend'
 

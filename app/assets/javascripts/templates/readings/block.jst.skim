@@ -47,7 +47,7 @@
                 = "(μg/m³)"
 
 
-    - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
+    - if !@model.simple && (@model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2'))
       .row.reading-details
         .col-sm-12
           table.table
