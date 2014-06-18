@@ -44,6 +44,9 @@
     }
     .aa-block-body {
     }
+    .aa-block-footer {
+      margin-top:10px;
+    }
   }
 }
 .aa-chart-block {
@@ -54,6 +57,19 @@
       @include border-bottom-radius(5px);
       padding-top: 10px;
       padding-bottom: 10px;
+    }
+    .aa-block-footer {
+      .select-device {
+        span.text-label {
+          margin-right:10px;
+        }
+        select.device {
+          background:#9C9C9C;
+          &:focus {
+            outline:none;
+          }
+        }
+      }
     }
   }
 }

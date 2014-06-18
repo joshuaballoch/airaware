@@ -8,9 +8,14 @@
       // canvas gets appended here
   // dropdowns for selecting devices go here
   .aa-block-footer
-    - if @devices.length > 1
-      select.device
-        - _.each @devices, (device) ->
-          option value=device.id
-            // FIX ME: this may have issue with script attacks!!
-            == device.label || device.identifier
+    .row
+      .col-xs-6
+        .select-device
+          span.text-label
+            = __("Select Location")
+          - if @devices.length > 1
+            select.device
+              - _.each @devices, (device) ->
+                option value=device.id
+                  // FIX ME: this may have issue with script attacks!!
+                  == device.label || device.identifier
