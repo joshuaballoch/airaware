@@ -3,6 +3,13 @@
 @AirAware.Collections = {}
 @AirAware.Views = {}
 
+@AirAware.ie = () ->
+  target = $("meta[name='ie-version']")
+  if target
+    return parseInt(target.attr("content"))
+  else
+    return null
+
 @AirAware.locale = ()->
   if location.pathname.substring(0,3) == "/zh" then 'zh' else 'en'
 

@@ -47,9 +47,11 @@ prepChartData = (readings) ->
   _.each display_ratings, (rating) ->
     colour = $(".rating-colour.#{rating.rating}").css("background-color")
     # Change colour opacity
-    colour = "rgba#{colour.substr(3).slice(0,-1)},0.1)"
+    unless AirAware.ie() && AirAware.ie() < 9
+      colour = "rgba#{colour.substr(3).slice(0,-1)},0.1)"
     a = {
-          fillColor: colour
+          fillColor: colour,
+          strokeColor: colour,
           data: _.map(times, () -> return rating.value)
         }
     datasets.push a
