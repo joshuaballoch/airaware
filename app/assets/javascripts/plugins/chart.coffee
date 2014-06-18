@@ -37,8 +37,10 @@ class ReadingsChart
   scale_step_width:
     default: (reading_data) ->
       10*Math.ceil(0.1*Math.ceil(_.max(reading_data)/7.5))
+    humidity: () ->
+      10
     tvoc: (reading_data) ->
-      0.05*Math.ceil(0.1*Math.ceil(_.max(reading_data)/7.5))
+      0.03*Math.ceil(0.1*Math.ceil(_.max(reading_data)/7.5))
 
 
   constructor: (options) ->
