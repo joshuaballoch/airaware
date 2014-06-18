@@ -59,11 +59,11 @@
       padding-bottom: 10px;
     }
     .aa-block-footer {
-      .select-device {
+      .select-device, .select-reading-data {
         span.text-label {
           margin-right:10px;
         }
-        select.device {
+        select {
           background:#9C9C9C;
           &:focus {
             outline:none;
