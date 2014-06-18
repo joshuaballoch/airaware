@@ -1,4 +1,15 @@
+ReferenceData = {
+  pm2p5: [
+        {value: 200, level: 5, rating: "very-unhealthy"},
+        {value: 120, level: 4, rating: "unhealthy"},
+        {value: 100, level: 3, rating: "sensitive"},
+        {value: 75,  level: 2, rating:  "moderate"},
+        {value: 35,  level: 1, rating:  "good"},
+        ]
+}
+
 prepChartData = (readings) ->
+  # Parse the times from the indoor air
   times = _.map readings.models, (item) ->
     return item.get('reading_time');
   _.each times, (item, index) ->
@@ -13,19 +24,6 @@ prepChartData = (readings) ->
   times.reverse()
   pm2p5.reverse()
 
-  data = {
-    labels : times,
-    datasets : [
-      {
-        fillColor : "rgba(151,187,205,0.5)",
-        strokeColor : "rgba(220,220,220,1)",
-        pointColor : "rgba(220,220,220,1)",
-        pointStrokeColor : "#fff",
-        data : pm2p5
-      }
-    ]
-  }
-
   options = {
     animation: false,
     scaleOverride: true,
@@ -37,6 +35,42 @@ prepChartData = (readings) ->
     scaleStartValue : 0,
     pointDot: false,
   }
+  datasets = [
+  ]
+
+  # Set the background labels
+  max = options.scaleStepWidth*options.scaleSteps
+
+  display_ratings = _.filter ReferenceData.pm2p5, (item) -> return item.value < max
+
+  display_ratings.unshift _.find(ReferenceData.pm2p5, (item) -> return item.level == (1 + _.max(display_ratings, (rating) -> rating.level).level))
+
+  _.each display_ratings, (rating) ->
+    colour = $(".rating-colour.#{rating.rating}").css("background-color")
+    # Change colour opacity
+    colour = "rgba#{colour.substr(3).slice(0,-1)},0.1)"
+    a = {
+          fillColor: colour
+          data: _.map(times, () -> return rating.value)
+        }
+    datasets.push a
+
+  # Add the actual data
+  datasets.push {
+      fillColor : "rgba(151,187,205,0.6)",
+      strokeColor : "rgba(220,220,220,1)",
+      pointColor : "rgba(220,220,220,1)",
+      pointStrokeColor : "#fff",
+      data : pm2p5
+    }
+
+  _.each times, (item, index) ->
+
+  data = {
+    labels : times,
+    datasets : datasets
+  }
+
 
   return {data: data, options: options}
 
@@ -91,7 +125,7 @@ $.fn.dynamizeChart = () ->
   # Poll for new readings
   setInterval () ->
     readings.fetch().success () =>
-    setChart(readings, options)
+      setChart(readings, options)
   , 30000
 
   throttled_set_chart = _.throttle setChart, 500
