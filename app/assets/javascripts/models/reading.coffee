@@ -47,8 +47,8 @@ class AirAware.Collections.Readings extends Backbone.Collection
   model: AirAware.Models.Reading
 
   initialize: (models, options) ->
-    throw "Error: Cannot initialize Readings collection without a location id.." unless options?.location_id
-    @location_id = options.location_id
+    throw "Error: Cannot initialize Readings collection without a device id.." unless options?.device_id
+    @device_id = options.device_id
 
   url: () ->
-    return "/locations/#{@location_id}/readings"
+    return "/reporting_devices/#{@device_id}/readings"

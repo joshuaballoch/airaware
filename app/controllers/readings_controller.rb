@@ -2,9 +2,9 @@ class ReadingsController < ApplicationController
   respond_to :json, :only => [:index]
   respond_to :xml, :only => [:us_consulate]
   def index
-    @location = Location.find(params[:location_id])
+    @device = ReportingDevice.find(params[:reporting_device_id])
 
-    @readings = @location.readings.ordered.find_by_sql(
+    @readings = Reading.find_by_sql(
       ["
         SELECT *
         FROM (
@@ -13,10 +13,10 @@ class ReadingsController < ApplicationController
             FROM (
                 SELECT @row :=0) r, readings
             ) ranked
-        WHERE reporting_device_id = ? AND rownum % 20 = 1
+        WHERE reporting_device_id = ? AND rownum % 15 = 1
         ORDER BY reading_time DESC
-        LIMIT 72
-      ", @location.reporting_devices.first.id]
+        LIMIT 96
+      ", @device.id]
     )
 
     # TO DO: add specs, use a decorator instead of to_json

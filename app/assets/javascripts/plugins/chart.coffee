@@ -29,7 +29,6 @@ prepChartData = (readings) ->
     scaleOverride: true,
     scaleSteps : 10,
     #Number - The value jump in the hard coded scale
-
     scaleStepWidth : 10*Math.ceil(0.1*Math.ceil(_.max(pm2p5)/7.5)),
     #Number - The scale starting value
     scaleStartValue : 0,
@@ -55,7 +54,9 @@ prepChartData = (readings) ->
         }
     datasets.push a
 
-  # Add the actual data
+  # if there is a city, add the outdoor data
+
+  # Add the indoor data
   datasets.push {
       fillColor : "rgba(151,187,205,0.6)",
       strokeColor : "rgba(220,220,220,1)",
@@ -93,9 +94,11 @@ $.fn.dynamizeChart = () ->
   # Collect the necessary data from the target
   options = {}
   options.target = $target
-  options.location_id = $target.data('location-id')
-  # TO DO: implement it as a DEVICE ID reading fetch..
-  # options.device_id   = $target.data('device-id')
+  options.devices = $target.data('devices')
+  options.outdoor_location = $target.data('outdoor-location')
+
+  options.device_id = options.devices[0].id
+
   options.width_reference = $(".container > .row > .col-sm-12")
   options.base_html = () =>
     """
@@ -116,7 +119,7 @@ $.fn.dynamizeChart = () ->
     $canvas.get(0).getContext("2d");
 
   # Initialize the collection
-  readings = new AirAware.Collections.Readings([], {location_id: options.location_id})
+  readings = new AirAware.Collections.Readings([], {device_id: options.device_id})
 
   # Fetch the first readings and show the chart
   readings.fetch().success () =>
