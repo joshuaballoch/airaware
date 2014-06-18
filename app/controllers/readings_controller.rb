@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
   respond_to :xml, :only => [:us_consulate]
   def index
     @location = Location.find(params[:location_id])
-    # @readings = @location.readings.ordered.limit(1440)
+
     @readings = @location.readings.ordered.find_by_sql(
       ["
         SELECT *
