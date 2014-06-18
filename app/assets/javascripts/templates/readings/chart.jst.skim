@@ -11,9 +11,9 @@
     .row
       .col-xs-6
         .select-device
-          span.text-label
-            = __("Select Location")
           - if @devices.length > 1
+            span.text-label
+              = __("Select Location")
             select.device
               - _.each @devices, (device) ->
                 option value=device.id
