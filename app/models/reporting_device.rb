@@ -2,7 +2,7 @@ class ReportingDevice < ActiveRecord::Base
   extend EnumerateIt
 
   attr_accessible :location_id, :location, :device_type
-  attr_accessible :identifier, :device_type, :location_id, :as => :admin
+  attr_accessible :identifier, :device_type, :location_id, :label, :as => :admin
 
   validates_presence_of :location_id, :identifier, :device_type
 

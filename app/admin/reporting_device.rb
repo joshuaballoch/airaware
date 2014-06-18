@@ -11,6 +11,7 @@ ActiveAdmin.register ReportingDevice do
     column :device_type do |device|
       device.device_type_humanize
     end
+    column :label
     column :location do |device|
       link_to device.location.name, admin_location_path(device.location.id)
     end
@@ -21,6 +22,7 @@ ActiveAdmin.register ReportingDevice do
   form do |f|
     f.inputs "Reporting Device Details " do
       f.input :identifier
+      f.input :label
 
       f.input :device_type, :as => :select, :collection => ReportingDeviceType.to_a
       f.input :location, :as => :select, :collection => Location.all.map{|l| ["#{l.name}", l.id]}

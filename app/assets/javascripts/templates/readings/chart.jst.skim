@@ -12,4 +12,5 @@
       select.device
         - _.each @devices, (device) ->
           option value=device.id
-            = device.identifier
+            // FIX ME: this may have issue with script attacks!!
+            == device.label || device.identifier

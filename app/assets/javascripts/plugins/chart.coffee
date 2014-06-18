@@ -110,7 +110,6 @@ class ReadingsChart
 
   setChart: () ->
     # Prep the data
-    console.log @
     opts = @prepChartData(@readings)
 
     # Add the chart again

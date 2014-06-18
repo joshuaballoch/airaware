@@ -16,8 +16,7 @@
           - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
             = __("U.S. Consulate")
           - else
-            / FIX ME TO DO TODO: put the reporting device name when this is added
-            = __("Indoor Air")
+            = @device.label || __("Indoor Air")
       .col-xs-7.visible-xs
         .reading-value.col-xs-7
           span.pm2p5.value

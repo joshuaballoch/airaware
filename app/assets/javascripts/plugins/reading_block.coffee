@@ -6,6 +6,8 @@ $.fn.dynamizeReadingBlock = () ->
   # options.location_id = $target.data('location-id')
   # TO DO: implement it as a DEVICE ID reading fetch..
   options.device_id   = $target.data('device-id')
+  options.device_label = $target.data('device-label')
+
   options.display_data = $target.data('display-data')
 
   options.url = "/reporting_devices/#{options.device_id}/readings/latest"
@@ -21,7 +23,7 @@ $.fn.dynamizeReadingBlock = () ->
 
   # Fetch the first reading and show the reading block
   model.fetch({url: options.url}).success () =>
-    view = new AirAware.Views.Readings.Block model: model
+    view = new AirAware.Views.Readings.Block model: model, device_label: options.device_label, device_id: options.device_id
     $target.html(view.render().el)
 
   # Poll for new readings
