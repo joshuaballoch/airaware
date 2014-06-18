@@ -1,0 +1,15 @@
+.skin
+.aa-block-inner
+  .aa-block-title
+    h3
+      = __("Trending Outlook - P.M. 2.5")
+  .aa-block-body
+    .aa-chart
+      // canvas gets appended here
+  // dropdowns for selecting devices go here
+  .aa-block-footer
+    - if @devices.length > 1
+      select.device
+        - _.each @devices, (device) ->
+          option value=device.id
+            = device.identifier
