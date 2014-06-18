@@ -24,8 +24,8 @@ class ReadingsController < ApplicationController
   end
 
   def latest
-    @location = Location.find(params[:location_id])
-    @reading = @location.readings.ordered.first
+    @device = ReportingDevice.find(params[:reporting_device_id])
+    @reading = @device.readings.ordered.first
     render :json => @reading.to_json
   end
 

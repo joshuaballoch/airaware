@@ -3,16 +3,21 @@ $.fn.dynamizeReadingBlock = () ->
 
   # Collect the necessary data from the target
   options = {}
-  options.location_id = $target.data('location-id')
+  # options.location_id = $target.data('location-id')
   # TO DO: implement it as a DEVICE ID reading fetch..
-  # options.device_id   = $target.data('device-id')
-  options.url = "/locations/#{options.location_id}/readings/latest"
+  options.device_id   = $target.data('device-id')
+  options.display_data = $target.data('display-data')
 
+  options.url = "/reporting_devices/#{options.device_id}/readings/latest"
 
   # Get the current reading
   model = new AirAware.Models.Reading
 
   model.simple = $target.data('simple')
+
+  if options.display_data
+    _.each ["temperature", "humidity", "hcho", "co2", "tvoc", "pm2p5"], (reading_type) ->
+      model["display_#{reading_type}"] = options.display_data[reading_type]
 
   # Fetch the first reading and show the reading block
   model.fetch({url: options.url}).success () =>

@@ -21,14 +21,11 @@
             span.text.hidden-xs
               = _("Private")
 .container.aa-public-container
-  - if [18,19,20].include? @location.id
+  - @reporting_devices.each do |device|
     .row
       .col-sm-12.aa-block-wrapper
-        div.aa-block.aa-reading-block data-location-id=@location.id data-simple="true"
-  - else
-    .row
-      .col-sm-12.aa-block-wrapper
-        div.aa-block.aa-reading-block data-location-id=@location.id
+        div.aa-block.aa-reading-block data-device-id=device.id data-display-data=@location.to_json
+
   - if @location.city
     .row
       .col-sm-12.aa-block-wrapper
@@ -43,6 +40,6 @@
 
   = render 'shared/legend'
 
-  .row
+  /.row
     .col-xs-12.aa-block-wrapper
-      div.aa-block.aa-chart-block data-location-id=@location.id
+      div.aa-block.aa-chart-block data-devices=@reporting_devices.to_json

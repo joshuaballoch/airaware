@@ -7,6 +7,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.includes(:reporting_devices).find(params[:id])
+    @reporting_devices = @location.reporting_devices
   end
 end
