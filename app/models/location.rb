@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   extend EnumerateIt
 
   attr_accessible :name, :description, :user, :privacy
-  attr_accessible :name, :description, :user, :user_id, :privacy, :location_users_attributes, :as => :admin
+  attr_accessible :name, :description, :user, :user_id, :privacy, :location_users_attributes, :city, :as => :admin
 
 
   ## VALIDATIONS
@@ -28,6 +28,7 @@ class Location < ActiveRecord::Base
   ## Enumerations
   #
   has_enumeration_for :privacy, :with => PrivacyEnumeration, :create_scopes => true, :create_helpers => true
+  has_enumeration_for :city, :with => City, :create_scopes => true, :create_helpers => true
 
   ## SPECIAL TRANSACTION LOGIC
   #

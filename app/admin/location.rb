@@ -13,6 +13,12 @@ ActiveAdmin.register Location do
       location.reporting_devices.map{|x| "Id: #{x.id}, Identifier: #{x.identifier}, Type: #{x.device_type_humanize}"}
     end
     column :user
+    column :city do |location|
+      location.city_humanize
+    end
+    column :privacy do |location|
+      location.privacy_humanize
+    end
     actions
   end
 
@@ -21,6 +27,7 @@ ActiveAdmin.register Location do
       f.input :name
       f.input :description
       f.input :privacy, :as => :select, :collection => PrivacyEnumeration.to_a
+      f.input :city, :as => :select, :collection => City.to_a
       f.input :user
     end
 
