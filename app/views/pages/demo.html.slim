@@ -20,7 +20,7 @@
   - @reporting_devices.each do |device|
     .row
       .col-sm-12.aa-block-wrapper
-        div.aa-block.aa-reading-block data-device-id=device.id data-display-data=@location.to_json
+        div.aa-block.aa-reading-block data-device-id=device.id data-device-label=device.label data-display-data=@location.to_json
 
   .row
     .col-sm-12
@@ -47,7 +47,7 @@
         = _("Charts give users simple, powerful ways to see recent trends.")
   .row
     .col-xs-12.aa-block-wrapper
-      div.aa-block.aa-chart-block data-devices=@reporting_devices.to_json
+      div.aa-block.aa-chart-block data-devices=@reporting_devices.to_json data-display-data=@location.to_json
 
   .spacer
   .row
