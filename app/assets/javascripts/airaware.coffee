@@ -91,6 +91,9 @@
     a.setISO8601(with_tzone)
   a
 
+@AirAware.matchTime = (datetime) ->
+  datetime.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/)
+
 @AirAware.parseTime = (datetime, options) ->
   defaults = {seconds: true, hours: true, minutes: true}
   options = _.extend defaults, options
@@ -98,7 +101,7 @@
   # hours = date.getUTCHours()
   # minutes = date.getMinutes()
   # seconds = date.getSeconds()
-  date = datetime.match(/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/)
+  date = @matchTime(datetime)
   year    = parseInt(date[1])
   month   = parseInt(date[2])
   day     = parseInt(date[3])
