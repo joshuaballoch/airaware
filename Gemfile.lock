@@ -32,7 +32,7 @@ GIT
       rails (~> 3.2.0)
 
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.17)
       actionpack (= 3.2.17)
