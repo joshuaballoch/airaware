@@ -31,5 +31,5 @@ $.fn.dynamizeReadingBlock = () ->
     model.fetch({url: options.url})
     # if window.console
     #   console.log "fetching for lcoation #{options.location_id}"
-  , 3000
+  , 60000
 

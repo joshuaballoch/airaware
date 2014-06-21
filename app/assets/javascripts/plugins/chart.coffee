@@ -70,7 +70,7 @@ class ReadingsChart
     @pollInterval = setInterval () =>
       @readings.fetch().success () =>
         @setChart()
-    , 30000
+    , 300000
 
     throttled_set_chart = _.throttle @setChart, 500
 
