@@ -31,8 +31,16 @@ GIT
       po_to_json (>= 0.0.7)
       rails (~> 3.2.0)
 
+GIT
+  remote: git://github.com/seuros/capistrano-sidekiq.git
+  revision: 3579860c72c597f44d7cc6ba57a123e2ce7b2c25
+  specs:
+    capistrano-sidekiq (0.3.3)
+      capistrano
+      sidekiq
+
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.18)
       actionpack (= 3.2.18)
@@ -330,6 +338,7 @@ DEPENDENCIES
   byebug
   cancan
   capistrano (~> 2.15.0)
+  capistrano-sidekiq!
   capistrano-unicorn!
   coffee-rails (~> 3.2.1)
   curb (~> 0.8.5)
