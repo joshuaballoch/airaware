@@ -28,8 +28,6 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :confirmed_at, :as => :datepicker
-      f.input :confirmation_token
-      f.input :unconfirmed_email
       f.input :locale
       f.input :admin
     end
