@@ -13,8 +13,10 @@
     .row.reading-large
       .col-xs-5
         label.device-label
-          - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
+          - if @model.get('city') == "shanghai"
             = __("U.S. Consulate")
+          - else if @model.get('city') == "beijing"
+            = __("U.S. Embassy")
           - else
             = @device.label || __("Indoor Air")
       .col-xs-7.visible-xs
