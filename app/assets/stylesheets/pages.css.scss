@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 header.navbar {
+  .navbar-brand {
+    img {
+      height:40px;
+      margin-top:-10px;
+    }
+  }
   .navbar-toggle {
     .icon-bar {
       background: #306391;
