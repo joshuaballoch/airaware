@@ -54,9 +54,47 @@ body.public {
     &.tall {
       height:350px;
     }
+    .aa-screenshot {
+      position:absolute;
+      height:280px;
+      bottom:0px;
+      right: 50px;
+      z-index:0;
+      img {
+        height:100%;
+      }
+    }
+    @media(max-width:992px) {
+      .aa-screenshot {
+        height: 240px;
+        right:5px;
+      }
+    }
+    @media(max-width: 600px) {
+      .aa-screenshot {
+        height:200px;
+        right:5px;
+      }
+    }
+    @media(max-width:500px) {
+      .aa-screenshot {
+        right:-60px;
+      }
+    }
+    @media(max-width: 400px) {
+      .aa-screenshot {
+        right:-100px;
+      }
+    }
     .aa-banner {
       text-align:center;
-      margin-top:100px;
+      margin-top:50px;
+      position:relative;
+      z-index:1;
+      img {
+        width:400px;
+        max-width:100%;
+      }
       p {
         font-size:26px;
       }

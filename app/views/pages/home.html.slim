@@ -13,14 +13,19 @@
   .aa-page-header.with-img.tall id="content"
     .skin
     .container
+      .aa-screenshot
+        = image_tag "hand2.png", :alt => "AirAware Screenshot"
       .aa-banner
         h1
-          = _("Indoor Air Monitoring")
+          = image_tag "logo_white.png", :alt => "AirAware Logo"
       .aa-banner.bottom
+        h3
+          = _("Indoor Air Monitoring")
         h3
           = _("Indoor air pollution can't be seen.")
         h3
           = _("AirAware yourself.")
+
   .container.aa-public-container
     .row
       .col-md-6
