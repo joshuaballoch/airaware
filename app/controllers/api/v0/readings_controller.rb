@@ -29,6 +29,8 @@ module Api
         # if params[:from] || (params[:from] && params[:to])
         limit = params[:limit] || 60 # get ~ one hours worth if no limit
         offset = params[:offset] || 0 # by default, fetch latest
+
+        # TO DO: set a max bound for limit?
         
         @readings = @reporting_device.readings.offset(offset).limit(limit)
 
