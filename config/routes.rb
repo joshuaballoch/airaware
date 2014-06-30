@@ -39,6 +39,9 @@ Airaware::Application.routes.draw do
     namespace :v0 do
       resources :readings, :only => [:create] do
       end
+      resources :reporting_devices, :only => [] do
+        resources :readings, :only => [:index]
+      end
     end
   end
 end
