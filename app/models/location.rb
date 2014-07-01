@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   extend EnumerateIt
 
   attr_accessible :name, :description, :user, :privacy
-  attr_accessible :name, :description, :user, :user_id, :privacy, :location_users_attributes, :city, :temperature, :humidity, :hcho, :co2,  :tvoc, :pm2p5, :as => :admin
+  attr_accessible :name, :description, :user, :active, :user_id, :privacy, :location_users_attributes, :city, :temperature, :humidity, :hcho, :co2,  :tvoc, :pm2p5, :as => :admin
 
 
   ## VALIDATIONS

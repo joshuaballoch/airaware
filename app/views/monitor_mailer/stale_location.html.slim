@@ -1,0 +1,34 @@
+p
+  strong
+  	= "URGENT ALERT: LOCATION #{@location.name} ID: #{@location.id} has STALE READINGS"
+
+p
+	= "The following reporting devices for the above location have not had new readings (latest readings are over 1 hour old)."
+
+table
+	thead
+		tr
+			th
+				= "device id"
+			th
+				= "device type"
+			th
+				= "device identifier"
+			th
+				= "label"
+
+			th
+				= "latest reading time"
+	tbody
+		- @reporting_devices.each do |device|
+			tr
+				td
+					= device.id
+				td
+					= device.device_type_humanize
+				td
+					= device.identifier
+				td
+					= device.label || "No Label"
+				td
+					= device.readings.ordered.first.reading_time

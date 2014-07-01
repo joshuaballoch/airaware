@@ -33,6 +33,7 @@ ActiveAdmin.register Location do
       f.input :tvoc
       f.input :pm2p5
       f.input :privacy, :as => :select, :collection => PrivacyEnumeration.to_a
+      f.input :active
       f.input :city, :as => :select, :collection => City.to_a
       f.input :user
     end
