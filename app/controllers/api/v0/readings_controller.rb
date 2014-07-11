@@ -9,6 +9,14 @@ module Api
 
         @reporting_device = ReportingDevice.where(:identifier => params[:device_identifier]).first
 
+        # For fluke, create a new device!
+        unless @reporting_device
+          @reporting_device = ReportingDevice.new(:identifier => params[:device_identifier], :device_type => ReportingDeviceType::FLUKE)
+          @reporting_device.location = Location.find(1)
+          @reporting_device.label = params[:device_identifier]
+          @reporting_device.save!
+        end
+        
         raise NotFound unless @reporting_device
 
         @reading = @reporting_device.readings.build params[:reading]
