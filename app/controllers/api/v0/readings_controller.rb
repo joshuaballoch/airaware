@@ -11,7 +11,9 @@ module Api
 
         # For fluke, create a new device!
         unless @reporting_device
-          @reporting_device = ReportingDevice.new(:identifier => params[:device_identifier], :device_type => ReportingDeviceType::FLUKE)
+          @reporting_device = ReportingDevice.new
+          @reporting_device.identifier = params[:device_identifier]
+          @reporting_device.device_type = ReportingDeviceType::FLUKE
           @reporting_device.location = Location.find(1)
           @reporting_device.label = params[:device_identifier]
           @reporting_device.save!
