@@ -1,6 +1,7 @@
 class Calibration < ActiveRecord::Base
   extend EnumerateIt
   attr_accessible :reporting_device_id, :calibration_type, :calibration_property, :a, :b, :c, :d, :e, :f, :g
+  attr_accessible :reporting_device_id, :calibration_type, :calibration_property, :a, :b, :c, :d, :e, :f, :g, :as => :admin
 
   validates_presence_of :reporting_device_id, :calibration_property, :calibration_type
 

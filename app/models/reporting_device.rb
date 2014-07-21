@@ -2,7 +2,7 @@ class ReportingDevice < ActiveRecord::Base
   extend EnumerateIt
 
   attr_accessible :location_id, :location, :device_type
-  attr_accessible :identifier, :device_type, :location_id, :label, :as => :admin
+  attr_accessible :identifier, :device_type, :location_id, :label, :calibrations_attributes, :as => :admin
 
   validates_presence_of :location_id, :identifier, :device_type
 
@@ -14,6 +14,7 @@ class ReportingDevice < ActiveRecord::Base
   has_many :readings, :dependent => :destroy
 
   has_many :calibrations, :dependent => :destroy
+  accepts_nested_attributes_for :calibrations, :allow_destroy => true
   has_one :tvoc_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::TVOC]
   has_one :hcho_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::HCHO]
   has_one :pm2p5_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::PM2P5]
