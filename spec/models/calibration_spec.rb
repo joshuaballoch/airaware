@@ -41,4 +41,18 @@ describe Calibration do
   describe "associations" do
     it { should belong_to :reporting_device }
   end
+
+  describe "methods" do
+    context "#adjust" do
+      context "LINEAR" do
+        it "should return adjusted value" do
+          factor_a = rand(1..10)
+          factor_b = rand(10..15)
+          calib = Calibration.new :calibration_type => CalibrationType::LINEAR, :a => factor_a, :b => factor_b
+          val = rand(1..100)
+          calib.adjust(val).should == factor_a*val+factor_b
+        end
+      end
+    end
+  end
 end

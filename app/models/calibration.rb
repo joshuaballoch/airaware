@@ -14,6 +14,12 @@ class Calibration < ActiveRecord::Base
 
   belongs_to :reporting_device
 
+  def adjust(value)
+    if self.calibration_type == CalibrationType::LINEAR
+      return self.a*value + self.b
+    end
+  end
+
   private
 
   	def nullify_irrelevant_factors
