@@ -45,12 +45,21 @@ describe Calibration do
   describe "methods" do
     context "#adjust" do
       context "LINEAR" do
+        before :all do
+          @factor_a = rand(1..10)
+          @factor_b = rand(10..15)
+          @calib = Calibration.new :calibration_type => CalibrationType::LINEAR, :a => @factor_a, :b => @factor_b
+
+        end
+        it "should return nil when passed a string" do
+          @calib.adjust("blah").should == nil
+        end
+        it "should return nil when passed nil" do
+          @calib.adjust(nil).should == nil
+        end
         it "should return adjusted value" do
-          factor_a = rand(1..10)
-          factor_b = rand(10..15)
-          calib = Calibration.new :calibration_type => CalibrationType::LINEAR, :a => factor_a, :b => factor_b
           val = rand(1..100)
-          calib.adjust(val).should == factor_a*val+factor_b
+          @calib.adjust(val).should == @factor_a*val+@factor_b
         end
       end
     end

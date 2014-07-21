@@ -15,6 +15,7 @@ class Calibration < ActiveRecord::Base
   belongs_to :reporting_device
 
   def adjust(value)
+    return nil if value.is_a?(String) || value.nil?
     if self.calibration_type == CalibrationType::LINEAR
       return self.a*value + self.b
     end
