@@ -94,12 +94,12 @@ class GetAirAdviceReadingsService
     @to_save = []
     @readings_received.each do |reading|
       r = @device.readings.build :reading_time => DateTime.from_str(reading["Timestamp"]),
-                                 :pm2p5        => reading["Part"],
-                                 :temperature  => (reading["Temp"].to_f-32)*5/9,
-                                 :humidity     => reading["Humi"],
-                                 :co2          => reading["CO2"],
-                                 :co           => reading["CO"],
-                                 :tvoc         => reading["Gas"].to_f*0.001
+                           :pm2p5        => @device.pm2p5_calibration ? @device.pm2p5_calibration.adjust(reading["Part"]) : reading["Part"],
+                           :temperature  => (reading["Temp"].to_f-32)*5/9,
+                           :humidity     => reading["Humi"],
+                           :co2          => @device.co2_calibration ? @device.co2_calibration.adjust(reading["CO2"]) : reading["CO2"],
+                           :co           => reading["CO"],
+                           :tvoc         => @device.tvoc_calibration ? @device.tvoc_calibration.adjust(reading["Gas"].to_f*0.001) : reading["Gas"].to_f*0.001
       @to_save << r
     end
   end
