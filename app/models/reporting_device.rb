@@ -13,4 +13,14 @@ class ReportingDevice < ActiveRecord::Base
   belongs_to :location
   has_many :readings, :dependent => :destroy
 
+  has_many :calibrations, :dependent => :destroy
+  has_one :tvoc_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::TVOC]
+  has_one :hcho_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::HCHO]
+  has_one :pm2p5_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::PM2P5]
+  has_one :co2_calibration, :class_name => "Calibration", :conditions => ['calibration_property = ?', CalibrationProperty::CO2]
+
+  # These seem low performing
+  # scope :with_readings, includes(:readings).where("(select count(*) from readings) > 0")
+  # scope :stale, includes(:readings).where("(select count(*) from readings where reading_time >= ?) = 0", 1.hour.ago)
+
 end
