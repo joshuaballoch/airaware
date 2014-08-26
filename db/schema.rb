@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140826032529) do
+ActiveRecord::Schema.define(:version => 20140826045731) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20140826032529) do
     t.float    "co"
   end
 
+  add_index "readings", ["reading_time", "reporting_device_id"], :name => "index_readings_on_reading_time_and_reporting_device_id"
+  add_index "readings", ["reading_time"], :name => "index_readings_on_reading_time"
   add_index "readings", ["reporting_device_id"], :name => "index_readings_on_reporting_device_id"
 
   create_table "reporting_devices", :force => true do |t|
