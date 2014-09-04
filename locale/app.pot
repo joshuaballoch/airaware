@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-12 11:14+0800\n"
-"PO-Revision-Date: 2014-06-12 11:14+0800\n"
+"POT-Creation-Date: 2014-06-18 18:04+0800\n"
+"PO-Revision-Date: 2014-06-18 18:04+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -46,6 +46,9 @@ msgid "Back"
 msgstr ""
 
 msgid "Bad for Sensitive Groups (Children, Seniors)"
+msgstr ""
+
+msgid "Beijing"
 msgstr ""
 
 msgid "Buy a monitor"
@@ -112,6 +115,9 @@ msgid "Fluke"
 msgstr ""
 
 msgid "Forgot your password?"
+msgstr ""
+
+msgid "Formaldehyde"
 msgstr ""
 
 msgid "Get in touch with us"
@@ -213,6 +219,9 @@ msgstr ""
 msgid "Sensitive"
 msgstr ""
 
+msgid "Shanghai"
+msgstr ""
+
 msgid "Show Legend"
 msgstr ""
 
@@ -240,10 +249,10 @@ msgstr ""
 msgid "Team Members"
 msgstr ""
 
-msgid "Toggle navigation"
+msgid "Temperature"
 msgstr ""
 
-msgid "Trending Outlook - PM 2.5"
+msgid "Toggle navigation"
 msgstr ""
 
 msgid "Unauthorized Access!"

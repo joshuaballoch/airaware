@@ -38,7 +38,10 @@ class AirAware.Views.Readings.Block extends Backbone.Epoxy.View
       "<span class='badge #{rating}' >#{AirAware.humanizeRating(rating)}</span>"
   }
 
+  initialize: (options) ->
+    @device = {label: options.device_label, id: options.device_id}
+
   render: () ->
-    this.$el.html(this.template(model: @model));
+    this.$el.html(this.template(model: @model, device: @device));
     @applyBindings()
     return this;

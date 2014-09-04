@@ -1,0 +1,29 @@
+.skin
+.aa-block-inner
+  .aa-block-title
+    h3
+      = __("Trending Outlook")
+  .aa-block-body
+    .aa-chart
+      // canvas gets appended here
+  // dropdowns for selecting devices go here
+  .aa-block-footer
+    .row
+      .col-xs-6
+        .select-device
+          - if @devices.length > 1
+            span.text-label
+              = __("Select Location")
+            select.device
+              - _.each @devices, (device) ->
+                option value=device.id
+                  // FIX ME: this may have issue with script attacks!!
+                  == device.label || device.identifier
+      .col-xs-6
+        .select-reading-data
+          span.text-label
+            = __("Select Data")
+          select.reading-data
+            - _.each @display_data_options, (dd) ->
+              option value=dd.display_data
+                == dd.label

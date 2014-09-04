@@ -21,18 +21,25 @@
             span.text.hidden-xs
               = _("Private")
 .container.aa-public-container
-  .row
-    .col-sm-12.aa-block-wrapper
-      div.aa-block.aa-reading-block data-location-id=@location.id
-  .row
-    .col-sm-12.aa-block-wrapper
-      div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
-  .row
-    .col-sm-12.aa-block-wrapper
-      div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
+  - @reporting_devices.each do |device|
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-block.aa-reading-block data-device-id=device.id data-device-label=device.label data-display-data=@location.to_json
+
+  - if @location.city
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-reading-block.aa-outdoor-reading-block data-location=@location.city_humanize.downcase
+  - else
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-reading-block.aa-outdoor-reading-block data-location="beijing"
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-reading-block.aa-outdoor-reading-block data-location="shanghai"
 
   = render 'shared/legend'
 
   .row
     .col-xs-12.aa-block-wrapper
-      div.aa-block.aa-chart-block data-location-id=@location.id
+      div.aa-block.aa-chart-block data-devices=@reporting_devices.to_json data-display-data=@location.to_json

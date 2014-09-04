@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 # source 'http://ruby.taobao.org/'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -83,6 +83,7 @@ group :development do
   # Do not use new capistrano-unicorn until unicorn gem updates..
   # https://github.com/defunkt/unicorn/pull/7
   gem 'capistrano-unicorn', github: 'rdd-giga/capistrano-unicorn'
+  gem 'capistrano-sidekiq' , github: 'seuros/capistrano-sidekiq'
 
   # https://github.com/grosser/gettext_i18n_rails/issues/89
   gem 'ruby_parser', :require => false

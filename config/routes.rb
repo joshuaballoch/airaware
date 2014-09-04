@@ -16,12 +16,17 @@ Airaware::Application.routes.draw do
 
     get '/demo', to: "pages#demo"
     resources :locations do
+      resources :readings, :only => [:index]
+    end
+
+    resources :reporting_devices, :only => [] do
       resources :readings, :only => [:index] do
         collection do
           get :latest
         end
       end
     end
+
     resources :readings, :only => [] do
       collection do
         get :us_consulate
@@ -33,6 +38,9 @@ Airaware::Application.routes.draw do
   namespace :api do
     namespace :v0 do
       resources :readings, :only => [:create] do
+      end
+      resources :reporting_devices, :only => [] do
+        resources :readings, :only => [:index]
       end
     end
   end

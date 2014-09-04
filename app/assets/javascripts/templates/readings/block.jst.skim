@@ -13,11 +13,12 @@
     .row.reading-large
       .col-xs-5
         label.device-label
-          - if @model.get('city') == "shanghai" || @model.get('city') == "beijing"
+          - if @model.get('city') == "shanghai"
             = __("U.S. Consulate")
+          - else if @model.get('city') == "beijing"
+            = __("U.S. Embassy")
           - else
-            / FIX ME TO DO TODO: put the reporting device name when this is added
-            = __("Indoor Air")
+            = @device.label || __("Indoor Air")
       .col-xs-7.visible-xs
         .reading-value.col-xs-7
           span.pm2p5.value
@@ -46,22 +47,22 @@
               span.reading-units
                 = "(μg/m³)"
 
-
-    - if @model.get('temperature') || @model.get('humidity') || @model.get('tvoc') || @model.get('hcho') || @model.get('co2')
+    - if @model.display_temperature || @model.display_humidity || @model.display_tvoc || @model.display_hcho || @model.display_co2
       .row.reading-details
         .col-sm-12
           table.table
             tbody
               / (°C)
-              - _.each [{ident: "temperature", units: "", label: __("Temperature")}, {ident: "humidity", units: "", label: __("Humidity")}, {ident: "tvoc", units: "mg/m³", label: __("Volatile Organic Compounds")}, {ident: "hcho", units: "mg/m³", label: __("Formaldehyde")}, {ident: "co2", units: "ppmv", label: __("CO2")}], (unit) ->
-                  tr
-                    td.reading-label
-                      == unit.label
-                    td.reading-units
-                      == unit.units
-                    td.reading-value
-                      span.value class="#{unit.ident}"
-                    td.reading-badge
-                      span class="#{unit.ident}-badge"
+              - _.each [{ident: "temperature", units: "", label: __("Temperature")}, {ident: "humidity", units: "", label: __("Humidity")}, {ident: "tvoc", units: "mg/m³", label: __("Volatile Organic Compounds")}, {ident: "hcho", units: "mg/m³", label: __("Formaldehyde")}, {ident: "co2", units: "ppmv", label: __("CO2")}], (unit) =>
+                  - if @model["display_#{unit.ident}"]
+                    tr
+                      td.reading-label
+                        == unit.label
+                      td.reading-units
+                        == unit.units
+                      td.reading-value
+                        span.value class="#{unit.ident}"
+                      td.reading-badge
+                        span class="#{unit.ident}-badge"
     .row.reading-time
       span.readingtime.pull-right.timestamp

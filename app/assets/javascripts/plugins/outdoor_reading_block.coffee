@@ -60,4 +60,4 @@ $.fn.dynamizeOutdoorReadingBlock = () ->
     getReadings(model)
     # if window.console
     #   console.log "fetching uniqid #{uniqid} for lcoation #{options.location}"
-  , 3000
+  , 60000

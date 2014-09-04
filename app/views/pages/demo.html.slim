@@ -17,9 +17,10 @@
       p
         = _("Users can see their indoor air quality at a glance.")
 
-  .row
-    .col-xs-12.aa-block-wrapper
-      div.aa-reading-block data-location-id=@location.id
+  - @reporting_devices.each do |device|
+    .row
+      .col-sm-12.aa-block-wrapper
+        div.aa-block.aa-reading-block data-device-id=device.id data-device-label=device.label data-display-data=@location.to_json
 
   .row
     .col-sm-12
@@ -46,7 +47,8 @@
         = _("Charts give users simple, powerful ways to see recent trends.")
   .row
     .col-xs-12.aa-block-wrapper
-      div.aa-chart-block data-location-id=@location.id
+      div.aa-block.aa-chart-block data-devices=@reporting_devices.to_json data-display-data=@location.to_json
+
   .spacer
   .row
     h2.centered

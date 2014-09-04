@@ -1,27 +1,8 @@
 class PagesController < ApplicationController
   layout 'application_public'
   def demo
-    # if Rails.env.development?
-    #   @location = Location.find(1)
-    # else
-    @location = Location.find(7)
-    # end
-
-    @readings = @location.readings.ordered.find_by_sql(
-      ["
-        SELECT *
-        FROM (
-            SELECT
-                @row := @row +1 AS rownum, reading_time, temperature, humidity, hcho, co2, tvoc, pm2p5, reporting_device_id
-            FROM (
-                SELECT @row :=0) r, readings
-            ) ranked
-        WHERE reporting_device_id = ? AND rownum % 20 = 1
-        ORDER BY reading_time DESC
-        LIMIT 72
-      ", @location.reporting_devices.first.id]
-    )
-    @last_reading = @location.readings.ordered.first
+    @location = Location.includes(:reporting_devices).find(7)
+    @reporting_devices = @location.reporting_devices
   end
 
   def home

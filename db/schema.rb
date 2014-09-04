@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140513033100) do
+ActiveRecord::Schema.define(:version => 20140826045731) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(:version => 20140513033100) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "calibrations", :force => true do |t|
+    t.integer  "reporting_device_id"
+    t.integer  "calibration_type"
+    t.integer  "calibration_property"
+    t.float    "a"
+    t.float    "b"
+    t.float    "c"
+    t.float    "d"
+    t.float    "e"
+    t.float    "f"
+    t.float    "g"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "calibrations", ["reporting_device_id", "calibration_property"], :name => "reporting_device_calibration_uniqueness", :unique => true
+
   create_table "location_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "location_id"
@@ -42,9 +59,17 @@ ActiveRecord::Schema.define(:version => 20140513033100) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.integer  "privacy",     :default => 0, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "privacy",     :default => 0,     :null => false
+    t.integer  "city"
+    t.boolean  "temperature", :default => true
+    t.boolean  "humidity",    :default => true
+    t.boolean  "hcho",        :default => true
+    t.boolean  "co2",         :default => true
+    t.boolean  "tvoc",        :default => true
+    t.boolean  "pm2p5",       :default => true
+    t.boolean  "active",      :default => false
   end
 
   create_table "readings", :force => true do |t|
@@ -61,12 +86,17 @@ ActiveRecord::Schema.define(:version => 20140513033100) do
     t.float    "co"
   end
 
+  add_index "readings", ["reading_time", "reporting_device_id"], :name => "index_readings_on_reading_time_and_reporting_device_id"
+  add_index "readings", ["reading_time"], :name => "index_readings_on_reading_time"
+  add_index "readings", ["reporting_device_id"], :name => "index_readings_on_reporting_device_id"
+
   create_table "reporting_devices", :force => true do |t|
     t.integer  "location_id"
     t.string   "identifier"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "device_type", :null => false
+    t.string   "label"
   end
 
   create_table "sign_ups", :force => true do |t|
