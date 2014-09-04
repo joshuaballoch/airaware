@@ -4,9 +4,9 @@
 ---
 :verbose: false
 :pidfile: ./tmp/pids/sidekiq.pid
-:concurrency:  20
+:concurrency:  2
 :queues:
-  - [default, 10]
+  - [default, 2]
 
 staging:
   :pidfile: /var/www/airaware/shared/pids/sidekiq.pid
