@@ -21,7 +21,14 @@ module Api
         
         raise NotFound unless @reporting_device
 
-        @reading = @reporting_device.readings.build params[:reading]
+        @reading = @reporting_device.readings.build :reading_time => params[:reading][:reading_time],
+                     :pm2p5        => @reporting_device.pm2p5_calibration ? @reporting_device.pm2p5_calibration.adjust(params[:reading][:pm2p5]) : params[:reading][:pm2p5],
+                     :temperature  => params[:reading][:temperature],
+                     :humidity     => params[:reading][:humidity],
+                     :co2          => @reporting_device.co2_calibration ? @reporting_device.co2_calibration.adjust(params[:reading][:co2]) : params[:reading][:co2],
+                     :co           => params[:reading][:co],
+                     :tvoc         => @reporting_device.tvoc_calibration ? @reporting_device.tvoc_calibration.adjust(params[:reading][:tvoc]) : params[:reading][:tvoc]
+
         if @reading.save
           render :json => {:success => true}, :status => 200
         else
