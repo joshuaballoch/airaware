@@ -25,7 +25,7 @@ class Location < ActiveRecord::Base
   end
 
   has_many :location_users, :dependent => :destroy
-  accepts_nested_attributes_for :location_users
+  accepts_nested_attributes_for :location_users, :reject_if => lambda { |a| a[:user_id].blank? }, :allow_destroy => true
 
   ## THESE ARE CLIENT USER RELATIONS
   has_many :users, :through => :location_users
@@ -33,7 +33,7 @@ class Location < ActiveRecord::Base
 
   ## THESE ARE AIRAWARE EMPLOYEE / ADMIN USER RELATIONS
   has_many :location_admin_watchers, :dependent => :destroy
-  accepts_nested_attributes_for :location_admin_watchers
+  accepts_nested_attributes_for :location_admin_watchers, :reject_if => lambda { |a| a[:user_id].blank? }, :allow_destroy => true
   has_many :admin_watchers, :through => :location_admin_watchers, :source => :user, :uniq => true
 
   belongs_to :user
