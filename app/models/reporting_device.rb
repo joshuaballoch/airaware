@@ -1,3 +1,5 @@
+require 'airaware/status'
+
 class ReportingDevice < ActiveRecord::Base
   extend EnumerateIt
 
@@ -23,5 +25,9 @@ class ReportingDevice < ActiveRecord::Base
   # These seem low performing
   # scope :with_readings, includes(:readings).where("(select count(*) from readings) > 0")
   # scope :stale, includes(:readings).where("(select count(*) from readings where reading_time >= ?) = 0", 1.hour.ago)
+
+  def stale?
+    readings.ordered.first.reading_time <= AirAware::Status.stale_time_comparison
+  end
 
 end
