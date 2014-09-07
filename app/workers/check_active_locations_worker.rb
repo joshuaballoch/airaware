@@ -6,7 +6,7 @@ class CheckActiveLocationsWorker
 
   def perform
     Location.where(:active => true).find_each do |location|
-      stale = location.reporting_devices.find_all{ |r| r.readings.ordered.first.reading_time <= 1.hour.ago }
+      stale = location.reporting_devices.find_all{ |r| r.stale? }
       if stale.count > 0
       	# Send an email!
       	# TO DO: check if this needs to go async

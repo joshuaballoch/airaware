@@ -1,3 +1,5 @@
+require 'airaware/status'
+
 class Location < ActiveRecord::Base
   # Extend EnumerateIt for enumeration support
   extend EnumerateIt
@@ -34,6 +36,12 @@ class Location < ActiveRecord::Base
   #
 
   before_save :build_location_user
+
+  scope :active, where('`locations`.`active` = ?', true)
+
+  def stale?
+    readings.ordered.first.reading_time <= AirAware::Status.stale_time_comparison
+  end
 
   private
 
