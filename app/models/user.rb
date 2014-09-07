@@ -22,4 +22,6 @@ class User < ActiveRecord::Base
   has_many :location_users
   has_many :locations, :through => :location_users
 
+  scope :admins, where(:admin => true)
+
 end

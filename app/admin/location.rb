@@ -46,6 +46,13 @@ ActiveAdmin.register Location do
       end
     end
 
+    f.inputs "AirAware Admins/Watchers - Receive Notifications of Status" do
+      f.has_many :location_admin_watchers, heading: _('AirAware Admin Watchers') do |location_user|
+        location_user.input :user_id, :label => _('User Name'), :as => :select, :collection => User.admins.map{|u| ["#{u.username}", u.id] }
+        location_user.input :_destroy, :as => :boolean
+      end
+    end
+
     f.actions
   end
 
@@ -78,6 +85,15 @@ ActiveAdmin.register Location do
         end.join('<br/>')
         raw workspace_links
       end
+
+      row _("AirAware Admin Watchers") do
+        workspace_links = object.location_admin_watchers.map do |w|
+          link_to "#{w.user.username}", admin_user_path(w.user)
+
+        end.join('<br/>')
+        raw workspace_links
+      end
+
     end
   end
 

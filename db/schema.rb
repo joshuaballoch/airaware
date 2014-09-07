@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140907174001) do
+ActiveRecord::Schema.define(:version => 20140907182516) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(:version => 20140907174001) do
   end
 
   add_index "calibrations", ["reporting_device_id", "calibration_property"], :name => "reporting_device_calibration_uniqueness", :unique => true
+
+  create_table "location_admin_watchers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "location_admin_watchers", ["location_id"], :name => "index_location_admin_watchers_on_location_id"
+  add_index "location_admin_watchers", ["user_id", "location_id"], :name => "index_location_admin_watchers_on_user_id_and_location_id", :unique => true
 
   create_table "location_users", :force => true do |t|
     t.integer  "user_id"
