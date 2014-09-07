@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Active Locations Status" do
-          render partial: 'status', locals: {locations: Location.includes(:reporting_devices).active}
+          render partial: 'status', locals: {locations: Location.includes(:reporting_devices, :admin_watchers).active}
         end
       end
     end

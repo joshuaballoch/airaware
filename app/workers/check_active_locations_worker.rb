@@ -10,7 +10,11 @@ class CheckActiveLocationsWorker
       if stale.count > 0
       	# Send an email!
       	# TO DO: check if this needs to go async
-      	MonitorMailer.stale_location(location.id, stale).deliver
+        location.admin_watchers.each do |user|
+          MonitorMailer.stale_location(user.email, location.id, stale).deliver
+        end
+        # Also send it to webmaster
+        MonitorMailer.stale_location("webmaster.josh.balloch@gmail.com", location.id, stale).deliver
       end
     end
   end

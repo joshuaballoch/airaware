@@ -24,18 +24,27 @@
           br
           h4 Device Summary:
 
-        - if location.reporting_devices.any?
-          ul.devices
-            - location.reporting_devices.each do |device|
-              li.device
-                = device.label
-                = "  "
-                - if device.stale?
-                  .label.label-danger
-                    = "Readings Stale!"
-                - else
-                  .label.label-success
-                    = "All Clear"
-                = "  Last Reading: "
-                = device.readings.ordered.first.reading_time.strftime("%A %d %B %Y -  %H:%m")
+          - if location.reporting_devices.any?
+            ul.devices
+              - location.reporting_devices.each do |device|
+                li.device
+                  = device.label
+                  = "  "
+                  - if device.stale?
+                    .label.label-danger
+                      = "Readings Stale!"
+                  - else
+                    .label.label-success
+                      = "All Clear"
+                  = "  Last Reading: "
+                  = device.readings.ordered.first.reading_time.strftime("%A %d %B %Y -  %H:%m")
 
+          br
+          br
+          h4 Admin Watchers (Receive Notifications on this location)
+          ol
+            - location.admin_watchers.each do |user|
+              li
+                = user.email
+          .small
+            = link_to "Add/Remove admin watchers on the location's admin edit page.", edit_admin_location_path(location)

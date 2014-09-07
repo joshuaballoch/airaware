@@ -1,12 +1,12 @@
 class MonitorMailer < ActionMailer::Base
   default :from => 'no-reply-airaware@gigabase.org'
 
-  def stale_location(location_id, reporting_device_ids)
+  def stale_location(to_email, location_id, reporting_device_ids)
     @location = Location.find(location_id)
     @reporting_devices = ReportingDevice.where(:id => reporting_device_ids)
 
     headers = {
-      :to => "webmaster.josh.balloch@gmail.com",
+      :to => to_email,
       :subject => "[AirAware Urgent] Loc #{@location.name} (id: #{@location.id}) Stale Readings Alert ",
     }
 
