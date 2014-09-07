@@ -33,7 +33,6 @@ ActiveAdmin.register Location do
       f.input :tvoc
       f.input :pm2p5
       f.input :privacy, :as => :select, :collection => PrivacyEnumeration.to_a
-      f.input :active
       f.input :city, :as => :select, :collection => City.to_a
       f.input :user
     end
@@ -46,8 +45,9 @@ ActiveAdmin.register Location do
       end
     end
 
-    f.inputs "AirAware Admins/Watchers - Receive Notifications of Status" do
-      f.has_many :location_admin_watchers, heading: _('AirAware Admin Watchers') do |location_user|
+    f.inputs "AirAware Monitoring - ONLY ACTIVE locations are monitored!" do
+      f.input :active
+      f.has_many :location_admin_watchers, heading: _('AirAware Admin Watchers - Receive Notifications of Status') do |location_user|
         location_user.input :user_id, :label => _('User Name'), :as => :select, :collection => User.admins.map{|u| ["#{u.username}", u.id] }
         location_user.input :_destroy, :as => :boolean
       end
