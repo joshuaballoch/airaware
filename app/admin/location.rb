@@ -33,7 +33,6 @@ ActiveAdmin.register Location do
       f.input :tvoc
       f.input :pm2p5
       f.input :privacy, :as => :select, :collection => PrivacyEnumeration.to_a
-      f.input :active
       f.input :city, :as => :select, :collection => City.to_a
       f.input :user
     end
@@ -42,6 +41,14 @@ ActiveAdmin.register Location do
       f.has_many :location_users, heading: _('Users') do |location_user|
         location_user.input :user_id, :label => _('User Name'), :as => :select, :collection => User.all.map{|u| ["#{u.username}", u.id] }
         location_user.input :role, :as => :select, :collection => LocationUserRole.to_a
+        location_user.input :_destroy, :as => :boolean
+      end
+    end
+
+    f.inputs "AirAware Monitoring - ONLY ACTIVE locations are monitored!" do
+      f.input :active
+      f.has_many :location_admin_watchers, heading: _('AirAware Admin Watchers - Receive Notifications of Status') do |location_user|
+        location_user.input :user_id, :label => _('User Name'), :as => :select, :collection => User.admins.map{|u| ["#{u.username}", u.id] }
         location_user.input :_destroy, :as => :boolean
       end
     end
@@ -78,6 +85,15 @@ ActiveAdmin.register Location do
         end.join('<br/>')
         raw workspace_links
       end
+
+      row _("AirAware Admin Watchers") do
+        workspace_links = object.location_admin_watchers.map do |w|
+          link_to "#{w.user.username}", admin_user_path(w.user)
+
+        end.join('<br/>')
+        raw workspace_links
+      end
+
     end
   end
 
