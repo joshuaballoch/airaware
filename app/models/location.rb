@@ -19,7 +19,10 @@ class Location < ActiveRecord::Base
   #
 
   has_many :reporting_devices, :dependent => :destroy
-  has_many :readings, :through => :reporting_devices
+  # has_many :readings, :through => :reporting_devices
+  def readings
+    Reading.where(:reporting_device_id => reporting_devices.map(&:id))
+  end
 
   has_many :location_users, :dependent => :destroy
   accepts_nested_attributes_for :location_users
