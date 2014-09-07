@@ -1,0 +1,37 @@
+.dashboard-status
+  ul.locations
+    - locations.each do |location|
+      li
+        h4
+          = location.name
+          = "  "
+          - if location.reporting_devices.any?
+            - stale_count = location.reporting_devices.find_all{|device| device.stale? }.count
+            - if stale_count == location.reporting_devices.count
+              .label.label-danger
+                = "All Devices Stale!"
+            - elsif stale_count > 0
+              .label.label-warning
+                = "Some Devices Stale"
+            - else
+              .label.label-success
+                = "All Clear"
+            = "  Last Reading: "
+            = location.readings.ordered.first.reading_time.strftime("%A %d %B %Y -  %H:%m")
+
+
+        - if location.reporting_devices.any?
+          ul.devices
+            - location.reporting_devices.each do |device|
+              li
+                = device.label
+                = "  "
+                - if device.stale?
+                  .label.label-danger
+                    = "Readings Stale!"
+                - else
+                  .label.label-success
+                    = "All Clear"
+                = "  Last Reading: "
+                = device.readings.ordered.first.reading_time.strftime("%A %d %B %Y -  %H:%m")
+
