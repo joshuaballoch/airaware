@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140826045731) do
+ActiveRecord::Schema.define(:version => 20140907174001) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -98,6 +98,10 @@ ActiveRecord::Schema.define(:version => 20140826045731) do
     t.integer  "device_type", :null => false
     t.string   "label"
   end
+
+  add_index "reporting_devices", ["identifier", "device_type"], :name => "index_reporting_devices_on_identifier_and_device_type", :unique => true
+  add_index "reporting_devices", ["identifier"], :name => "index_reporting_devices_on_identifier"
+  add_index "reporting_devices", ["location_id"], :name => "index_reporting_devices_on_location_id"
 
   create_table "sign_ups", :force => true do |t|
     t.string   "email"
