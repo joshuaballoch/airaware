@@ -100,7 +100,7 @@ GEM
     coffee-script-source (1.7.0)
     columnize (0.8.9)
     connection_pool (2.0.0)
-    curb (0.8.5)
+    curb (0.8.8)
     database_cleaner (1.3.0)
     debugger-linecache (1.2.0)
     devise (3.2.4)
@@ -158,7 +158,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.11)
     locale (2.1.0)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -341,7 +341,7 @@ DEPENDENCIES
   capistrano-sidekiq!
   capistrano-unicorn!
   coffee-rails (~> 3.2.1)
-  curb (~> 0.8.5)
+  curb
   database_cleaner (>= 0.7.0)
   devise
   devise-async
@@ -377,3 +377,6 @@ DEPENDENCIES
   turbo-sprockets-rails3
   uglifier (>= 1.0.3)
   unicorn
+
+BUNDLED WITH
+   1.10.5

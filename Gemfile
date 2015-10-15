@@ -29,7 +29,7 @@ gem 'enumerate_it'
 # Nokigiri to run xml requests from other servers
 gem "nokogiri", "~> 1.6.1"
 
-gem "curb", "~> 0.8.5"
+gem "curb"
 
 gem 'h2ocube_rails_cache'
 
